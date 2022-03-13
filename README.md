@@ -17,8 +17,10 @@
 
 #### Install Ruby
 1. First step<br>
-    Download three sh files<br>
+    Download three sh files:<br>
+    <a href="https://github.com/adinokd6/MobieAppProject/tree/main/Config%20files">Link</a><br>
     Open terminal and run commands in exact order:<br>
+    **REMEMBER TO USE SUDO**<br>
     chmod +xrw ruby.sh<br>
     chmod +xrw certificate.sh<br>
     chmod +xrw packages.sh<br>
@@ -33,7 +35,7 @@
     
     then type your github name and github email:<br>
     ![](https://i.imgur.com/qPOtd3z.png)<br>
-    Nexy you will be shown such command:<br>
+    Next you will be shown such command:<br>
     ![](https://i.imgur.com/OYvGIbh.png)<br>
     Skip these three items by clicking 3xenter key:<br>
     ![](https://i.imgur.com/vr6lGOk.png)<br>
