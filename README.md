@@ -5,7 +5,7 @@
     database user: appadmin
 
 ### Before all
-1. Update your packages. In terminal
+1. Update your packages. In terminal<br>
     **sudo apt-get update**<br>
     **sudo apt-get upgrade**<br>
 2. Reboot your system<br>
