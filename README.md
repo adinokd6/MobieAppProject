@@ -18,100 +18,100 @@
 #### Install Ruby
 1. First step
     Download three sh files
-    Open terminal and run commands in exact order:
-    chmod +xrw ruby.sh
-    chmod +xrw certificate.sh
-    chmod +xrw packages.sh
+    Open terminal and run commands in exact order:<br>
+    chmod +xrw ruby.sh<br>
+    chmod +xrw certificate.sh<br>
+    chmod +xrw packages.sh<br>
     ![](https://i.imgur.com/kXQ47vk.png)
-2. Now we need to install ruby. Enter following command in terminal:
+2. Now we need to install ruby. Enter following command in terminal:<br>
     **bash ruby.sh**
 #### Connect with your github account
-1. Add key to your github account
-    a)Generate certificate:
-    Run following command:
-    bash certificate.sh
+1. Add key to your github account<br>
+    a)Generate certificate:<br>
+    Run following command:<br>
+    bash certificate.sh<br>
     
-    then type your github name and github email:
-    ![](https://i.imgur.com/qPOtd3z.png)
-    Nexy you will be shown such command:
-    ![](https://i.imgur.com/OYvGIbh.png)
-    Skip these three items by clicking 3xenter key:
-    ![](https://i.imgur.com/vr6lGOk.png)
-    b)Add ssh key to your github account:
-    Github page in which you need to add your ssh key will be         opened. Sign in to your github account.
-    Click on **New SSH key**:
-    ![](https://i.imgur.com/RoJM7vG.png)
-    Enter title and below in key field paste the key you've just       generated:
-    ![](https://i.imgur.com/xLNI67K.png)
-    Click 
-    **Add SSH key**
+    then type your github name and github email:<br>
+    ![](https://i.imgur.com/qPOtd3z.png)<br>
+    Nexy you will be shown such command:<br>
+    ![](https://i.imgur.com/OYvGIbh.png)<br>
+    Skip these three items by clicking 3xenter key:<br>
+    ![](https://i.imgur.com/vr6lGOk.png)<br>
+    b)Add ssh key to your github account:<br>
+    Github page in which you need to add your ssh key will be opened. Sign in to your github account.<br>
+    Click on **New SSH key**:<br>
+    ![](https://i.imgur.com/RoJM7vG.png)<br>
+    Enter title and below in key field paste the key you've just generated:<br>
+    ![](https://i.imgur.com/xLNI67K.png)<br>
+    Click <br>
+    **Add SSH key**<br>
     
     
 #### Install packages
-1. Open new terminal window and run following command:
-    bash packages.sh
+1. Open new terminal window and run following command:<br>
+    bash packages.sh<br>
 
-2. You will see another question:
- ![](https://i.imgur.com/Ti7YeuT.png)
- type **yes and hit enter**
+2. You will see another question:<br>
+ ![](https://i.imgur.com/Ti7YeuT.png)<br>
+ type **yes and hit enter**<br>
 
-3. Now you need to enter sudo passowrd if you haven't done this before.
-![](https://i.imgur.com/xRAxo2f.png)
+3. Now you need to enter sudo passowrd if you haven't done this before.<br>
+![](https://i.imgur.com/xRAxo2f.png)<br>
 
-    The program will install all necessary packages.
-    If you will see such thing simply type **Y**:
-    ![](https://i.imgur.com/jJw6BQO.png)
-4. Now you need to configure new user password for using our database. Our script has logged us to postgres user which is our 'root' user for database. Our username is appadmin to configure password for it you need to enter this command:
-    a)**\password appadmin**
-    ![](https://i.imgur.com/hM8mpUN.png)
-    b)to return to our local user click **Ctrl+D**
+    The program will install all necessary packages.<br>
+    If you will see such thing simply type **Y**:<br>
+    ![](https://i.imgur.com/jJw6BQO.png)<br>
+4. Now you need to configure new user password for using our database. Our script has logged us to postgres user which is our 'root' user for database. Our username is appadmin to configure password for it you need to enter this command:<br>
+    a)**\password appadmin**<br>
+    ![](https://i.imgur.com/hM8mpUN.png)<br>
+    b)to return to our local user click **Ctrl+D**<br>
     
 
 #### Check the result
 
-1. To check if everything worked well we will have to do some basic steps and run default app.
-    Open terminal and type:
-    **rails new myapp -d postgresql**
-2. Move into new directory with:
-    **cd myapp**
-3. Now we need to do some changes in our database.yml which is responsible for our app database.
-    a)Go into config directory
-    **cd config/**
-    b)Open database.yml with text editor. In my case I will use         Vim.
-    **vim database.yml**
-    ![](https://i.imgur.com/XhWcRep.png)
-    c)Find line as in the above example. Under line beggining with     'pool:' add three lines:
-* First:
-    user: appadmin
-* Second
-    password: #the password you entered when you configured it for appadmin user
-* Third:
-    host: localhost
+1. To check if everything worked well we will have to do some basic steps and run default app.<br>
+    Open terminal and type:<br>
+    **rails new myapp -d postgresql**<br>
+2. Move into new directory with:<br>
+    **cd myapp**<br>
+3. Now we need to do some changes in our database.yml which is responsible for our app database.<br>
+    a)Go into config directory<br>
+    **cd config/**<br>
+    b)Open database.yml with text editor. In my case I will use Vim.<br>
+    **vim database.yml**<br>
+    ![](https://i.imgur.com/XhWcRep.png)<br>
+    c)Find line as in the above example. Under line beggining with 'pool:' add three lines:<br>
+* First:<br>
+    user: appadmin<br>
+* Second<br>
+    password: #the password you entered when you configured it for appadmin user<br>
+* Third:<br>
+    host: localhost<br>
 
-    ![](https://i.imgur.com/wfAsiQy.png)
+    ![](https://i.imgur.com/wfAsiQy.png)<br>
     
-4. Now we will run application. Type **rake db:create** in terminal. This will create database for app.
-    ![](https://i.imgur.com/uo3Ildv.png)
-5. Simply run app. Type **rails server**:
-    ![](https://i.imgur.com/P2t3TsN.png)
-6. If you haven't skipped any steps you should see such image if you visit http://localhost:3000 in browser:
-    ![](https://i.imgur.com/gpjgvm8.png)
+4. Now we will run application. Type **rake db:create** in terminal. This will create database for app.<br>
+    ![](https://i.imgur.com/uo3Ildv.png)<br>
+5. Simply run app. Type **rails server**:<br>
+    ![](https://i.imgur.com/P2t3TsN.png)<br>
+6. If you haven't skipped any steps you should see such image if you visit http://localhost:3000 in browser:<br>
+    ![](https://i.imgur.com/gpjgvm8.png)<br>
     
-#### How to connect our virtual machine with host?
+#### How to connect our virtual machine with host?<br>
 
-1. We need to forward right ports to connect our host with guest system.
-2. If you are using virtualBox. First you need to turn off your machine. Then go to your machine settings->Network->Advanced settings->Port forwarding
-    ![](https://i.imgur.com/mm5x9Kr.png)
-3. Click add new rule and add as below:
-    ![](https://i.imgur.com/PpK2sCf.png)
+1. We need to forward right ports to connect our host with guest system.<br>
+2. If you are using virtualBox. First you need to turn off your machine. Then go to your machine settings->Network->Advanced settings->Port forwarding<br>
+    ![](https://i.imgur.com/mm5x9Kr.png)<br>
+3. Click add new rule and add as below:<br>
+    ![](https://i.imgur.com/PpK2sCf.png)<br>
 
-4. Now go to virtual machine and now run app in a little different way:
-    **rails server -b 10.0.2.15**
-    ![](https://i.imgur.com/7qxIP8H.png)
-5. Return to your host machine, go to browser and type:
-    **127.0.0.1:3000**
-    and you will see ruby window:
-    ![](https://i.imgur.com/aLTPRZX.png)
+4. Now go to virtual machine and now run app in a little different way:<br>
+    **rails server -b 10.0.2.15**<br>
+    ![](https://i.imgur.com/7qxIP8H.png)<br>
+5. Return to your host machine, go to browser and type:<br>
+    **127.0.0.1:3000**<br>
+    and you will see ruby window:<br>
+    ![](https://i.imgur.com/aLTPRZX.png)<br>
 
  
 
