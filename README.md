@@ -84,7 +84,7 @@
     ![](https://i.imgur.com/XhWcRep.png)<br>
     c)Find line as in the above example. Under line beggining with 'pool:' add three lines:<br>
 * First:<br>
-    user: appadmin<br>
+    username: appadmin<br>
 * Second<br>
     password: #the password you entered when you configured it for appadmin user<br>
 * Third:<br>
