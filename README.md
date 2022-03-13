@@ -107,7 +107,7 @@
 3. Click add new rule and add as below:<br>
     ![](https://i.imgur.com/PpK2sCf.png)<br>
 
-4. Now go to virtual machine and now run app in a little different way:<br>
+4. Now go to virtual machine and run app in a little different way:<br>
     **rails server -b 10.0.2.15**<br>
     ![](https://i.imgur.com/7qxIP8H.png)<br>
 5. Return to your host machine, go to browser and type:<br>
