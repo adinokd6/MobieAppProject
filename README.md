@@ -6,18 +6,18 @@
 
 ### Before all
 1. Update your packages. In terminal
-    **sudo apt-get update**
-    **sudo apt-get upgrade**
-2. Reboot your system
-3. After booting first what we need to do is to install very important packages which allow you to install for example virtualBox addons. To do this in terminal:
-    **sudo apt-get update**
-    **sudo apt-get install build-essential gcc make perl         dkms**
-    **reboot**
+    **sudo apt-get update**<br>
+    **sudo apt-get upgrade**<br>
+2. Reboot your system<br>
+3. After booting first what we need to do is to install very important packages which allow you to install for example virtualBox addons. To do this in terminal:<br>
+    **sudo apt-get update**<br>
+    **sudo apt-get install build-essential gcc make perl dkms**<br>
+    **reboot**<br>
 
 
 #### Install Ruby
-1. First step
-    Download three sh files
+1. First step<br>
+    Download three sh files<br>
     Open terminal and run commands in exact order:<br>
     chmod +xrw ruby.sh<br>
     chmod +xrw certificate.sh<br>
