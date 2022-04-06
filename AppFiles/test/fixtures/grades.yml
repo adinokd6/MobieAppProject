@@ -1,12 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  GradeId: MyString
   StudentId: MyString
   SubjectId: MyString
   Grade: MyString
   Date: MyString
 
 two:
+  GradeId: MyString
   StudentId: MyString
   SubjectId: MyString
   Grade: MyString

@@ -10,21 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_06_082707) do
+ActiveRecord::Schema.define(version: 2022_04_06_092633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "certificates", force: :cascade do |t|
-    t.string "CertificateId"
-    t.string "Name"
-    t.string "Grade"
-    t.text "Description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "grades", force: :cascade do |t|
+    t.string "GradeId"
     t.string "StudentId"
     t.string "SubjectId"
     t.string "Grade"
@@ -33,32 +25,23 @@ ActiveRecord::Schema.define(version: 2022_04_06_082707) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "student_certificates", id: false, force: :cascade do |t|
-    t.bigint "students_id"
-    t.bigint "certificate_id"
-    t.index ["certificate_id"], name: "index_student_certificates_on_certificate_id"
-    t.index ["students_id"], name: "index_student_certificates_on_students_id"
-  end
-
-  create_table "student_grades", id: false, force: :cascade do |t|
-    t.bigint "student_id"
-    t.bigint "grades_id"
-    t.index ["grades_id"], name: "index_student_grades_on_grades_id"
-    t.index ["student_id"], name: "index_student_grades_on_student_id"
-  end
-
   create_table "students", force: :cascade do |t|
-    t.string "Studentd"
-    t.string "name"
+    t.string "StudentId"
     t.string "FirstName"
     t.string "SecondName"
     t.string "SchoolTeam"
     t.string "DateOfBirth"
     t.string "Points"
     t.string "Attendance"
-    t.string "EmailId"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "students_grades", id: false, force: :cascade do |t|
+    t.bigint "student_id"
+    t.bigint "grade_id"
+    t.index ["grade_id"], name: "index_students_grades_on_grade_id"
+    t.index ["student_id"], name: "index_students_grades_on_student_id"
   end
 
 end

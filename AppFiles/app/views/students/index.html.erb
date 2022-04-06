@@ -5,15 +5,13 @@
 <table>
   <thead>
     <tr>
-      <th>Studentd</th>
-      <th>Name</th>
+      <th>Studentid</th>
       <th>Firstname</th>
       <th>Secondname</th>
       <th>Schoolteam</th>
       <th>Dateofbirth</th>
       <th>Points</th>
       <th>Attendance</th>
-      <th>Emailid</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,15 +19,13 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><%= student.Studentd %></td>
-        <td><%= student.name %></td>
+        <td><%= student.StudentId %></td>
         <td><%= student.FirstName %></td>
         <td><%= student.SecondName %></td>
         <td><%= student.SchoolTeam %></td>
         <td><%= student.DateOfBirth %></td>
         <td><%= student.Points %></td>
         <td><%= student.Attendance %></td>
-        <td><%= student.EmailId %></td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>

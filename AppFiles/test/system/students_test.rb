@@ -16,13 +16,11 @@ class StudentsTest < ApplicationSystemTestCase
 
     fill_in "Attendance", with: @student.Attendance
     fill_in "Dateofbirth", with: @student.DateOfBirth
-    fill_in "Emailid", with: @student.EmailId
     fill_in "Firstname", with: @student.FirstName
     fill_in "Points", with: @student.Points
     fill_in "Schoolteam", with: @student.SchoolTeam
     fill_in "Secondname", with: @student.SecondName
-    fill_in "Studentd", with: @student.Studentd
-    fill_in "Name", with: @student.name
+    fill_in "Studentid", with: @student.StudentId
     click_on "Create Student"
 
     assert_text "Student was successfully created"
@@ -35,13 +33,11 @@ class StudentsTest < ApplicationSystemTestCase
 
     fill_in "Attendance", with: @student.Attendance
     fill_in "Dateofbirth", with: @student.DateOfBirth
-    fill_in "Emailid", with: @student.EmailId
     fill_in "Firstname", with: @student.FirstName
     fill_in "Points", with: @student.Points
     fill_in "Schoolteam", with: @student.SchoolTeam
     fill_in "Secondname", with: @student.SecondName
-    fill_in "Studentd", with: @student.Studentd
-    fill_in "Name", with: @student.name
+    fill_in "Studentid", with: @student.StudentId
     click_on "Update Student"
 
     assert_text "Student was successfully updated"

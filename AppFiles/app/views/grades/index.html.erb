@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Gradeid</th>
       <th>Studentid</th>
       <th>Subjectid</th>
       <th>Grade</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @grades.each do |grade| %>
       <tr>
+        <td><%= grade.GradeId %></td>
         <td><%= grade.StudentId %></td>
         <td><%= grade.SubjectId %></td>
         <td><%= grade.Grade %></td>

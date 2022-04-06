@@ -16,6 +16,7 @@ class GradesTest < ApplicationSystemTestCase
 
     fill_in "Date", with: @grade.Date
     fill_in "Grade", with: @grade.Grade
+    fill_in "Gradeid", with: @grade.GradeId
     fill_in "Studentid", with: @grade.StudentId
     fill_in "Subjectid", with: @grade.SubjectId
     click_on "Create Grade"
@@ -30,6 +31,7 @@ class GradesTest < ApplicationSystemTestCase
 
     fill_in "Date", with: @grade.Date
     fill_in "Grade", with: @grade.Grade
+    fill_in "Gradeid", with: @grade.GradeId
     fill_in "Studentid", with: @grade.StudentId
     fill_in "Subjectid", with: @grade.SubjectId
     click_on "Update Grade"
