@@ -1,0 +1,22 @@
+<%= form_with(model: class_list, local: true) do |form| %>
+  <% if class_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(class_list.errors.count, "error") %> prohibited this class_list from being saved:</h2>
+
+      <ul>
+      <% class_list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ClassListId %>
+    <%= form.text_field :ClassListId %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

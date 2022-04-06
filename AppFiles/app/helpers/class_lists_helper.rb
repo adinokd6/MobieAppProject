@@ -1,0 +1,2 @@
+module ClassListsHelper
+end

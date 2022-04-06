@@ -1,0 +1,42 @@
+<%= form_with(model: class_room, local: true) do |form| %>
+  <% if class_room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(class_room.errors.count, "error") %> prohibited this class_room from being saved:</h2>
+
+      <ul>
+      <% class_room.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ClassRoomId %>
+    <%= form.text_field :ClassRoomId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :RoomNumber %>
+    <%= form.text_field :RoomNumber %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Capacity %>
+    <%= form.text_field :Capacity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :RoomType %>
+    <%= form.text_field :RoomType %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Facilities %>
+    <%= form.text_field :Facilities %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

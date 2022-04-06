@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Class1s</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Classid</th>
+      <th>Period</th>
+      <th>Time</th>
+      <th>Animal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @class1s.each do |class1| %>
+      <tr>
+        <td><%= class1.ClassId %></td>
+        <td><%= class1.Period %></td>
+        <td><%= class1.Time %></td>
+        <td><%= class1.animal %></td>
+        <td><%= link_to 'Show', class1 %></td>
+        <td><%= link_to 'Edit', edit_class1_path(class1) %></td>
+        <td><%= link_to 'Destroy', class1, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Class1', new_class1_path %>

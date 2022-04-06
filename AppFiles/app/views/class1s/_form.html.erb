@@ -1,0 +1,37 @@
+<%= form_with(model: class1, local: true) do |form| %>
+  <% if class1.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(class1.errors.count, "error") %> prohibited this class1 from being saved:</h2>
+
+      <ul>
+      <% class1.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ClassId %>
+    <%= form.text_field :ClassId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Period %>
+    <%= form.text_field :Period %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Time %>
+    <%= form.text_field :Time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :animal_id %>
+    <%= form.text_field :animal_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

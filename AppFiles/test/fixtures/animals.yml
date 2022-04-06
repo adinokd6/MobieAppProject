@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  AnimalId: MyString
+  Species: MyString
+  Gender: MyString
+  IsAlive: MyString
+  Name: MyString
+
+two:
+  AnimalId: MyString
+  Species: MyString
+  Gender: MyString
+  IsAlive: MyString
+  Name: MyString
