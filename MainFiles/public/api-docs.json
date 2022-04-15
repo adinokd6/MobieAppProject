@@ -1,12 +1,16 @@
 {
   "apiVersion": "1.0",
   "swaggerVersion": "1.2",
-  "basePath": "",
+  "basePath": "http://localhost:3000",
   "apis": [
     {
       "path": "/students.{format}",
       "description": "Students"
     }
   ],
-  "authorizations": null
+  "authorizations": null,
+  "info": {
+    "title": "Student forum",
+    "description": "Example rails app"
+  }
 }

@@ -13,6 +13,11 @@ class StudentsController < ApplicationController
   end
 
   # GET /students/1 or /students/1.json
+  swagger_api :show do
+    summary 'Returns one student'
+    param :path, :id, :integer, :required, "Students id"
+    notes 'Notes...'
+  end
   def show
   end
 
