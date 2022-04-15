@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ClassId: 1
+  Period: MyString
+  Time: MyString
+  animal: one
+
+two:
+  ClassId: 1
+  Period: MyString
+  Time: MyString
+  animal: two

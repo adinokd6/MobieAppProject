@@ -1,0 +1,37 @@
+<%= form_with(model: certificate, local: true) do |form| %>
+  <% if certificate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(certificate.errors.count, "error") %> prohibited this certificate from being saved:</h2>
+
+      <ul>
+      <% certificate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :CertificateId %>
+    <%= form.number_field :CertificateId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Name %>
+    <%= form.text_field :Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Grade %>
+    <%= form.number_field :Grade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Description %>
+    <%= form.text_area :Description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

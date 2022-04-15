@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  EmployerId: 1
+  EmailId: 1
+  email: one
+
+two:
+  EmployerId: 1
+  EmailId: 1
+  email: two

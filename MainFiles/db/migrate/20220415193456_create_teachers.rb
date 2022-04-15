@@ -1,0 +1,12 @@
+class CreateTeachers < ActiveRecord::Migration[5.2]
+  def change
+    create_table :teachers do |t|
+      t.integer :TeacherId
+      t.string :FirstName
+      t.string :LastName
+      t.string :Title
+
+      t.timestamps
+    end
+  end
+end

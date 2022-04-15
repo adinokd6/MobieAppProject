@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  SubjectId: 1
+  Description: MyText
+  MaxCapacity: 1
+
+two:
+  SubjectId: 1
+  Description: MyText
+  MaxCapacity: 1

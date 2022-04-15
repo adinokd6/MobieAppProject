@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  CertificateId: 1
+  Name: MyString
+  Grade: 1
+  Description: MyText
+
+two:
+  CertificateId: 1
+  Name: MyString
+  Grade: 1
+  Description: MyText

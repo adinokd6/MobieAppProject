@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Classid:</strong>
+  <%= @class_type.ClassId %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @class_type.Period %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @class_type.Time %>
+</p>
+
+<p>
+  <strong>Animal:</strong>
+  <%= @class_type.animal %>
+</p>
+
+<%= link_to 'Edit', edit_class_type_path(@class_type) %> |
+<%= link_to 'Back', class_types_path %>
