@@ -1,2 +1,0 @@
-class Employer < ApplicationRecord
-end
