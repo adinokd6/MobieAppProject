@@ -16,6 +16,25 @@
       ]
     },
     {
+      "path": "/class_lists",
+      "operations": [
+        {
+          "summary": "Create a teacher",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "class_list[ClassListId]",
+              "type": "integer",
+              "description": "Class list id",
+              "required": true
+            }
+          ],
+          "nickname": "ClassLists#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "path": "/class_lists/{id}",
       "operations": [
         {

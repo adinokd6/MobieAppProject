@@ -23,6 +23,10 @@ class ClassListsController < ApplicationController
   end
 
   # GET /class_lists/new
+  swagger_api :create do
+    summary "Create a teacher"
+    param :form, "class_list[ClassListId]", :integer, :required, "Class list id"
+  end
   def new
     @class_list = ClassList.new
   end

@@ -23,6 +23,11 @@ class EmployersController < ApplicationController
   end
 
   # GET /employers/new
+  swagger_api :create do
+    summary "Create a email"
+    param :form, "employer[EmailId]", :integer, "Employer email id"
+    param :form, "employer[EmployerId]", :integer, "Employer id"
+  end
   def new
     @employer = Employer.new
   end

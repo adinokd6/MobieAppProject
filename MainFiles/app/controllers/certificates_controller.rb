@@ -23,6 +23,13 @@ class CertificatesController < ApplicationController
   end
 
   # GET /certificates/new
+  swagger_api :create do
+    summary "Create a certificate"
+    param :form, "certificate[CertificateId]", :integer, :required, "Certificate id"
+    param :form, "certificate[Description]", :text, :required, "Certificate description"
+    param :form, "certificate[Grade]", :integer, :required, "Certificate grade"
+    param :form, "certificate[Name]", :string, :required, "Certificate name"
+  end
   def new
     @certificate = Certificate.new
   end

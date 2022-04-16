@@ -16,6 +16,46 @@
       ]
     },
     {
+      "path": "/teachers",
+      "operations": [
+        {
+          "summary": "Create a teacher",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "teacher[FirstName]",
+              "type": "string",
+              "description": "Teacher first name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "teacher[LastName]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "teacher[Title]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "teacher[TeacherId]",
+              "type": "integer",
+              "description": null,
+              "required": false
+            }
+          ],
+          "nickname": "Teachers#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "path": "/teachers/{id}",
       "operations": [
         {

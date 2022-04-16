@@ -16,6 +16,46 @@
       ]
     },
     {
+      "path": "/certificates",
+      "operations": [
+        {
+          "summary": "Create a certificate",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "certificate[CertificateId]",
+              "type": "integer",
+              "description": "Certificate id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "certificate[Description]",
+              "type": "text",
+              "description": "Certificate description",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "certificate[Grade]",
+              "type": "integer",
+              "description": "Certificate grade",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "certificate[Name]",
+              "type": "string",
+              "description": "Certificate name",
+              "required": true
+            }
+          ],
+          "nickname": "Certificates#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "path": "/certificates/{id}",
       "operations": [
         {

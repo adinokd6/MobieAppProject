@@ -16,6 +16,39 @@
       ]
     },
     {
+      "path": "/emails",
+      "operations": [
+        {
+          "summary": "Create a email",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "email[EmailAddress]",
+              "type": "string",
+              "description": "Email adress",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "email[EmailId]",
+              "type": "integer",
+              "description": "Email id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "email[OwnerId]",
+              "type": "integer",
+              "description": "Email owner id",
+              "required": true
+            }
+          ],
+          "nickname": "Emails#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "path": "/emails/{id}",
       "operations": [
         {

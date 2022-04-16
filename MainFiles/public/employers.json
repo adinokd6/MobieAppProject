@@ -16,6 +16,32 @@
       ]
     },
     {
+      "path": "/employers",
+      "operations": [
+        {
+          "summary": "Create a email",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "employer[EmailId]",
+              "type": "integer",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "employer[EmployerId]",
+              "type": "integer",
+              "description": null,
+              "required": false
+            }
+          ],
+          "nickname": "Employers#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "path": "/employers/{id}",
       "operations": [
         {

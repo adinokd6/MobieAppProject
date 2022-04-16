@@ -16,6 +16,39 @@
       ]
     },
     {
+      "path": "/class_types",
+      "operations": [
+        {
+          "summary": "Create a class",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "class_type[ClassId]",
+              "type": "integer",
+              "description": "Class id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "class_type[Period]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "class_type[Time]",
+              "type": "string",
+              "description": null,
+              "required": false
+            }
+          ],
+          "nickname": "ClassTypes#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "path": "/class_types/{id}",
       "operations": [
         {

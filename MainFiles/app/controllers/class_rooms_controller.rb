@@ -24,7 +24,7 @@ class ClassRoomsController < ApplicationController
 
   # GET /class_rooms/new
   swagger_api :create do
-    summary "Create a subject"
+    summary "Create a class room"
     param :form, "class_room[Capacity]", :text, :required, "Class room capacity"
     param :form, "class_room[ClassRoomId]", :integer, :required, "Class room id"
     param :form, "class_room[Facilities]", :string, :required, "Class room Facilities"

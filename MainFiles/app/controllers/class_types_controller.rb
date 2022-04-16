@@ -23,6 +23,12 @@ class ClassTypesController < ApplicationController
   end
 
   # GET /class_types/new
+  swagger_api :create do
+    summary "Create a class"
+    param :form, "class_type[ClassId]", :integer, :required, "Class id"
+    param :form, "class_type[Period]", :string, "Class period"
+    param :form, "class_type[Time]", :string, "Class time"
+  end
   def new
     @class_type = ClassType.new
   end

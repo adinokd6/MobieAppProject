@@ -19,7 +19,7 @@
       "path": "/class_rooms",
       "operations": [
         {
-          "summary": "Create a subject",
+          "summary": "Create a class room",
           "parameters": [
             {
               "paramType": "form",
