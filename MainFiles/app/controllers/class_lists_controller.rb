@@ -2,6 +2,8 @@ class ClassListsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
+  swagger_controller :class_lists, 'Class lists'
+
   # GET /class_lists or /class_lists.json
   swagger_api :index do
     summary 'Returns all class lists'

@@ -1,0 +1,40 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "class_types",
+  "apis": [
+    {
+      "path": "/class_types",
+      "operations": [
+        {
+          "summary": "Returns all classes",
+          "notes": "Notes...",
+          "nickname": "ClassTypes#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/class_types/{id}",
+      "operations": [
+        {
+          "summary": "Returns one class",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class id",
+              "required": true
+            }
+          ],
+          "nickname": "ClassTypes#show",
+          "method": "get"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

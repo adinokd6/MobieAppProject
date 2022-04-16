@@ -2,6 +2,8 @@ class ClassRoomsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
+  swagger_controller :class_rooms, 'Grades'
+
   # GET /class_rooms or /class_rooms.json
   swagger_api :index do
     summary 'Returns all classrooms'
@@ -21,6 +23,14 @@ class ClassRoomsController < ApplicationController
   end
 
   # GET /class_rooms/new
+  swagger_api :create do
+    summary "Create a subject"
+    param :form, "class_room[Capacity]", :text, :required, "Class room capacity"
+    param :form, "class_room[ClassRoomId]", :integer, :required, "Class room id"
+    param :form, "class_room[Facilities]", :string, :required, "Class room Facilities"
+    param :form, "class_room[RoomNumber]", :integer, :required, "Class room number"
+    param :form, "class_room[RoomType]", :string, :required, "Class room type"
+  end
   def new
     @class_room = ClassRoom.new
   end

@@ -31,6 +31,12 @@ class GradesController < ApplicationController
   end
 
   # GET /grades/new
+  swagger_api :create do
+    summary "Create a grade"
+    param :form, "grade[Date]", :string, :required, "Grades date"
+    param :form, "grade[Grade]", :string, :required, "Grades grade"
+    param :form, "grade[GradeId]", :integer, :required, "Grades id"
+  end
   def new
     @grade = Grade.new
   end

@@ -2,6 +2,8 @@ class EmailsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
+  swagger_controller :emails, 'Emails'
+
   # GET /emails or /emails.json
   swagger_api :index do
     summary 'Returns all emails'

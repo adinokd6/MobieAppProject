@@ -2,6 +2,8 @@ class TeachersController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
+  swagger_controller :teachers, 'Teachers'
+
   # GET /teachers or /teachers.json
   swagger_api :index do
     summary 'Returns all teachers'

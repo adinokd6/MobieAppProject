@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_16_095925) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_16_111817) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "animal_classes", id: false, force: :cascade do |t|
+    t.bigint "animal_id"
+    t.bigint "class_type_id"
+    t.index ["animal_id"], name: "index_animal_classes_on_animal_id"
+    t.index ["class_type_id"], name: "index_animal_classes_on_class_type_id"
+  end
 
   create_table "animals", force: :cascade do |t|
     t.integer "AnimalId"

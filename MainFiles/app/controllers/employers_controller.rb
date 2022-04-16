@@ -2,6 +2,8 @@ class EmployersController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
+  swagger_controller :employers, 'Employers'
+
   # GET /employers or /employers.json
   swagger_api :index do
     summary 'Returns all eployers'

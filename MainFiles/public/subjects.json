@@ -2,72 +2,59 @@
   "apiVersion": "1.0",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
-  "resourcePath": "grades",
+  "resourcePath": "subjects",
   "apis": [
     {
-      "path": "/grades",
+      "path": "/subjects",
       "operations": [
         {
-          "summary": "Returns all grades",
+          "summary": "Returns all subjects",
           "notes": "Notes...",
-          "nickname": "Grades#index",
+          "nickname": "Subjects#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/grades",
+      "path": "/subjects",
       "operations": [
         {
-          "summary": "Create a grade",
+          "summary": "Create a subject",
           "parameters": [
             {
               "paramType": "form",
-              "name": "grade[Date]",
-              "type": "string",
-              "description": "Grades date",
+              "name": "subject[Description]",
+              "type": "text",
+              "description": "Subject description",
               "required": true
             },
             {
               "paramType": "form",
-              "name": "grade[Grade]",
-              "type": "string",
-              "description": "Grades grade",
-              "required": true
-            },
-            {
-              "paramType": "form",
-              "name": "grade[GradeId]",
+              "name": "subject[MaxCapacity]",
               "type": "integer",
-              "description": "Grades id",
+              "description": "Subject max capacity",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "subject[SubjectId]",
+              "type": "integer",
+              "description": "Subject id",
               "required": true
             }
           ],
-          "nickname": "Grades#create",
+          "nickname": "Subjects#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/grades/{id}",
+      "path": "/subjects/{id}",
       "operations": [
         {
-          "summary": [
-            "Returns one grade",
-            "Returns grade from exact subject"
-          ],
-          "notes": [
-            "Notes...",
-            "Notes..."
-          ],
+          "summary": "Returns one subject",
+          "notes": "Notes...",
           "parameters": [
-            {
-              "paramType": "path",
-              "name": "id",
-              "type": "integer",
-              "description": "Grade id",
-              "required": true
-            },
             {
               "paramType": "path",
               "name": "id",
@@ -76,7 +63,7 @@
               "required": true
             }
           ],
-          "nickname": "Grades#show",
+          "nickname": "Subjects#show",
           "method": "get"
         }
       ]

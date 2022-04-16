@@ -2,6 +2,8 @@ class SubjectsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
+  swagger_controller :subjects, 'Subjects'
+
   # GET /subjects or /subjects.json
   swagger_api :index do
     summary 'Returns all subjects'
@@ -21,6 +23,12 @@ class SubjectsController < ApplicationController
   end
 
   # GET /subjects/new
+  swagger_api :create do
+    summary "Create a subject"
+    param :form, "subject[Description]", :text, :required, "Subject description"
+    param :form, "subject[MaxCapacity]", :integer, :required, "Subject max capacity"
+    param :form, "subject[SubjectId]", :integer, :required, "Subject id"
+  end
   def new
     @subject = Subject.new
   end

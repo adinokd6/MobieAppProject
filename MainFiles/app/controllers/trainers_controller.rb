@@ -2,6 +2,8 @@ class TrainersController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
+  swagger_controller :trainers, 'Trainers'
+
   # GET /trainers or /trainers.json
   swagger_api :index do
     summary 'Returns all trainers'
@@ -21,6 +23,12 @@ class TrainersController < ApplicationController
   end
 
   # GET /trainers/new
+  swagger_api :create do
+    summary "Create a trainer"
+    param :form, "trainer[FristName]", :string, :required, "Trainers first name"
+    param :form, "trainer[SecondName]", :string, :required, "Trainers second name"
+    param :form, "trainer[TrainerId]", :integer, :required, "Trainers id"
+  end
   def new
     @trainer = Trainer.new
   end
