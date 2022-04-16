@@ -16,6 +16,46 @@
       ]
     },
     {
+      "path": "/students",
+      "operations": [
+        {
+          "summary": "Create a student",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "student[FirstName]",
+              "type": "string",
+              "description": "Students first name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "student[SecondName]",
+              "type": "string",
+              "description": "Students second name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "student[StudentId]",
+              "type": "integer",
+              "description": "Students id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "student[password]",
+              "type": "string",
+              "description": "Students password",
+              "required": true
+            }
+          ],
+          "nickname": "Students#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "path": "/students/{id}",
       "operations": [
         {
@@ -32,6 +72,80 @@
           ],
           "nickname": "Students#show",
           "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/students/{id}",
+      "operations": [
+        {
+          "summary": "Update a student",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Students id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "student[StudentId]",
+              "type": "string",
+              "description": "Students index",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "student[FristName]",
+              "type": "string",
+              "description": "Students first name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "student[SecondName]",
+              "type": "string",
+              "description": "Students second name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "student[DateOfBirth]",
+              "type": "string",
+              "description": "Students second name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "student[password]",
+              "type": "string",
+              "description": "Students password",
+              "required": true
+            }
+          ],
+          "nickname": "Students#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/students/{id}",
+      "operations": [
+        {
+          "summary": "Destroys a student",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Students id",
+              "required": true
+            }
+          ],
+          "nickname": "Students#destroy",
+          "method": "delete"
         }
       ]
     }

@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+  before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
   swagger_controller :students, 'Students'
 
@@ -31,6 +32,13 @@ class StudentsController < ApplicationController
   end
 
   # POST /students or /students.json
+  swagger_api :create do
+    summary "Create a student"
+    param :form, "student[FirstName]", :string, :required, "Students first name"
+    param :form, "student[SecondName]", :string, :required, "Students second name"
+    param :form, "student[StudentId]", :integer, :required, "Students id"
+    param :form, "student[password]", :string, :required, "Students password"
+  end
   def create
     @student = Student.new(student_params)
 
@@ -46,6 +54,15 @@ class StudentsController < ApplicationController
   end
 
   # PATCH/PUT /students/1 or /students/1.json
+  swagger_api :update do
+    summary "Update a student"
+    param :path, :id, :integer, :required, "Students id"
+    param :form, "student[StudentId]", :string, :required, "Students index"
+    param :form, "student[FristName]", :string, :required, "Students first name"
+    param :form, "student[SecondName]", :string, :required, "Students second name"
+    param :form, "student[DateOfBirth]", :string, :required, "Students second name"
+    param :form, "student[password]", :string, :required, "Students password"
+  end
   def update
     respond_to do |format|
       if @student.update(student_params)
@@ -59,6 +76,12 @@ class StudentsController < ApplicationController
   end
 
   # DELETE /students/1 or /students/1.json
+  swagger_api :destroy do
+    summary 'Destroys a student'
+    param :path, :id, :integer, :required, "Students id"
+    notes 'Notes...'
+  end
+
   def destroy
     @student.destroy
 

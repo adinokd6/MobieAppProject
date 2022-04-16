@@ -1,11 +1,25 @@
 class GradesController < ApplicationController
   before_action :set_grade, only: %i[ show edit update destroy ]
 
+  swagger_controller :grades, 'Grades'
+
+  swagger_api :index do
+    summary 'Returns all grades'
+    notes 'Notes...'
+  end
+
   # GET /grades or /grades.json
   def index
     @grades = Grade.all
   end
 
+
+
+  swagger_api :show do
+    summary 'Returns grade from exact subject'
+    param :path, :id, :integer, :required, "Subject id"
+    notes 'Notes...'
+  end
   # GET /grades/1 or /grades/1.json
   def show
   end

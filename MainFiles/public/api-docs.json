@@ -6,6 +6,10 @@
     {
       "path": "/students.{format}",
       "description": "Students"
+    },
+    {
+      "path": "/grades.{format}",
+      "description": "Grades"
     }
   ],
   "authorizations": null,
