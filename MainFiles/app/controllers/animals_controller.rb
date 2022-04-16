@@ -1,12 +1,22 @@
 class AnimalsController < ApplicationController
-  before_action :set_animal, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+  before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
   # GET /animals or /animals.json
+  swagger_api :index do
+    summary 'Returns all animals'
+    notes 'Notes...'
+  end
   def index
     @animals = Animal.all
   end
 
   # GET /animals/1 or /animals/1.json
+  swagger_api :show do
+    summary 'Returns one animal'
+    param :path, :id, :integer, :required, "Animal id"
+    notes 'Notes...'
+  end
   def show
   end
 

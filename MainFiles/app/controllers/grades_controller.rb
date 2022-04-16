@@ -1,4 +1,5 @@
 class GradesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_grade, only: %i[ show edit update destroy ]
 
   swagger_controller :grades, 'Grades'
@@ -9,6 +10,11 @@ class GradesController < ApplicationController
   end
 
   # GET /grades or /grades.json
+  swagger_api :show do
+    summary 'Returns one grade'
+    param :path, :id, :integer, :required, "Grade id"
+    notes 'Notes...'
+  end
   def index
     @grades = Grade.all
   end

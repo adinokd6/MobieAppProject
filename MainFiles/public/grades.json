@@ -19,9 +19,22 @@
       "path": "/grades/{id}",
       "operations": [
         {
-          "summary": "Returns grade from exact subject",
-          "notes": "Notes...",
+          "summary": [
+            "Returns one grade",
+            "Returns grade from exact subject"
+          ],
+          "notes": [
+            "Notes...",
+            "Notes..."
+          ],
           "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Grade id",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",

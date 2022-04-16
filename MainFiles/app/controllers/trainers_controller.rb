@@ -1,12 +1,22 @@
 class TrainersController < ApplicationController
-  before_action :set_trainer, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+  before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
   # GET /trainers or /trainers.json
+  swagger_api :index do
+    summary 'Returns all trainers'
+    notes 'Notes...'
+  end
   def index
     @trainers = Trainer.all
   end
 
   # GET /trainers/1 or /trainers/1.json
+  swagger_api :show do
+    summary 'Returns one trainer'
+    param :path, :id, :integer, :required, "Trainer id"
+    notes 'Notes...'
+  end
   def show
   end
 

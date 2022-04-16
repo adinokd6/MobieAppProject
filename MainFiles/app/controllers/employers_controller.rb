@@ -1,12 +1,22 @@
 class EmployersController < ApplicationController
-  before_action :set_employer, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+  before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
   # GET /employers or /employers.json
+  swagger_api :index do
+    summary 'Returns all eployers'
+    notes 'Notes...'
+  end
   def index
     @employers = Employer.all
   end
 
   # GET /employers/1 or /employers/1.json
+  swagger_api :show do
+    summary 'Returns one employer'
+    param :path, :id, :integer, :required, "Employer id"
+    notes 'Notes...'
+  end
   def show
   end
 

@@ -1,12 +1,22 @@
 class ClassTypesController < ApplicationController
-  before_action :set_class_type, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+  before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
   # GET /class_types or /class_types.json
+  swagger_api :index do
+    summary 'Returns all classes'
+    notes 'Notes...'
+  end
   def index
     @class_types = ClassType.all
   end
 
   # GET /class_types/1 or /class_types/1.json
+  swagger_api :show do
+    summary 'Returns one class'
+    param :path, :id, :integer, :required, "Class id"
+    notes 'Notes...'
+  end
   def show
   end
 

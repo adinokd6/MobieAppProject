@@ -1,12 +1,22 @@
 class CertificatesController < ApplicationController
-  before_action :set_certificate, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+  before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
   # GET /certificates or /certificates.json
+  swagger_api :index do
+    summary 'Returns all certificates'
+    notes 'Notes...'
+  end
   def index
     @certificates = Certificate.all
   end
 
   # GET /certificates/1 or /certificates/1.json
+  swagger_api :show do
+    summary 'Returns one certificate'
+    param :path, :id, :integer, :required, "Certificate id"
+    notes 'Notes...'
+  end
   def show
   end
 

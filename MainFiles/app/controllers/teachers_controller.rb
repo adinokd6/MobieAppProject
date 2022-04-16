@@ -1,12 +1,22 @@
 class TeachersController < ApplicationController
-  before_action :set_teacher, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+  before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
   # GET /teachers or /teachers.json
+  swagger_api :index do
+    summary 'Returns all teachers'
+    notes 'Notes...'
+  end
   def index
     @teachers = Teacher.all
   end
 
   # GET /teachers/1 or /teachers/1.json
+  swagger_api :show do
+    summary 'Returns one teacher'
+    param :path, :id, :integer, :required, "Teacher id"
+    notes 'Notes...'
+  end
   def show
   end
 

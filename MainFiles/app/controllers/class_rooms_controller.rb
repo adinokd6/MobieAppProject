@@ -1,12 +1,22 @@
 class ClassRoomsController < ApplicationController
-  before_action :set_class_room, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+  before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
   # GET /class_rooms or /class_rooms.json
+  swagger_api :index do
+    summary 'Returns all classrooms'
+    notes 'Notes...'
+  end
   def index
     @class_rooms = ClassRoom.all
   end
 
   # GET /class_rooms/1 or /class_rooms/1.json
+  swagger_api :show do
+    summary 'Returns one class room'
+    param :path, :id, :integer, :required, "Class room id"
+    notes 'Notes...'
+  end
   def show
   end
 

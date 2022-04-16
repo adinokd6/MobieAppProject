@@ -1,12 +1,22 @@
 class ClassListsController < ApplicationController
-  before_action :set_class_list, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+  before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
   # GET /class_lists or /class_lists.json
+  swagger_api :index do
+    summary 'Returns all class lists'
+    notes 'Notes...'
+  end
   def index
     @class_lists = ClassList.all
   end
 
   # GET /class_lists/1 or /class_lists/1.json
+  swagger_api :show do
+    summary 'Returns one class list'
+    param :path, :id, :integer, :required, "lass list id"
+    notes 'Notes...'
+  end
   def show
   end
 

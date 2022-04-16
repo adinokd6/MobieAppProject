@@ -1,12 +1,22 @@
 class SubjectsController < ApplicationController
-  before_action :set_subject, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+  before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
   # GET /subjects or /subjects.json
+  swagger_api :index do
+    summary 'Returns all subjects'
+    notes 'Notes...'
+  end
   def index
     @subjects = Subject.all
   end
 
   # GET /subjects/1 or /subjects/1.json
+  swagger_api :show do
+    summary 'Returns one subject'
+    param :path, :id, :integer, :required, "Subject id"
+    notes 'Notes...'
+  end
   def show
   end
 

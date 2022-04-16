@@ -1,12 +1,22 @@
 class EmailsController < ApplicationController
-  before_action :set_email, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+  before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
   # GET /emails or /emails.json
+  swagger_api :index do
+    summary 'Returns all emails'
+    notes 'Notes...'
+  end
   def index
     @emails = Email.all
   end
 
   # GET /emails/1 or /emails/1.json
+  swagger_api :show do
+    summary 'Returns one email'
+    param :path, :id, :integer, :required, "Email id"
+    notes 'Notes...'
+  end
   def show
   end
 
