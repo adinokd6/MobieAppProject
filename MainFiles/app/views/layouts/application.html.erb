@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
+<% if logged_in? %>
+  Zalogowany jako <%= current_student.FirstName %>
+  <%= link_to "Profil", current_student %>
+  <%= link_to "Wyloguj", logout_path, method: :delete %>
+<% else %>
+  <%= link_to "Zaloguj", login_path %>
+<% end %>
   <head>
-    <title>MainFiles</title>
+    <title>StudentForum</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

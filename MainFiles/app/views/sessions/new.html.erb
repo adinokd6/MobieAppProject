@@ -1,0 +1,11 @@
+<h1>Logowanie</h1>
+
+<%= form_for(:session, url: login_path) do |f| %>
+  <%= f.label :StudentId %>
+  <%= f.text_field :StudentId, class: 'form-control' %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control' %>
+
+  <%= f.submit "Zaloguj" %>
+<% end %>

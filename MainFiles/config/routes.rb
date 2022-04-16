@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root to: 'static#index'
+
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+  
   resources :class_rooms
   resources :class_types
   resources :teachers
@@ -12,7 +18,6 @@ Rails.application.routes.draw do
   resources :animals
   resources :students
   resources :grades
-  root to: 'static#index'
   get '/api' => redirect('/swagger/dist/index.html?url=/api-docs.json')
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

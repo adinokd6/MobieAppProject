@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_16_095331) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_16_095925) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -103,6 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_16_095331) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.string "password_digest"
+    t.index ["StudentId"], name: "index_students_on_StudentId", unique: true
     t.index ["grade_id"], name: "index_students_on_grade_id"
   end
 
