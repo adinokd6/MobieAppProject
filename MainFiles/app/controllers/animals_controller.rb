@@ -2,6 +2,8 @@ class AnimalsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_student, only: [ :show, :edit, :update, :destroy ]
 
+  swagger_controller :animals, 'Animals'
+
   # GET /animals or /animals.json
   swagger_api :index do
     summary 'Returns all animals'

@@ -40,6 +40,10 @@
       "description": "Certificates"
     },
     {
+      "path": "/animals.{format}",
+      "description": "Animals"
+    },
+    {
       "path": "/students.{format}",
       "description": "Students"
     },
