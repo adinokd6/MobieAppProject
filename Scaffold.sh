@@ -11,17 +11,17 @@ rails generate scaffold ClassList ClassListId:integer
 
 rails generate scaffold Subject SubjectId:integer Description:text MaxCapacity:integer
 
+
 rails generate scaffold Email EmailId:integer OwnerId:string EmailAddress:string
 
 rails generate scaffold Message MessageId:integer From:string To:string Text:text Date:string
 
 
-rails generate scaffold Employer EmployerId:integer EmailId:integer email:references
+rails generate scaffold Employee EmployeeId:integer EmailId:integer email:references
 
 rails generate scaffold Trainer TrainerId:integer FirstName:string LastName:string
 
 rails generate scaffold Teacher TeacherId:integer FirstName:string LastName:string Title:string
-
 
 
 rails generate scaffold ClassType ClassId:integer Period:string Time:string animal:references

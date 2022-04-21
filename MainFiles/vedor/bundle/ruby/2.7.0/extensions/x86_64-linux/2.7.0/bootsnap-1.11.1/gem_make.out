@@ -1,0 +1,15 @@
+current directory: /home/ubuntu/MobieAppProject/MainFiles/vedor/bundle/ruby/2.7.0/gems/bootsnap-1.11.1/ext/bootsnap
+/usr/share/rvm/rubies/ruby-2.7.0/bin/ruby -I /usr/share/rvm/rubies/ruby-2.7.0/lib/ruby/site_ruby/2.7.0 -r ./siteconf20220421-12380-10ojqgk.rb extconf.rb
+creating Makefile
+
+current directory: /home/ubuntu/MobieAppProject/MainFiles/vedor/bundle/ruby/2.7.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /home/ubuntu/MobieAppProject/MainFiles/vedor/bundle/ruby/2.7.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/ubuntu/MobieAppProject/MainFiles/vedor/bundle/ruby/2.7.0/gems/bootsnap-1.11.1/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -m 0755 bootsnap.so ./.gem.20220421-12380-1g5n3mn/bootsnap
