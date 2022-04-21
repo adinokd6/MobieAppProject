@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_16_111817) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_21_153756) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,6 +72,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_16_111817) do
     t.string "EmailAddress"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.integer "EmployeeId"
+    t.integer "EmailId"
+    t.bigint "email_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email_id"], name: "index_employees_on_email_id"
   end
 
   create_table "employers", force: :cascade do |t|
@@ -140,6 +149,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_16_111817) do
   end
 
   add_foreign_key "class_types", "animals"
+  add_foreign_key "employees", "emails"
   add_foreign_key "employers", "emails"
   add_foreign_key "students", "grades"
 end

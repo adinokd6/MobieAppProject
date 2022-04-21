@@ -1,6 +1,6 @@
 class CertificatesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_student, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_certificate, only: [ :show, :edit, :update, :destroy ]
 
   swagger_controller :certificates, 'Certificates'
 
