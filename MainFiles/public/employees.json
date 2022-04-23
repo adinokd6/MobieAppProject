@@ -1,0 +1,66 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "employees",
+  "apis": [
+    {
+      "path": "/employees",
+      "operations": [
+        {
+          "summary": "Returns all employees",
+          "notes": "Notes...",
+          "nickname": "Employees#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/employees",
+      "operations": [
+        {
+          "summary": "Create a email",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "employee[EmailId]",
+              "type": "integer",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "employee[EmployeeId]",
+              "type": "integer",
+              "description": null,
+              "required": false
+            }
+          ],
+          "nickname": "Employees#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/employees/{id}",
+      "operations": [
+        {
+          "summary": "Returns one employee",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Employee id",
+              "required": true
+            }
+          ],
+          "nickname": "Employees#show",
+          "method": "get"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

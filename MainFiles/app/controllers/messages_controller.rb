@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_message, only: %i[ show edit update destroy ]
 
   # GET /messages or /messages.json

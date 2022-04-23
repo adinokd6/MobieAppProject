@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  resources :employees
   root to: 'static#index'
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  
+
   resources :class_rooms
   resources :class_types
   resources :teachers

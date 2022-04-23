@@ -4,6 +4,10 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
+      "path": "/employees.{format}",
+      "description": "Employees"
+    },
+    {
       "path": "/class_rooms.{format}",
       "description": "Grades"
     },
