@@ -1,24 +1,16 @@
-# README
+# Co zostało do zrobienia
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Jak ktoś coś będzie robić to niech da znać na discordzie albo na grupie, żeby nie dublowały się nam zadania. Co do bazy to postaram się to ogarnąc do końca tego tygodnia (mam nadzieję, że szybciej - dzisiaj jest 23.04)
 
-Things you may want to cover:
+Rzeczy TODO:
 
-* Ruby version
+**Najważniejsze poprawić baze:** (Adrian)
+* Classrom nie zmienia się klasa dla przedmiotu
+* Student może mieć wiele emaili
 
-* System dependencies
+Pozostałe rzeczy:
+* Zrobić dokładny opis wszystkich klas
+* Dookumentacja swaggera 
+* Dokumentacja postmana
+* Dokumentacja ui 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
