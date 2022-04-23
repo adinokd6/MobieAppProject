@@ -16,4 +16,5 @@ Pozostałe rzeczy:
 
 
 Aktualny wygląd bazy:
+(Już poprawiłem relacje - 23.04, trzeba tylko ogarnąc, żeby ktoś nam potwierdził, że to faktycznie jest dobrze zrobione)
 ![alt text](https://github.com/adinokd6/MobieAppProject/blob/main/MainFiles/ERD-koniec.drawio1(1).jpg)
