@@ -8,18 +8,7 @@
       "path": "/certificates",
       "operations": [
         {
-          "summary": "Returns all certificates",
-          "notes": "Notes...",
-          "nickname": "Certificates#index",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "path": "/certificates",
-      "operations": [
-        {
-          "summary": "Create a certificate",
+          "summary": "Create new certificate for student",
           "parameters": [
             {
               "paramType": "form",

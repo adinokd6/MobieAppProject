@@ -4,7 +4,6 @@ class CreateClassTypes < ActiveRecord::Migration[5.2]
       t.integer :ClassId
       t.string :Period
       t.string :Time
-      t.references :animal, foreign_key: true
 
       t.timestamps
     end

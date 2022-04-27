@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_21_153756) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_27_113610) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,6 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_21_153756) do
     t.text "Description"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.bigint "student_id"
+    t.index ["student_id"], name: "index_certificates_on_student_id"
   end
 
   create_table "class_lists", force: :cascade do |t|
@@ -56,14 +58,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_21_153756) do
     t.datetime "updated_at", precision: nil, null: false
   end
 
+  create_table "class_subjects", id: false, force: :cascade do |t|
+    t.bigint "class_type_id"
+    t.bigint "subject_id"
+    t.index ["class_type_id"], name: "index_class_subjects_on_class_type_id"
+    t.index ["subject_id"], name: "index_class_subjects_on_subject_id"
+  end
+
   create_table "class_types", force: :cascade do |t|
     t.integer "ClassId"
     t.string "Period"
     t.string "Time"
-    t.bigint "animal_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-    t.index ["animal_id"], name: "index_class_types_on_animal_id"
   end
 
   create_table "emails", force: :cascade do |t|
@@ -77,19 +84,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_21_153756) do
   create_table "employees", force: :cascade do |t|
     t.integer "EmployeeId"
     t.integer "EmailId"
-    t.bigint "email_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email_id"], name: "index_employees_on_email_id"
-  end
-
-  create_table "employers", force: :cascade do |t|
-    t.integer "EmployerId"
-    t.integer "EmailId"
-    t.bigint "email_id"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.index ["email_id"], name: "index_employers_on_email_id"
   end
 
   create_table "grades", force: :cascade do |t|
@@ -115,12 +111,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_21_153756) do
     t.string "FirstName"
     t.string "SecondName"
     t.string "DateOfBirth"
-    t.bigint "grade_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.string "password_digest"
     t.index ["StudentId"], name: "index_students_on_StudentId", unique: true
-    t.index ["grade_id"], name: "index_students_on_grade_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -148,8 +142,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_21_153756) do
     t.datetime "updated_at", precision: nil, null: false
   end
 
-  add_foreign_key "class_types", "animals"
-  add_foreign_key "employees", "emails"
-  add_foreign_key "employers", "emails"
-  add_foreign_key "students", "grades"
+  add_foreign_key "certificates", "students"
 end
