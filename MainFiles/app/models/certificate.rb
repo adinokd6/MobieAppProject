@@ -1,3 +1,3 @@
 class Certificate < ApplicationRecord
-  belongs_to :student, optional: true
+  belongs_to :student
 end
