@@ -1,6 +1,7 @@
 class Student < ApplicationRecord
   has_many :certificates
   has_many :grades
+  has_one :email
 
   belongs_to :class_list
 
