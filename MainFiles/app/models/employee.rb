@@ -1,4 +1,7 @@
 class Employee < ApplicationRecord
-  belongs_to :email, optional: true
-  belongs_to :classType, optional: true
+  has_one :email, optional: true
+  has_one :teacher, optional: true
+  has_one :trainer, optional: true
+
+  has_many :class_types
 end
