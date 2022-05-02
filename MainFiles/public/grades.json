@@ -5,22 +5,18 @@
   "resourcePath": "grades",
   "apis": [
     {
-      "path": "/grades",
-      "operations": [
-        {
-          "summary": "Returns all grades",
-          "notes": "Notes...",
-          "nickname": "Grades#index",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "path": "/grades",
+      "path": "/students/{student_id}/grades",
       "operations": [
         {
           "summary": "Create a grade",
           "parameters": [
+            {
+              "paramType": "path",
+              "name": "student_id",
+              "type": "integer",
+              "description": "Student id in database",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "grade[Date]",
@@ -49,7 +45,7 @@
       ]
     },
     {
-      "path": "/grades/{id}",
+      "path": "/students/{student_id}/grades/{id}",
       "operations": [
         {
           "summary": [
@@ -63,20 +59,31 @@
           "parameters": [
             {
               "paramType": "path",
-              "name": "id",
+              "name": "student_id",
               "type": "integer",
-              "description": "Grade id",
+              "description": "Student id in database",
               "required": true
             },
             {
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Subject id",
+              "description": "Grade id",
               "required": true
             }
           ],
           "nickname": "Grades#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/grades",
+      "operations": [
+        {
+          "summary": "Returns all grades",
+          "notes": "Notes...",
+          "nickname": "Grades#index",
           "method": "get"
         }
       ]

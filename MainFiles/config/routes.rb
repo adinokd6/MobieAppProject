@@ -8,6 +8,11 @@ Rails.application.routes.draw do
 
   resources :students do
     resources :certificates, only: [:new, :create, :edit, :update, :show, :destroy]
+    resources :grades, only: [:new, :create, :edit, :update, :show, :destroy]
+  end
+
+  resources :subjects do
+    resources :grades, only: [:new, :create, :edit, :update, :show, :destroy]
   end
 
   resources :class_rooms
@@ -17,7 +22,6 @@ Rails.application.routes.draw do
   resources :employers
   resources :messages
   resources :emails
-  resources :subjects
   resources :class_lists
   resources :animals
   resources :grades

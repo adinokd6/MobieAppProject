@@ -1,6 +1,7 @@
 class GradesController < ApplicationController
+  before_action :set_grade, only: [ :show, :edit, :update, :destroy ]
   skip_before_action :verify_authenticity_token
-  before_action :set_grade, only: %i[ show edit update destroy ]
+  before_action :require_token, only: [:create]
 
   swagger_controller :grades, 'Grades'
 
@@ -12,6 +13,7 @@ class GradesController < ApplicationController
   # GET /grades or /grades.json
   swagger_api :show do
     summary 'Returns one grade'
+    param :path, :student_id, :integer, :required, "Student id in database"
     param :path, :id, :integer, :required, "Grade id"
     notes 'Notes...'
   end
@@ -23,7 +25,7 @@ class GradesController < ApplicationController
 
   swagger_api :show do
     summary 'Returns grade from exact subject'
-    param :path, :id, :integer, :required, "Subject id"
+    param :path, :subject_id, :integer, :required, "Subject id in database"
     notes 'Notes...'
   end
   # GET /grades/1 or /grades/1.json
@@ -33,12 +35,16 @@ class GradesController < ApplicationController
   # GET /grades/new
   swagger_api :create do
     summary "Create a grade"
+    param :path, :student_id, :integer, :required, "Student id in database"
+    param :path, :subject_id, :integer, :required, "Subject id in database"
     param :form, "grade[Date]", :string, :required, "Grades date"
     param :form, "grade[Grade]", :string, :required, "Grades grade"
     param :form, "grade[GradeId]", :integer, :required, "Grades id"
   end
+
   def new
-    @grade = Grade.new
+    @student = Student.find(params[:student_id])
+    @subject = Subject.find(params[:student_id])
   end
 
   # GET /grades/1/edit
@@ -47,14 +53,19 @@ class GradesController < ApplicationController
 
   # POST /grades or /grades.json
   def create
-    @grade = Grade.new(grade_params)
+    @student = Student.find(params[:student_id])
+    @subject = Subject.find(params[:subject_id])
+
+    @gradeForStudent=@student.grades.new(grade_params)
+    @gradeForSubject=@subject.grades.new(grade_params)
 
     respond_to do |format|
-      if @grade.save
-        format.html { redirect_to grade_url(@grade), notice: "Grade was successfully created." }
-        format.json { render :show, status: :created, location: @grade }
+      if @gradeForStudent.save
+        format.html { redirect_to [@student,@gradeForStudent], notice: "Grade was successfully created in student" }
+        format.html { redirect_to [@subject,@gradeForSubject], notice: "Grade was successfully created in subject" }
+        format.json { render :show, status: :created}
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
         format.json { render json: @grade.errors, status: :unprocessable_entity }
       end
     end
@@ -64,10 +75,11 @@ class GradesController < ApplicationController
   def update
     respond_to do |format|
       if @grade.update(grade_params)
-        format.html { redirect_to grade_url(@grade), notice: "Grade was successfully updated." }
-        format.json { render :show, status: :ok, location: @grade }
+        format.html { redirect_to [@student, @grade], notice: "Grade was successfully updated for student" }
+        format.html { redirect_to [@subject, @grade], notice: "Grade was successfully updated for subject" }
+        format.json { render :show, status: :ok }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
         format.json { render json: @grade.errors, status: :unprocessable_entity }
       end
     end
@@ -86,11 +98,13 @@ class GradesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_grade
+      @student = Student.find(params[:student_id])
+      @subject = Subject.find(params[:student_id])
       @grade = Grade.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def grade_params
-      params.require(:grade).permit(:GradeId, :Grade, :Date)
+      params.require(:grade).permit(:GradeId, :Grade, :Date, :student_id, :subject_id)
     end
 end

@@ -12,8 +12,16 @@
       "description": "Certificates"
     },
     {
+      "path": "/grades.{format}",
+      "description": "Grades"
+    },
+    {
       "path": "/students.{format}",
       "description": "Students"
+    },
+    {
+      "path": "/subjects.{format}",
+      "description": "Subjects"
     },
     {
       "path": "/class_rooms.{format}",
@@ -40,16 +48,8 @@
       "description": "Emails"
     },
     {
-      "path": "/subjects.{format}",
-      "description": "Subjects"
-    },
-    {
       "path": "/class_lists.{format}",
       "description": "Class lists"
-    },
-    {
-      "path": "/grades.{format}",
-      "description": "Grades"
     }
   ],
   "authorizations": null,
