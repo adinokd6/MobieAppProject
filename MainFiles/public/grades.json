@@ -5,16 +5,23 @@
   "resourcePath": "grades",
   "apis": [
     {
-      "path": "/students/{student_id}/grades",
+      "path": "/subjects/{subject_id}/grades",
       "operations": [
         {
           "summary": "Create a grade",
           "parameters": [
             {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
               "paramType": "path",
-              "name": "student_id",
+              "name": "subject_id",
               "type": "integer",
-              "description": "Student id in database",
+              "description": "Subject id in database",
               "required": true
             },
             {
@@ -45,7 +52,7 @@
       ]
     },
     {
-      "path": "/students/{student_id}/grades/{id}",
+      "path": "/subjects/{subject_id}/grades/{id}",
       "operations": [
         {
           "summary": [
@@ -59,31 +66,20 @@
           "parameters": [
             {
               "paramType": "path",
-              "name": "student_id",
-              "type": "integer",
-              "description": "Student id in database",
-              "required": true
-            },
-            {
-              "paramType": "path",
               "name": "id",
               "type": "integer",
               "description": "Grade id",
               "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "subject_id",
+              "type": "integer",
+              "description": "Subject id in database",
+              "required": true
             }
           ],
           "nickname": "Grades#show",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "path": "/grades",
-      "operations": [
-        {
-          "summary": "Returns all grades",
-          "notes": "Notes...",
-          "nickname": "Grades#index",
           "method": "get"
         }
       ]

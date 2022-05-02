@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_27_131814) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_02_190606) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -94,6 +94,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_27_131814) do
     t.string "Date"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.bigint "student_id"
+    t.bigint "subject_id"
+    t.index ["student_id"], name: "index_grades_on_student_id"
+    t.index ["subject_id"], name: "index_grades_on_subject_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -145,4 +149,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_27_131814) do
   end
 
   add_foreign_key "certificates", "students"
+  add_foreign_key "grades", "students"
+  add_foreign_key "grades", "subjects"
 end

@@ -12,12 +12,12 @@
       "description": "Certificates"
     },
     {
-      "path": "/grades.{format}",
-      "description": "Grades"
-    },
-    {
       "path": "/students.{format}",
       "description": "Students"
+    },
+    {
+      "path": "/grades.{format}",
+      "description": "Grades"
     },
     {
       "path": "/subjects.{format}",

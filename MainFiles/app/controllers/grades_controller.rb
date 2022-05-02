@@ -35,7 +35,7 @@ class GradesController < ApplicationController
   # GET /grades/new
   swagger_api :create do
     summary "Create a grade"
-    param :path, :student_id, :integer, :required, "Student id in database"
+    param :header, "Authorization", :string, :required, "Authentication token"
     param :path, :subject_id, :integer, :required, "Subject id in database"
     param :form, "grade[Date]", :string, :required, "Grades date"
     param :form, "grade[Grade]", :string, :required, "Grades grade"
@@ -43,8 +43,7 @@ class GradesController < ApplicationController
   end
 
   def new
-    @student = Student.find(params[:student_id])
-    @subject = Subject.find(params[:student_id])
+    @subject = Subject.find(params[:subject_id])
   end
 
   # GET /grades/1/edit
@@ -53,20 +52,18 @@ class GradesController < ApplicationController
 
   # POST /grades or /grades.json
   def create
-    @student = Student.find(params[:student_id])
     @subject = Subject.find(params[:subject_id])
 
-    @gradeForStudent=@student.grades.new(grade_params)
+    #@gradeForStudent=@student.grades.new(grade_params)
     @gradeForSubject=@subject.grades.new(grade_params)
 
     respond_to do |format|
-      if @gradeForStudent.save
-        format.html { redirect_to [@student,@gradeForStudent], notice: "Grade was successfully created in student" }
+      if @gradeForSubject.save
         format.html { redirect_to [@subject,@gradeForSubject], notice: "Grade was successfully created in subject" }
         format.json { render :show, status: :created}
       else
         format.html { render :new }
-        format.json { render json: @grade.errors, status: :unprocessable_entity }
+        format.json { render json: @gradeForSubject.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -75,7 +72,6 @@ class GradesController < ApplicationController
   def update
     respond_to do |format|
       if @grade.update(grade_params)
-        format.html { redirect_to [@student, @grade], notice: "Grade was successfully updated for student" }
         format.html { redirect_to [@subject, @grade], notice: "Grade was successfully updated for subject" }
         format.json { render :show, status: :ok }
       else
@@ -98,8 +94,8 @@ class GradesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_grade
-      @student = Student.find(params[:student_id])
-      @subject = Subject.find(params[:student_id])
+      #@student = Student.find(params[:student_id])
+      @subject = Subject.find(params[:subject_id])
       @grade = Grade.find(params[:id])
     end
 

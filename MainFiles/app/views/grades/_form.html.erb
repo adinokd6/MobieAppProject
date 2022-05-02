@@ -1,4 +1,4 @@
-<%= form for [@student, @subject, @grade] do |form| %>
+<%= form_for [@subject, @grade] do |form| %>
   <% if grade.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(grade.errors.count, "error") %> prohibited this grade from being saved:</h2>

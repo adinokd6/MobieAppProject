@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   resources :students do
     resources :certificates, only: [:new, :create, :edit, :update, :show, :destroy]
-    resources :grades, only: [:new, :create, :edit, :update, :show, :destroy]
   end
 
   resources :subjects do
@@ -24,7 +23,6 @@ Rails.application.routes.draw do
   resources :emails
   resources :class_lists
   resources :animals
-  resources :grades
   get '/api' => redirect('/swagger/dist/index.html?url=/api-docs.json')
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
