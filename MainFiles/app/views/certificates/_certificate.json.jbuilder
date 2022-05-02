@@ -1,2 +1,1 @@
-json.extract! certificate, :id, :CertificateId, :Name, :Grade, :Description, :created_at, :updated_at
-json.url certificate_url(certificate, format: :json)
+json.extract! certificate, :id, :student_id, :CertificateId, :Name, :Grade, :Description, :created_at, :updated_at

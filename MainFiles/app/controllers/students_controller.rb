@@ -39,19 +39,20 @@ class StudentsController < ApplicationController
     param :form, "student[StudentId]", :integer, :required, "Students id"
     param :form, "student[password]", :string, :required, "Students password"
   end
+
   def create
     @student = Student.new(student_params)
 
-    respond_to do |format|
-      if @student.save
-        format.html { redirect_to student_url(@student), notice: "Student was successfully created." }
-        format.json { render :show, status: :created, location: @student }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @student.save
+          format.html { redirect_to @student, notice: 'Student was successfully created.' }
+          format.json { render :show, status: :created, location: @student }
+        else
+          format.html { render :new }
+          format.json { render json: @student.errors, status: :unprocessable_entity }
+        end
       end
     end
-  end
 
   # PATCH/PUT /students/1 or /students/1.json
   swagger_api :update do

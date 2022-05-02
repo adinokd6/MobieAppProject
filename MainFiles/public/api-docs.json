@@ -8,6 +8,14 @@
       "description": "Employees"
     },
     {
+      "path": "/certificates.{format}",
+      "description": "Certificates"
+    },
+    {
+      "path": "/students.{format}",
+      "description": "Students"
+    },
+    {
       "path": "/class_rooms.{format}",
       "description": "Grades"
     },
@@ -38,14 +46,6 @@
     {
       "path": "/class_lists.{format}",
       "description": "Class lists"
-    },
-    {
-      "path": "/certificates.{format}",
-      "description": "Certificates"
-    },
-    {
-      "path": "/students.{format}",
-      "description": "Students"
     },
     {
       "path": "/grades.{format}",

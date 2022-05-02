@@ -1,6 +1,8 @@
 class CertificatesController < ApplicationController
-  skip_before_action :verify_authenticity_token
   before_action :set_certificate, only: [ :show, :edit, :update, :destroy ]
+  skip_before_action :verify_authenticity_token
+  before_action :require_token, only: [:create]
+
 
   swagger_controller :certificates, 'Certificates'
 
@@ -19,13 +21,13 @@ class CertificatesController < ApplicationController
   end
 
   def new
-    @student = Student.find(params[:StudentId])
-    @certificate=@student.certificates.new
+    @student = Student.find(params[:student_id])
   end
   # GET /certificates/new
   swagger_api :create do
     summary "Create new certificate for student"
-    param :path, :StudentId, :integer, :required, "Student id"
+    param :header, "Authorization", :string, :required, "Authentication token"
+    param :path, :student_id, :integer, :required, "Student id"
     param :form, "certificate[CertificateId]", :integer, :required, "Certificate id"
     param :form, "certificate[Description]", :text, :required, "Certificate description"
     param :form, "certificate[Grade]", :integer, :required, "Certificate grade"
@@ -39,7 +41,7 @@ class CertificatesController < ApplicationController
 
   # POST /certificates or /certificates.json
   def create
-    @student = Student.find(params[:StudentId])
+    @student = Student.find(params[:student_id])
     @certificate=@student.certificates.new(certificate_params)
 
     respond_to do |format|
@@ -79,7 +81,7 @@ class CertificatesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_certificate
-      @student = Student.find(params[:StudentId])
+      @student = Student.find(params[:student_id])
       @certificate = Certificate.find(params[:id])
     end
 

@@ -8,5 +8,11 @@ class Student < ApplicationRecord
   validates :FirstName, presence: true
   validates :SecondName, presence: true
   validates :StudentId, presence: true, length: { is: 6 }, uniqueness: true
+
   has_secure_password
+  has_secure_token
+
+  def invalidate_token
+    self.update_columns(token: nil)
+  end
 end

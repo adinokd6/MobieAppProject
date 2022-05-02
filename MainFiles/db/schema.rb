@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_27_113610) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_27_131814) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -114,7 +114,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_27_113610) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.string "password_digest"
+    t.string "token"
     t.index ["StudentId"], name: "index_students_on_StudentId", unique: true
+    t.index ["token"], name: "index_students_on_token"
   end
 
   create_table "subjects", force: :cascade do |t|
