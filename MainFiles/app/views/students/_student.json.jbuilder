@@ -1,2 +1,7 @@
-json.extract! student, :id, :StudentId, :FirstName, :SecondName, :DateOfBirth, :created_at, :updated_at
-json.url student_url(student, format: :json)
+json.extract! student, :id, :StudentId, :FirstName, :SecondName, :DateOfBirth
+json.grades student.grades do |grade|
+  json.id grade.id
+  json.Grade grade.Grade
+  json.date grade.Date
+  json.subject_id grade.subject_id
+end
