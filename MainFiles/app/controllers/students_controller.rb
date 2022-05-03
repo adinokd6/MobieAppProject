@@ -64,6 +64,7 @@ class StudentsController < ApplicationController
     param :form, "student[DateOfBirth]", :string, :required, "Students second name"
     param :form, "student[password]", :string, :required, "Students password"
   end
+  
   def update
     respond_to do |format|
       if @student.update(student_params)

@@ -11,17 +11,17 @@
           "summary": "Create a grade",
           "parameters": [
             {
-              "paramType": "header",
-              "name": "Authorization",
-              "type": "string",
-              "description": "Authentication token",
-              "required": true
-            },
-            {
               "paramType": "path",
               "name": "subject_id",
               "type": "integer",
               "description": "Subject id in database",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "grade[student_id]",
+              "type": "integer",
+              "description": "Student id in database",
               "required": true
             },
             {
@@ -55,32 +55,66 @@
       "path": "/subjects/{subject_id}/grades/{id}",
       "operations": [
         {
-          "summary": [
-            "Returns one grade",
-            "Returns grade from exact subject"
-          ],
-          "notes": [
-            "Notes...",
-            "Notes..."
-          ],
+          "summary": "Create a grade",
           "parameters": [
-            {
-              "paramType": "path",
-              "name": "id",
-              "type": "integer",
-              "description": "Grade id",
-              "required": true
-            },
             {
               "paramType": "path",
               "name": "subject_id",
               "type": "integer",
               "description": "Subject id in database",
               "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Grade id in database",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "grade[Date]",
+              "type": "string",
+              "description": "Grades date",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "grade[Grade]",
+              "type": "string",
+              "description": "Grades grade",
+              "required": true
             }
           ],
-          "nickname": "Grades#show",
-          "method": "get"
+          "nickname": "Grades#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/subjects/{subject_id}/grades/{id}",
+      "operations": [
+        {
+          "summary": "Destroys grade",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "subject_id",
+              "type": "integer",
+              "description": "Subject id in database",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Grade id",
+              "required": true
+            }
+          ],
+          "nickname": "Grades#destroy",
+          "method": "delete"
         }
       ]
     }
