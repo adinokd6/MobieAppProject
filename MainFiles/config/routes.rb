@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  get '/class_types/:id/addsubject', to: 'class_types#addsubject'
-  get '/class_types/:id/removesubject', to: 'class_types#removesubject'
+  get '/class_types/:id/addsubject/:subject_id', to: 'class_types#addsubject'
+  get '/class_types/:id/removesubject/:subject_id', to: 'class_types#removesubject'
 
   resources :students do
     resources :certificates, only: [:new, :create, :edit, :update, :show, :destroy]

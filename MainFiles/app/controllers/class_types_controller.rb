@@ -11,12 +11,13 @@ class ClassTypesController < ApplicationController
     summary 'Add subject for a class'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Class type id"
-    param :form, :subject_id, :integer, :required, "Subject id in database"
+    param :path, :subject_id, :integer, :required, "Subject id in database"
   end
 
 
 
   def addsubject
+    @subject=Subject.find(params[:subject_id])
     unless @class_type.follows?(@subject)
       @class_type.subjects.append(@subject)
       @subject.class_types.append(@class_type)
@@ -30,7 +31,7 @@ class ClassTypesController < ApplicationController
     summary 'Remove subject from course'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Class type id"
-    param :path, :subject_id, :integer, :required, "Subject id in database"
+    param :form, :subject_id, :integer, :required, "Subject id in database"
   end
 
   def removesubject
@@ -120,7 +121,6 @@ class ClassTypesController < ApplicationController
 
     def set_class_and_subject
       @class_type = ClassType.find(params[:id])
-      @subject=Subject.find(params[:subject_id])
     end
 
 
