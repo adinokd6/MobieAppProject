@@ -15,7 +15,7 @@ class SubjectsController < ApplicationController
 
   # GET /subjects/1 or /subjects/1.json
   swagger_api :show do
-    summary 'Returns one subject'
+    summary 'Returns one subject with exact id'
     param :path, :id, :integer, :required, "Subject id"
     notes 'Notes...'
   end
@@ -58,7 +58,7 @@ class SubjectsController < ApplicationController
   end
 
   swagger_api :update do
-    summary "Update subject"
+    summary "Update subject information"
     param :form, "subject[teacher_id]", :integer, :required, "Teacher id in database"
     param :form, "subject[trainer_id]", :integer, :required, "Trainer id in database"
     param :form, "subject[Description]", :text, :required, "Subject description"

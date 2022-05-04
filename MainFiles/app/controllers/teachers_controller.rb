@@ -26,7 +26,7 @@ class TeachersController < ApplicationController
   swagger_api :create do
     summary "Create a teacher"
     param :form, "teacher[FirstName]", :string, :required, "Teacher first name"
-    param :form, "teacher[LastName]", :string, "Teacher last anme"
+    param :form, "teacher[LastName]", :string, "Teacher last name"
     param :form, "teacher[Title]", :string, "Teacher title"
     param :form, "teacher[TeacherId]", :integer, "Teacher id"
   end
