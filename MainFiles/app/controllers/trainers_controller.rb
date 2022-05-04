@@ -15,7 +15,7 @@ class TrainersController < ApplicationController
 
   # GET /trainers/1 or /trainers/1.json
   swagger_api :show do
-    summary 'Returns one trainer'
+    summary 'Returns one trainer with exact id'
     param :path, :id, :integer, :required, "Trainer id"
     notes 'Notes...'
   end
@@ -25,9 +25,10 @@ class TrainersController < ApplicationController
   # GET /trainers/new
   swagger_api :create do
     summary "Create a trainer"
-    param :form, "trainer[FristName]", :string, :required, "Trainers first name"
-    param :form, "trainer[SecondName]", :string, :required, "Trainers second name"
-    param :form, "trainer[TrainerId]", :integer, :required, "Trainers id"
+    param :path, :employee_id, :integer, :required, "Employee in database"
+    param :form, "trainer[FristName]", :string, :required, "Trainer first name"
+    param :form, "trainer[SecondName]", :string, :required, "Trainer second name"
+    param :form, "trainer[TrainerId]", :integer, :required, "Trainer id"
   end
   def new
     @trainer = Trainer.new
@@ -53,6 +54,14 @@ class TrainersController < ApplicationController
   end
 
   # PATCH/PUT /trainers/1 or /trainers/1.json
+  swagger_api :update do
+    summary "Update trainer information"
+    param :path, :employee_id, :integer, :required, "Employee in database"
+    param :form, "trainer[FristName]", :string, :required, "Trainer first name"
+    param :form, "trainer[SecondName]", :string, :required, "Trainer second name"
+    param :form, "trainer[TrainerId]", :integer, :required, "Trainer id"
+  end
+
   def update
     respond_to do |format|
       if @trainer.update(trainer_params)
@@ -66,6 +75,12 @@ class TrainersController < ApplicationController
   end
 
   # DELETE /trainers/1 or /trainers/1.json
+  swagger_api :destroy do
+    summary 'Delete trainer from database'
+    param :path, :id, :integer, :required, "Trainer id"
+    notes 'Notes...'
+  end
+
   def destroy
     @trainer.destroy
 

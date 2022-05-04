@@ -16,6 +16,18 @@
       "description": "Students"
     },
     {
+      "path": "/trainers.{format}",
+      "description": "Trainers"
+    },
+    {
+      "path": "/teachers.{format}",
+      "description": "Teachers"
+    },
+    {
+      "path": "/employees.{format}",
+      "description": "Employees"
+    },
+    {
       "path": "/grades.{format}",
       "description": "Grades"
     },
@@ -28,20 +40,8 @@
       "description": "Grades"
     },
     {
-      "path": "/employees.{format}",
-      "description": "Employees"
-    },
-    {
       "path": "/class_lists.{format}",
       "description": "Class lists"
-    },
-    {
-      "path": "/teachers.{format}",
-      "description": "Teachers"
-    },
-    {
-      "path": "/trainers.{format}",
-      "description": "Trainers"
     },
     {
       "path": "/emails.{format}",

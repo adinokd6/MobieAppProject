@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_03_095457) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_04_181449) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -144,6 +144,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_03_095457) do
     t.string "Title"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.bigint "employee_id"
+    t.index ["employee_id"], name: "index_teachers_on_employee_id"
   end
 
   create_table "trainers", force: :cascade do |t|
@@ -152,6 +154,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_03_095457) do
     t.string "LastName"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.bigint "employee_id"
+    t.index ["employee_id"], name: "index_trainers_on_employee_id"
   end
 
   add_foreign_key "certificates", "students"
@@ -160,4 +164,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_03_095457) do
   add_foreign_key "subjects", "class_types"
   add_foreign_key "subjects", "teachers"
   add_foreign_key "subjects", "trainers"
+  add_foreign_key "teachers", "employees"
+  add_foreign_key "trainers", "employees"
 end

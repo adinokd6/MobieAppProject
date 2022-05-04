@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_employee, only: %i[ show edit update destroy ]
+  before_action :set_employee, only: [ :show, :edit, :update, :destroy ]
 
   swagger_controller :employees, 'Employees'
 

@@ -5,41 +5,37 @@
   "resourcePath": "trainers",
   "apis": [
     {
-      "path": "/trainers",
-      "operations": [
-        {
-          "summary": "Returns all trainers",
-          "notes": "Notes...",
-          "nickname": "Trainers#index",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "path": "/trainers",
+      "path": "/employees/{employee_id}/trainers",
       "operations": [
         {
           "summary": "Create a trainer",
           "parameters": [
             {
+              "paramType": "path",
+              "name": "employee_id",
+              "type": "integer",
+              "description": "Employee in database",
+              "required": true
+            },
+            {
               "paramType": "form",
               "name": "trainer[FristName]",
               "type": "string",
-              "description": "Trainers first name",
+              "description": "Trainer first name",
               "required": true
             },
             {
               "paramType": "form",
               "name": "trainer[SecondName]",
               "type": "string",
-              "description": "Trainers second name",
+              "description": "Trainer second name",
               "required": true
             },
             {
               "paramType": "form",
               "name": "trainer[TrainerId]",
               "type": "integer",
-              "description": "Trainers id",
+              "description": "Trainer id",
               "required": true
             }
           ],
@@ -49,10 +45,10 @@
       ]
     },
     {
-      "path": "/trainers/{id}",
+      "path": "/employees/{employee_id}/trainers/{id}",
       "operations": [
         {
-          "summary": "Returns one trainer",
+          "summary": "Returns one trainer with exact id",
           "notes": "Notes...",
           "parameters": [
             {
@@ -65,6 +61,66 @@
           ],
           "nickname": "Trainers#show",
           "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/employees/{employee_id}/trainers/{id}",
+      "operations": [
+        {
+          "summary": "Update trainer information",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "employee_id",
+              "type": "integer",
+              "description": "Employee in database",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "trainer[FristName]",
+              "type": "string",
+              "description": "Trainer first name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "trainer[SecondName]",
+              "type": "string",
+              "description": "Trainer second name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "trainer[TrainerId]",
+              "type": "integer",
+              "description": "Trainer id",
+              "required": true
+            }
+          ],
+          "nickname": "Trainers#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/employees/{employee_id}/trainers/{id}",
+      "operations": [
+        {
+          "summary": "Delete trainer from database",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Trainer id",
+              "required": true
+            }
+          ],
+          "nickname": "Trainers#destroy",
+          "method": "delete"
         }
       ]
     }

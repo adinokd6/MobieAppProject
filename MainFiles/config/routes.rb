@@ -16,16 +16,20 @@ Rails.application.routes.draw do
 
   resources :class_types
 
+  resources :employees do
+    resources :trainers, only: [:new, :create, :edit, :update, :show, :destroy]
+    resources :teachers, only: [:new, :create, :edit, :update, :show, :destroy]
+  end
+
   resources :subjects do
     resources :grades, only: [:new, :create, :edit, :update, :show, :destroy]
   end
 
   resources :class_rooms
-  resources :employees
+
   resources :animals
   resources :class_lists
-  resources :teachers
-  resources :trainers
+
   resources :messages
   resources :emails
   get '/api' => redirect('/swagger/dist/index.html?url=/api-docs.json')

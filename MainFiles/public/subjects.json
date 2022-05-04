@@ -66,7 +66,7 @@
       "path": "/subjects/{id}",
       "operations": [
         {
-          "summary": "Returns one subject",
+          "summary": "Returns one subject with exact id",
           "notes": "Notes...",
           "parameters": [
             {
@@ -86,7 +86,7 @@
       "path": "/subjects/{id}",
       "operations": [
         {
-          "summary": "Update subject",
+          "summary": "Update subject information",
           "parameters": [
             {
               "paramType": "form",

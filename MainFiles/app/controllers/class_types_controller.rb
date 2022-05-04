@@ -1,8 +1,6 @@
 class ClassTypesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_class_type, only: [ :show, :edit, :update, :destroy ]
-
-  before_action :set_class_and_subject, only: [:addsubject, :removesubject]
+  before_action :set_class_type, only: [ :show, :edit, :update, :destroy, :addsubject, :removesubject, :addtutor, :removetutor]
 
   swagger_controller :class_types, 'Classes'
 
@@ -13,8 +11,6 @@ class ClassTypesController < ApplicationController
     param :path, :id, :integer, :required, "Class type id"
     param :path, :subject_id, :integer, :required, "Subject id in database"
   end
-
-
 
   def addsubject
     @subject=Subject.find(params[:subject_id])
@@ -38,6 +34,38 @@ class ClassTypesController < ApplicationController
     if @class_type.follows?(@subject)
       @subject.class_types.delete(@class_type)
       @class_type.subjects.delete(@subject)
+    end
+    redirect_to @class_type
+  end
+
+#adding tutor for exact class
+  swagger_api :addtutor do
+    summary 'Add subject for a class'
+    notes 'Notes...'
+    param :path, :id, :integer, :required, "Class type id"
+    param :path, :employee_id, :integer, :required, "Employee id in database"
+  end
+
+  def addtutor
+    @employee=Employee.find(params[:employee_id])
+    unless @class_type.follows?(@employee)
+      @class_type.employee.append(@employee)
+    end
+    redirect_to @class_type
+  end
+
+
+
+  swagger_api :removetutor do
+    summary 'Remove subject from course'
+    notes 'Notes...'
+    param :path, :id, :integer, :required, "Class type id"
+    param :form, :employee_id, :integer, :required, "Employee id in database"
+  end
+
+  def removetutor
+    if @class_type.follows?(@employee)
+      @class_type.employee.delete(@employee)
     end
     redirect_to @class_type
   end
@@ -117,10 +145,6 @@ class ClassTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_class_type
-      @class_type = ClassType.find(params[:id])
-    end
-
-    def set_class_and_subject
       @class_type = ClassType.find(params[:id])
     end
 

@@ -5,22 +5,18 @@
   "resourcePath": "teachers",
   "apis": [
     {
-      "path": "/teachers",
-      "operations": [
-        {
-          "summary": "Returns all teachers",
-          "notes": "Notes...",
-          "nickname": "Teachers#index",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "path": "/teachers",
+      "path": "/employees/{employee_id}/teachers",
       "operations": [
         {
           "summary": "Create a teacher",
           "parameters": [
+            {
+              "paramType": "path",
+              "name": "employee_id",
+              "type": "integer",
+              "description": "Employee in database",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "teacher[FirstName]",
@@ -56,7 +52,7 @@
       ]
     },
     {
-      "path": "/teachers/{id}",
+      "path": "/employees/{employee_id}/teachers/{id}",
       "operations": [
         {
           "summary": "Returns one teacher",
@@ -72,6 +68,87 @@
           ],
           "nickname": "Teachers#show",
           "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/employees/{employee_id}/teachers/{id}",
+      "operations": [
+        {
+          "summary": "Update teacher information",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "employee_id",
+              "type": "integer",
+              "description": "Employee in database",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Teacher id in database",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "teacher[FirstName]",
+              "type": "string",
+              "description": "Teacher first name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "teacher[LastName]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "teacher[Title]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "teacher[TeacherId]",
+              "type": "integer",
+              "description": null,
+              "required": false
+            }
+          ],
+          "nickname": "Teachers#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/employees/{employee_id}/teachers/{id}",
+      "operations": [
+        {
+          "summary": "Delete teacher from database",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "employee_id",
+              "type": "integer",
+              "description": "Employee in database",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Teacher id in database",
+              "required": true
+            }
+          ],
+          "nickname": "Teachers#destroy",
+          "method": "delete"
         }
       ]
     }
