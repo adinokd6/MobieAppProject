@@ -5,6 +5,60 @@
   "resourcePath": "class_types",
   "apis": [
     {
+      "path": "/class_types/{id}/addsubject/{subject_id}",
+      "operations": [
+        {
+          "summary": "Add subject for a class",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class type id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "subject_id",
+              "type": "integer",
+              "description": "Subject id in database",
+              "required": true
+            }
+          ],
+          "nickname": "ClassTypes#addsubject",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/class_types/{id}/removesubject/{subject_id}",
+      "operations": [
+        {
+          "summary": "Remove subject from course",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class type id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "subject_id",
+              "type": "integer",
+              "description": "Subject id in database",
+              "required": true
+            }
+          ],
+          "nickname": "ClassTypes#removesubject",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "path": "/class_types",
       "operations": [
         {

@@ -7,4 +7,8 @@ class ClassType < ApplicationRecord
   has_one :class_list
   has_one :class_room
   has_many :subjects
+
+  def follows?(subject)
+    self.subjects.include?(subject)
+  end
 end

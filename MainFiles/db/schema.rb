@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_02_190606) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_03_095457) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -129,6 +129,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_190606) do
     t.integer "MaxCapacity"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.bigint "teacher_id"
+    t.bigint "trainer_id"
+    t.bigint "class_type_id"
+    t.index ["class_type_id"], name: "index_subjects_on_class_type_id"
+    t.index ["teacher_id"], name: "index_subjects_on_teacher_id"
+    t.index ["trainer_id"], name: "index_subjects_on_trainer_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -151,4 +157,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_02_190606) do
   add_foreign_key "certificates", "students"
   add_foreign_key "grades", "students"
   add_foreign_key "grades", "subjects"
+  add_foreign_key "subjects", "class_types"
+  add_foreign_key "subjects", "teachers"
+  add_foreign_key "subjects", "trainers"
 end

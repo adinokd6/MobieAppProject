@@ -2,7 +2,46 @@ class ClassTypesController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_class_type, only: [ :show, :edit, :update, :destroy ]
 
+  before_action :set_class_and_subject, only: [:addsubject, :removesubject]
+
   swagger_controller :class_types, 'Classes'
+
+  #methods for adding and removing subject from classes
+  swagger_api :addsubject do
+    summary 'Add subject for a class'
+    notes 'Notes...'
+    param :path, :id, :integer, :required, "Class type id"
+    param :path, :subject_id, :integer, :required, "Subject id in database"
+  end
+
+
+
+  def addsubject
+    @subject=Subject.find(params[:subject_id])
+    unless @class_type.follows?(@subject)
+      @class_type.subjects.append(@subject)
+      @subject.class_types.append(@class_type)
+    end
+    redirect_to @subject
+  end
+
+
+
+  swagger_api :removesubject do
+    summary 'Remove subject from course'
+    notes 'Notes...'
+    param :path, :id, :integer, :required, "Class type id"
+    param :form, :subject_id, :integer, :required, "Subject id in database"
+  end
+
+  def removesubject
+    if @class_type.follows?(@subject)
+      @subject.class_types.delete(@class_type)
+      @class_type.subjects.delete(@subject)
+    end
+    redirect_to @class_type
+  end
+
 
   # GET /class_types or /class_types.json
   swagger_api :index do
@@ -80,6 +119,12 @@ class ClassTypesController < ApplicationController
     def set_class_type
       @class_type = ClassType.find(params[:id])
     end
+
+    def set_class_and_subject
+      @class_type = ClassType.find(params[:id])
+    end
+
+
 
     # Only allow a list of trusted parameters through.
     def class_type_params
