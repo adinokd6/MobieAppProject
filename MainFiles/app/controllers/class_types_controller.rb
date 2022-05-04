@@ -37,8 +37,9 @@ class ClassTypesController < ApplicationController
   def removesubject
     if @class_type.follows?(@subject)
       @subject.class_types.delete(@class_type)
+      @class_type.subjects.delete(@subject)
     end
-    redirect_to @subject
+    redirect_to @class_type
   end
 
 
