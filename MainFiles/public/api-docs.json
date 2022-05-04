@@ -4,8 +4,8 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
-      "path": "/employees.{format}",
-      "description": "Employees"
+      "path": "/class_types.{format}",
+      "description": "Classes"
     },
     {
       "path": "/certificates.{format}",
@@ -28,8 +28,12 @@
       "description": "Grades"
     },
     {
-      "path": "/class_types.{format}",
-      "description": "Classes"
+      "path": "/employees.{format}",
+      "description": "Employees"
+    },
+    {
+      "path": "/class_lists.{format}",
+      "description": "Class lists"
     },
     {
       "path": "/teachers.{format}",
@@ -40,16 +44,8 @@
       "description": "Trainers"
     },
     {
-      "path": "/employers.{format}",
-      "description": "Employers"
-    },
-    {
       "path": "/emails.{format}",
       "description": "Emails"
-    },
-    {
-      "path": "/class_lists.{format}",
-      "description": "Class lists"
     }
   ],
   "authorizations": null,

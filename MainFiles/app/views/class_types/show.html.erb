@@ -15,10 +15,6 @@
   <%= @class_type.Time %>
 </p>
 
-<p>
-  <strong>Animal:</strong>
-  <%= @class_type.animal %>
-</p>
-
+<%= link_to( "Add subject to class", action: :addsubject) %>
 <%= link_to 'Edit', edit_class_type_path(@class_type) %> |
 <%= link_to 'Back', class_types_path %>
