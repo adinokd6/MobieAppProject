@@ -5,6 +5,74 @@
   "resourcePath": "teachers",
   "apis": [
     {
+      "path": "/employees/{employee_id}/teachers/{id}/addsubject/{subject_id}",
+      "operations": [
+        {
+          "summary": "Remove subject owner",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "employee_id",
+              "type": "integer",
+              "description": "Employee in database",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Teacher id in database",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "subject_id",
+              "type": "integer",
+              "description": "Subject id in database",
+              "required": true
+            }
+          ],
+          "nickname": "Teachers#addsubject",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/employees/{employee_id}/teachers/{id}/removesubject/{subject_id}",
+      "operations": [
+        {
+          "summary": "Remove subject owner",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "employee_id",
+              "type": "integer",
+              "description": "Employee in database",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Teacher id in database",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "subject_id",
+              "type": "integer",
+              "description": "Subject id in database",
+              "required": true
+            }
+          ],
+          "nickname": "Teachers#removesubject",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "path": "/employees/{employee_id}/teachers",
       "operations": [
         {
@@ -63,6 +131,13 @@
               "name": "id",
               "type": "integer",
               "description": "Teacher id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "employee_id",
+              "type": "integer",
+              "description": "Employee in database",
               "required": true
             }
           ],

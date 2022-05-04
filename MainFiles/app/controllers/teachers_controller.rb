@@ -1,8 +1,41 @@
 class TeachersController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_teacher, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_teacher, only: [ :show, :edit, :update, :destroy, :addsubject, :removesubject ]
 
   swagger_controller :teachers, 'Teachers'
+
+
+  swagger_api :addsubject do
+    summary 'Remove subject owner'
+    notes 'Notes...'
+    param :path, :employee_id, :integer, :required, "Employee in database"
+    param :path, :id, :integer, :required, "Teacher id in database"
+    param :path, :subject_id, :integer, :required, "Subject id in database"
+  end
+
+  def addsubject
+    @subject=Subject.find(params[:subject_id])
+    unless @teacher.has_subject?(@subject)
+      @teacher.subjects.append(@subject)
+    end
+    redirect_to @subject
+  end
+
+
+
+  swagger_api :removesubject do
+    summary 'Remove subject owner'
+    notes 'Notes...'
+    param :path, :employee_id, :integer, :required, "Employee in database"
+    param :path, :id, :integer, :required, "Teacher id in database"
+    param :form, :subject_id, :integer, :required, "Subject id in database"
+  end
+
+  def removesubject
+    if @teacher.has_subject?(@subject)
+      @teacher.subjects.delete(@teacher)
+    end
+  end
 
   # GET /teachers or /teachers.json
   swagger_api :index do
@@ -17,6 +50,7 @@ class TeachersController < ApplicationController
   swagger_api :show do
     summary 'Returns one teacher'
     param :path, :id, :integer, :required, "Teacher id"
+    param :path, :employee_id, :integer, :required, "Employee in database"
     notes 'Notes...'
   end
   def show

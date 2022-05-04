@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   get '/class_types/:id/addsubject/:subject_id', to: 'class_types#addsubject'
   get '/class_types/:id/removesubject/:subject_id', to: 'class_types#removesubject'
 
+  get '/employees/:employee_id/teachers/:id/addsubject/:subject_id', to: 'teachers#addsubject'
+  get '/employees/:employee_id/teachers/:id/removesubject/:subject_id', to: 'teachers#removesubject'
+
+  get '/employees/:employee_id/trainers/:id/addsubject/:subject_id', to: 'trainers#addsubject'
+  get '/employees/:employee_id/trainers/:id/removesubject/:subject_id', to: 'trainers#removesubject'
+
   resources :students do
     resources :certificates, only: [:new, :create, :edit, :update, :show, :destroy]
   end

@@ -162,8 +162,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_181449) do
   add_foreign_key "grades", "students"
   add_foreign_key "grades", "subjects"
   add_foreign_key "subjects", "class_types"
-  add_foreign_key "subjects", "teachers"
-  add_foreign_key "subjects", "trainers"
+  add_foreign_key "subjects", "teachers", on_delete: :cascade
+  add_foreign_key "subjects", "trainers", on_delete: :cascade
   add_foreign_key "teachers", "employees"
   add_foreign_key "trainers", "employees"
 end

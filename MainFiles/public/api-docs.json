@@ -8,20 +8,20 @@
       "description": "Classes"
     },
     {
-      "path": "/certificates.{format}",
-      "description": "Certificates"
-    },
-    {
-      "path": "/students.{format}",
-      "description": "Students"
+      "path": "/teachers.{format}",
+      "description": "Teachers"
     },
     {
       "path": "/trainers.{format}",
       "description": "Trainers"
     },
     {
-      "path": "/teachers.{format}",
-      "description": "Teachers"
+      "path": "/certificates.{format}",
+      "description": "Certificates"
+    },
+    {
+      "path": "/students.{format}",
+      "description": "Students"
     },
     {
       "path": "/employees.{format}",
