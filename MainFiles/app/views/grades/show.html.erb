@@ -1,19 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Gradeid:</strong>
-  <%= @grade.GradeId %>
-</p>
+<h1><%= @grade.Grade %> by <%= link_to @grade.student.FirstName, @grade.student %></h1>
 
-<p>
-  <strong>Grade:</strong>
-  <%= @grade.Grade %>
-</p>
+<hr>
+<h1>Test</h1>
 
-<p>
-  <strong>Date:</strong>
-  <%= @grade.Date %>
-</p>
+<hr>
 
-<%= link_to 'Edit', edit_grade_path(@grade) %> |
-<%= link_to 'Back', grades_path %>
+<%= link_to 'Back', @subject %>

@@ -1,16 +1,15 @@
-<%= form_with(model: certificate, local: true) do |form| %>
-  <% if certificate.errors.any? %>
+<%= form_for [@student, @certificate] do |form| %>
+<% if certificate.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(certificate.errors.count, "error") %> prohibited this certificate from being saved:</h2>
+      <h2><%= pluralize(certificate.errors.count, "error") %> prohibited this post from being saved:</h2>
 
       <ul>
-      <% certificate.errors.full_messages.each do |message| %>
+      <% post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= form.label :CertificateId %>
     <%= form.number_field :CertificateId %>

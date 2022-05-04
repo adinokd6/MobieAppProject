@@ -4,7 +4,6 @@ class CreateGrades < ActiveRecord::Migration[5.2]
       t.integer :GradeId
       t.integer :Grade
       t.string :Date
-
       t.timestamps
     end
   end

@@ -9,7 +9,6 @@
       <th>Firstname</th>
       <th>Secondname</th>
       <th>Dateofbirth</th>
-      <th>Grade</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,7 +20,6 @@
         <td><%= student.FirstName %></td>
         <td><%= student.SecondName %></td>
         <td><%= student.DateOfBirth %></td>
-        <td><%= student.grades %></td>
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>

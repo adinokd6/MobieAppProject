@@ -8,6 +8,22 @@
       "description": "Employees"
     },
     {
+      "path": "/certificates.{format}",
+      "description": "Certificates"
+    },
+    {
+      "path": "/students.{format}",
+      "description": "Students"
+    },
+    {
+      "path": "/grades.{format}",
+      "description": "Grades"
+    },
+    {
+      "path": "/subjects.{format}",
+      "description": "Subjects"
+    },
+    {
       "path": "/class_rooms.{format}",
       "description": "Grades"
     },
@@ -32,24 +48,8 @@
       "description": "Emails"
     },
     {
-      "path": "/subjects.{format}",
-      "description": "Subjects"
-    },
-    {
       "path": "/class_lists.{format}",
       "description": "Class lists"
-    },
-    {
-      "path": "/certificates.{format}",
-      "description": "Certificates"
-    },
-    {
-      "path": "/students.{format}",
-      "description": "Students"
-    },
-    {
-      "path": "/grades.{format}",
-      "description": "Grades"
     }
   ],
   "authorizations": null,

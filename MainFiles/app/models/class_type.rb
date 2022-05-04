@@ -1,5 +1,10 @@
 class ClassType < ApplicationRecord
   has_and_belongs_to_many :animals, :join_table => :animal_classes
-  has_many :class_lists
-  has_many :class_rooms
+  has_and_belongs_to_many :subjects, :join_table => :class_subjects
+
+  belongs_to :employee, optional: true
+
+  has_one :class_list
+  has_one :class_room
+  has_many :subjects
 end

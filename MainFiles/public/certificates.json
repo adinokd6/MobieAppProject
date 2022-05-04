@@ -5,22 +5,25 @@
   "resourcePath": "certificates",
   "apis": [
     {
-      "path": "/certificates",
+      "path": "/students/{student_id}/certificates",
       "operations": [
         {
-          "summary": "Returns all certificates",
-          "notes": "Notes...",
-          "nickname": "Certificates#index",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "path": "/certificates",
-      "operations": [
-        {
-          "summary": "Create a certificate",
+          "summary": "Create new certificate for student",
           "parameters": [
+            {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "student_id",
+              "type": "integer",
+              "description": "Student id",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "certificate[CertificateId]",
@@ -56,12 +59,19 @@
       ]
     },
     {
-      "path": "/certificates/{id}",
+      "path": "/students/{student_id}/certificates/{id}",
       "operations": [
         {
           "summary": "Returns one certificate",
           "notes": "Notes...",
           "parameters": [
+            {
+              "paramType": "path",
+              "name": "student_id",
+              "type": "integer",
+              "description": "Student id",
+              "required": true
+            },
             {
               "paramType": "path",
               "name": "id",

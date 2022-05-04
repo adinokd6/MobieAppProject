@@ -1,24 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Certificateid:</strong>
-  <%= @certificate.CertificateId %>
-</p>
+<h1><%= @certificate.name %> by <%= link_to @certificate.student.name, @certificate.student %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @certificate.Name %>
-</p>
+<hr>
+<h1>Lista odpowiedzi</h1>
 
-<p>
-  <strong>Grade:</strong>
-  <%= @certificate.Grade %>
-</p>
+<hr>
 
-<p>
-  <strong>Description:</strong>
-  <%= @certificate.Description %>
-</p>
-
-<%= link_to 'Edit', edit_certificate_path(@certificate) %> |
-<%= link_to 'Back', certificates_path %>
+<%= link_to 'Back', @certificate %>
