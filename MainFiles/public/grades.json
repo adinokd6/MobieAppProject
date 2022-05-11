@@ -75,15 +75,15 @@
               "paramType": "form",
               "name": "grade[Date]",
               "type": "string",
-              "description": "Grades date",
-              "required": true
+              "description": null,
+              "required": false
             },
             {
               "paramType": "form",
               "name": "grade[Grade]",
               "type": "string",
-              "description": "Grades grade",
-              "required": true
+              "description": null,
+              "required": false
             }
           ],
           "nickname": "Grades#update",

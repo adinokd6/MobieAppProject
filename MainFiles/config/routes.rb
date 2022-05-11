@@ -14,13 +14,15 @@ Rails.application.routes.draw do
   get '/employees/:employee_id/trainers/:id/addsubject/:subject_id', to: 'trainers#addsubject'
   get '/employees/:employee_id/trainers/:id/removesubject/:subject_id', to: 'trainers#removesubject'
 
+
+
   resources :students do
     resources :certificates, only: [:new, :create, :edit, :update, :show, :destroy]
   end
 
 
 
-  resources :class_types
+
 
   resources :employees do
     resources :trainers, only: [:new, :create, :edit, :update, :show, :destroy]
@@ -31,13 +33,17 @@ Rails.application.routes.draw do
     resources :grades, only: [:new, :create, :edit, :update, :show, :destroy]
   end
 
-  resources :class_rooms
+  resources :emails do
+    resources :messages, only: [:new, :create, :edit, :update, :show, :destroy]
+  end
 
+  resources :class_types
+  resources :class_rooms
   resources :animals
   resources :class_lists
 
-  resources :messages
-  resources :emails
+
+
   get '/api' => redirect('/swagger/dist/index.html?url=/api-docs.json')
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

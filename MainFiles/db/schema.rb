@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_04_181449) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_11_133221) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,6 +79,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_181449) do
     t.string "EmailAddress"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.bigint "employee_id"
+    t.bigint "student_id"
+    t.index ["employee_id"], name: "index_emails_on_employee_id"
+    t.index ["student_id"], name: "index_emails_on_student_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -108,6 +112,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_181449) do
     t.string "Date"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.bigint "email_id"
+    t.index ["email_id"], name: "index_messages_on_email_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -159,8 +165,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_181449) do
   end
 
   add_foreign_key "certificates", "students"
+  add_foreign_key "emails", "employees"
+  add_foreign_key "emails", "students"
   add_foreign_key "grades", "students"
   add_foreign_key "grades", "subjects"
+  add_foreign_key "messages", "emails"
   add_foreign_key "subjects", "class_types"
   add_foreign_key "subjects", "teachers", on_delete: :cascade
   add_foreign_key "subjects", "trainers", on_delete: :cascade

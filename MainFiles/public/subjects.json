@@ -92,36 +92,36 @@
               "paramType": "form",
               "name": "subject[teacher_id]",
               "type": "integer",
-              "description": "Teacher id in database",
-              "required": true
+              "description": null,
+              "required": false
             },
             {
               "paramType": "form",
               "name": "subject[trainer_id]",
               "type": "integer",
-              "description": "Trainer id in database",
-              "required": true
+              "description": null,
+              "required": false
             },
             {
               "paramType": "form",
               "name": "subject[Description]",
               "type": "text",
-              "description": "Subject description",
-              "required": true
+              "description": null,
+              "required": false
             },
             {
               "paramType": "form",
               "name": "subject[MaxCapacity]",
               "type": "integer",
-              "description": "Subject max capacity",
-              "required": true
+              "description": null,
+              "required": false
             },
             {
               "paramType": "form",
               "name": "subject[SubjectId]",
               "type": "integer",
-              "description": "Subject id",
-              "required": true
+              "description": null,
+              "required": false
             }
           ],
           "nickname": "Subjects#update",

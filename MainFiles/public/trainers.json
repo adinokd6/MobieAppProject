@@ -163,22 +163,22 @@
               "paramType": "form",
               "name": "trainer[FirstName]",
               "type": "string",
-              "description": "Trainer first name",
-              "required": true
+              "description": null,
+              "required": false
             },
             {
               "paramType": "form",
               "name": "trainer[LastName]",
               "type": "string",
-              "description": "Trainer second name",
-              "required": true
+              "description": null,
+              "required": false
             },
             {
               "paramType": "form",
               "name": "trainer[TrainerId]",
               "type": "integer",
-              "description": "Trainer id",
-              "required": true
+              "description": null,
+              "required": false
             }
           ],
           "nickname": "Trainers#update",

@@ -36,16 +36,20 @@
       "description": "Subjects"
     },
     {
+      "path": "/messages.{format}",
+      "description": "Messages"
+    },
+    {
+      "path": "/emails.{format}",
+      "description": "Emails"
+    },
+    {
       "path": "/class_rooms.{format}",
       "description": "Grades"
     },
     {
       "path": "/class_lists.{format}",
       "description": "Class lists"
-    },
-    {
-      "path": "/emails.{format}",
-      "description": "Emails"
     }
   ],
   "authorizations": null,

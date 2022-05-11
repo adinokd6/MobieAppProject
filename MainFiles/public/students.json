@@ -25,28 +25,28 @@
               "paramType": "form",
               "name": "student[FirstName]",
               "type": "string",
-              "description": "Students first name",
+              "description": "Student first name",
               "required": true
             },
             {
               "paramType": "form",
               "name": "student[SecondName]",
               "type": "string",
-              "description": "Students second name",
+              "description": "Student second name",
               "required": true
             },
             {
               "paramType": "form",
               "name": "student[StudentId]",
               "type": "integer",
-              "description": "Students id",
+              "description": "Student id",
               "required": true
             },
             {
               "paramType": "form",
               "name": "student[password]",
               "type": "string",
-              "description": "Students password",
+              "description": "Student password",
               "required": true
             }
           ],
@@ -92,36 +92,36 @@
               "paramType": "form",
               "name": "student[StudentId]",
               "type": "string",
-              "description": "Students index",
-              "required": true
+              "description": null,
+              "required": false
             },
             {
               "paramType": "form",
               "name": "student[FristName]",
               "type": "string",
-              "description": "Students first name",
-              "required": true
+              "description": null,
+              "required": false
             },
             {
               "paramType": "form",
               "name": "student[SecondName]",
               "type": "string",
-              "description": "Students second name",
-              "required": true
+              "description": null,
+              "required": false
             },
             {
               "paramType": "form",
               "name": "student[DateOfBirth]",
               "type": "string",
-              "description": "Students second name",
-              "required": true
+              "description": null,
+              "required": false
             },
             {
               "paramType": "form",
               "name": "student[password]",
               "type": "string",
-              "description": "Students password",
-              "required": true
+              "description": null,
+              "required": false
             }
           ],
           "nickname": "Students#update",
