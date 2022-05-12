@@ -5,19 +5,12 @@
   "resourcePath": "teachers",
   "apis": [
     {
-      "path": "/employees/{employee_id}/teachers/{id}/addsubject/{subject_id}",
+      "path": "/teachers/{id}/addsubject/{subject_id}",
       "operations": [
         {
           "summary": "Remove subject owner",
           "notes": "Notes...",
           "parameters": [
-            {
-              "paramType": "path",
-              "name": "employee_id",
-              "type": "integer",
-              "description": "Employee in database",
-              "required": true
-            },
             {
               "paramType": "path",
               "name": "id",
@@ -39,19 +32,12 @@
       ]
     },
     {
-      "path": "/employees/{employee_id}/teachers/{id}/removesubject/{subject_id}",
+      "path": "/teachers/{id}/removesubject/{subject_id}",
       "operations": [
         {
           "summary": "Remove subject owner",
           "notes": "Notes...",
           "parameters": [
-            {
-              "paramType": "path",
-              "name": "employee_id",
-              "type": "integer",
-              "description": "Employee in database",
-              "required": true
-            },
             {
               "paramType": "path",
               "name": "id",
@@ -73,18 +59,22 @@
       ]
     },
     {
-      "path": "/employees/{employee_id}/teachers",
+      "path": "/teachers",
+      "operations": [
+        {
+          "summary": "Returns all teachers",
+          "notes": "Notes...",
+          "nickname": "Teachers#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/teachers",
       "operations": [
         {
           "summary": "Create a teacher",
           "parameters": [
-            {
-              "paramType": "path",
-              "name": "employee_id",
-              "type": "integer",
-              "description": "Employee in database",
-              "required": true
-            },
             {
               "paramType": "form",
               "name": "teacher[FirstName]",
@@ -120,7 +110,7 @@
       ]
     },
     {
-      "path": "/employees/{employee_id}/teachers/{id}",
+      "path": "/teachers/{id}",
       "operations": [
         {
           "summary": "Returns one teacher",
@@ -132,13 +122,6 @@
               "type": "integer",
               "description": "Teacher id",
               "required": true
-            },
-            {
-              "paramType": "path",
-              "name": "employee_id",
-              "type": "integer",
-              "description": "Employee in database",
-              "required": true
             }
           ],
           "nickname": "Teachers#show",
@@ -147,18 +130,11 @@
       ]
     },
     {
-      "path": "/employees/{employee_id}/teachers/{id}",
+      "path": "/teachers/{id}",
       "operations": [
         {
           "summary": "Update teacher information",
           "parameters": [
-            {
-              "paramType": "path",
-              "name": "employee_id",
-              "type": "integer",
-              "description": "Employee in database",
-              "required": true
-            },
             {
               "paramType": "path",
               "name": "id",
@@ -201,19 +177,12 @@
       ]
     },
     {
-      "path": "/employees/{employee_id}/teachers/{id}",
+      "path": "/teachers/{id}",
       "operations": [
         {
           "summary": "Delete teacher from database",
           "notes": "Notes...",
           "parameters": [
-            {
-              "paramType": "path",
-              "name": "employee_id",
-              "type": "integer",
-              "description": "Employee in database",
-              "required": true
-            },
             {
               "paramType": "path",
               "name": "id",

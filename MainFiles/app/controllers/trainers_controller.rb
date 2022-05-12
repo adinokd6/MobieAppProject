@@ -7,7 +7,6 @@ class TrainersController < ApplicationController
   swagger_api :addsubject do
     summary 'Remove subject owner'
     notes 'Notes...'
-    param :path, :employee_id, :integer, :required, "Employee in database"
     param :path, :id, :integer, :required, "Trainer id in database"
     param :path, :subject_id, :integer, :required, "Subject id in database"
   end
@@ -25,7 +24,6 @@ class TrainersController < ApplicationController
   swagger_api :removesubject do
     summary 'Remove subject owner'
     notes 'Notes...'
-    param :path, :employee_id, :integer, :required, "Employee in database"
     param :path, :id, :integer, :required, "Trainer id in database"
     param :form, :subject_id, :integer, :required, "Subject id in database"
   end
@@ -49,7 +47,6 @@ class TrainersController < ApplicationController
   swagger_api :show do
     summary 'Returns one trainer with exact id'
     param :path, :id, :integer, :required, "Trainer id"
-    param :path, :employee_id, :integer, :required, "Employee in database"
     notes 'Notes...'
   end
   def show
@@ -58,7 +55,6 @@ class TrainersController < ApplicationController
   # GET /trainers/new
   swagger_api :create do
     summary "Create a trainer"
-    param :path, :employee_id, :integer, :required, "Employee in database"
     param :form, "trainer[FirstName]", :string, :required, "Trainer first name"
     param :form, "trainer[LastName]", :string, :required, "Trainer second name"
     param :form, "trainer[TrainerId]", :integer, :required, "Trainer id"
@@ -73,8 +69,7 @@ class TrainersController < ApplicationController
 
   # POST /trainers or /trainers.json
   def create
-    @employee = Employee.find(params[:employee_id])
-    @trainer=@employee.create_trainer(trainer_params)
+    @trainer=Trainer.new(trainer_params)
 
     respond_to do |format|
       if @trainer.save
@@ -90,7 +85,6 @@ class TrainersController < ApplicationController
   # PATCH/PUT /trainers/1 or /trainers/1.json
   swagger_api :update do
     summary "Update trainer information"
-    param :path, :employee_id, :integer, :required, "Employee in database"
     param :path, :id, :integer, :required, "Trainer id in database"
     param :form, "trainer[FirstName]", :string, "Trainer first name"
     param :form, "trainer[LastName]", :string, "Trainer second name"
@@ -112,7 +106,6 @@ class TrainersController < ApplicationController
   # DELETE /trainers/1 or /trainers/1.json
   swagger_api :destroy do
     summary 'Delete trainer from database'
-    param :path, :employee_id, :integer, :required, "Employee in database"
     param :path, :id, :integer, :required, "Trainer id"
     notes 'Notes...'
   end
@@ -129,12 +122,11 @@ class TrainersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_trainer
-      @employee = Employee.find(params[:employee_id])
       @trainer = Trainer.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def trainer_params
-      params.require(:trainer).permit(:TrainerId, :FirstName, :LastName, :employee_id)
+      params.require(:trainer).permit(:TrainerId, :FirstName, :LastName)
     end
 end

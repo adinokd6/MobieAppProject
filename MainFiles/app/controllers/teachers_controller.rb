@@ -8,7 +8,6 @@ class TeachersController < ApplicationController
   swagger_api :addsubject do
     summary 'Remove subject owner'
     notes 'Notes...'
-    param :path, :employee_id, :integer, :required, "Employee in database"
     param :path, :id, :integer, :required, "Teacher id in database"
     param :path, :subject_id, :integer, :required, "Subject id in database"
   end
@@ -26,7 +25,6 @@ class TeachersController < ApplicationController
   swagger_api :removesubject do
     summary 'Remove subject owner'
     notes 'Notes...'
-    param :path, :employee_id, :integer, :required, "Employee in database"
     param :path, :id, :integer, :required, "Teacher id in database"
     param :form, :subject_id, :integer, :required, "Subject id in database"
   end
@@ -50,7 +48,6 @@ class TeachersController < ApplicationController
   swagger_api :show do
     summary 'Returns one teacher'
     param :path, :id, :integer, :required, "Teacher id"
-    param :path, :employee_id, :integer, :required, "Employee in database"
     notes 'Notes...'
   end
   def show
@@ -59,7 +56,6 @@ class TeachersController < ApplicationController
   # GET /teachers/new
   swagger_api :create do
     summary "Create a teacher"
-    param :path, :employee_id, :integer, :required, "Employee in database"
     param :form, "teacher[FirstName]", :string, :required, "Teacher first name"
     param :form, "teacher[LastName]", :string, "Teacher last name"
     param :form, "teacher[Title]", :string, "Teacher title"
@@ -75,8 +71,7 @@ class TeachersController < ApplicationController
 
   # POST /teachers or /teachers.json
   def create
-    @employee = Employee.find(params[:employee_id])
-    @teacher=@employee.create_teacher(teacher_params)
+    @teacher=Teacher.new(teacher_params)
 
     respond_to do |format|
       if @teacher.save
@@ -92,7 +87,6 @@ class TeachersController < ApplicationController
   # PATCH/PUT /teachers/1 or /teachers/1.json
   swagger_api :update do
     summary "Update teacher information"
-    param :path, :employee_id, :integer, :required, "Employee in database"
     param :path, :id, :integer, :required, "Teacher id in database"
     param :form, "teacher[FirstName]", :string, :required, "Teacher first name"
     param :form, "teacher[LastName]", :string, "Teacher last name"
@@ -115,7 +109,6 @@ class TeachersController < ApplicationController
   # DELETE /teachers/1 or /teachers/1.json
   swagger_api :destroy do
     summary 'Delete teacher from database'
-    param :path, :employee_id, :integer, :required, "Employee in database"
     param :path, :id, :integer, :required, "Teacher id in database"
     notes 'Notes...'
   end
@@ -132,7 +125,6 @@ class TeachersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_teacher
-      @employee = Employee.find(params[:employee_id])
       @teacher = Teacher.find(params[:id])
     end
 
