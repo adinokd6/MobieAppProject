@@ -1,5 +1,5 @@
 class ClassType < ApplicationRecord
-  has_and_belongs_to_many :animals, :join_table => :animal_classes
+  has_and_belongs_to_many :animals, dependent: :nullify, :join_table => :animal_classes
   has_and_belongs_to_many :subjects, :join_table => :class_subjects
 
   has_one :employee, dependent: :nullify
@@ -8,8 +8,12 @@ class ClassType < ApplicationRecord
   has_one :class_room, dependent: :nullify
   has_many :subjects, dependent: :nullify
 
-  def follows?(subject)
+  def has_subject?(subject)
     self.subjects.include?(subject)
+  end
+
+  def has_animal?(animal)
+    self.animals.include?(animal)
   end
 
   def istutor?(employee)

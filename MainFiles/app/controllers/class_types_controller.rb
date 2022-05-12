@@ -1,10 +1,40 @@
 class ClassTypesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_class_type, only: [ :show, :edit, :update, :destroy, :addsubject, :removesubject, :addtutor, :removetutor]
+  before_action :set_class_type, only: [ :show, :edit, :update, :destroy, :addsubject, :removesubject, :addanimal, :removeanimal]
 
   swagger_controller :class_types, 'Classes'
 
   #methods for adding and removing subject from classes
+  swagger_api :addanimal do
+    summary 'Add animal for a class'
+    notes 'Notes...'
+    param :path, :id, :integer, :required, "Class type id"
+    param :path, :animal_id, :integer, :required, "Animal id in database"
+  end
+
+  def addanimal
+    @animal=Animal.find(params[:animal_id])
+    unless @class_type.has_animal?(@animal)
+      @class_type.animals.append(@animal)
+    end
+    redirect_to @class_type
+  end
+
+  swagger_api :removeanimal do
+    summary 'Remove animal for a class'
+    notes 'Notes...'
+    param :path, :id, :integer, :required, "Class type id"
+    param :form, :animal_id, :integer, :required, "Animal id in database"
+  end
+  def removeanimal
+    if @class_type.has_animal?(@animal)
+      @class_type.animals.delete(@animal)
+    end
+    redirect_to @class_type
+  end
+
+
+
   swagger_api :addsubject do
     summary 'Add subject for a class'
     notes 'Notes...'
@@ -14,7 +44,7 @@ class ClassTypesController < ApplicationController
 
   def addsubject
     @subject=Subject.find(params[:subject_id])
-    unless @class_type.follows?(@subject)
+    unless @class_type.has_subject?(@subject)
       @class_type.subjects.append(@subject)
       @subject.class_types.append(@class_type)
     end
@@ -31,7 +61,7 @@ class ClassTypesController < ApplicationController
   end
 
   def removesubject
-    if @class_type.follows?(@subject)
+    if @class_type.has_subject?(@subject)
       @subject.class_types.delete(@class_type)
       @class_type.subjects.delete(@subject)
     end
@@ -39,36 +69,6 @@ class ClassTypesController < ApplicationController
   end
 
 #adding tutor for exact class
-  swagger_api :addtutor do
-    summary 'Add subject for a class'
-    notes 'Notes...'
-    param :path, :id, :integer, :required, "Class type id"
-    param :path, :employee_id, :integer, :required, "Employee id in database"
-  end
-
-  def addtutor
-    @employee=Employee.find(params[:employee_id])
-    unless @class_type.follows?(@employee)
-      @class_type.employee.append(@employee)
-    end
-    redirect_to @class_type
-  end
-
-
-
-  swagger_api :removetutor do
-    summary 'Remove subject from course'
-    notes 'Notes...'
-    param :path, :id, :integer, :required, "Class type id"
-    param :form, :employee_id, :integer, :required, "Employee id in database"
-  end
-
-  def removetutor
-    if @class_type.follows?(@employee)
-      @class_type.employee.delete(@employee)
-    end
-    redirect_to @class_type
-  end
 
 
   # GET /class_types or /class_types.json
@@ -133,6 +133,10 @@ class ClassTypesController < ApplicationController
   end
 
   # DELETE /class_types/1 or /class_types/1.json
+  swagger_api :destroy do
+    summary 'Delete class'
+    param :path, :id, :integer, :required, "Class id"
+  end
   def destroy
     @class_type.destroy
 

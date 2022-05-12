@@ -13,3 +13,10 @@ if !class_type.class_list.nil?
     end
   end
 end
+
+if !class_type.animals.nil?
+    json.animals class_type.animals do |animal|
+      json.Name animal.Name
+      json.Species animal.Species
+    end
+end

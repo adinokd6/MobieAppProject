@@ -27,7 +27,7 @@
             }
           ],
           "nickname": "Trainers#addsubject",
-          "method": "get"
+          "method": "post"
         }
       ]
     },

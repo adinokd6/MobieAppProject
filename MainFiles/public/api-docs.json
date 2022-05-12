@@ -8,6 +8,10 @@
       "description": "Teachers"
     },
     {
+      "path": "/class_types.{format}",
+      "description": "Classes"
+    },
+    {
       "path": "/trainers.{format}",
       "description": "Trainers"
     },
@@ -48,8 +52,8 @@
       "description": "Class rooms"
     },
     {
-      "path": "/class_types.{format}",
-      "description": "Classes"
+      "path": "/animals.{format}",
+      "description": "Animals"
     }
   ],
   "authorizations": null,
