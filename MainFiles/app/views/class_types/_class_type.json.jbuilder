@@ -1,6 +1,15 @@
-json.extract! class_type, :id, :ClassId, :Period, :Time, :created_at, :updated_at
+json.extract! class_type, :id, :ClassId, :Period
 json.class_room do
   if !class_type.class_room.nil?
     json.ClassRoomNumber class_type.class_room.RoomNumber
+  end
+end
+if !class_type.class_list.nil?
+  if !class_type.class_list.students.nil?
+    json.students class_type.class_list.students do |student|
+      json.FirstName student.FirstName
+      json.SecondName student.SecondName
+      json.StudentId student.StudentId
+    end
   end
 end

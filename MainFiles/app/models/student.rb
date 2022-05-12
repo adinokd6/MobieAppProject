@@ -22,6 +22,5 @@ class Student < ApplicationRecord
     @new_email.EmailId=self.StudentId
     @new_email.EmailAddress="student."+self.StudentId.to_s+"@schoolemail.com"
     self.email=@new_email
-    self.EmailId=self.email.id
   end
 end

@@ -4,7 +4,17 @@ class ClassList < ApplicationRecord
 
   belongs_to :class_type, optional: true
 
+  after_create :createClass
+
   def has_this_student?(student)
     self.students.include?(student)
   end
+
+  def createClass
+    @newClass=ClassType.new
+    @newClass.ClassId=self.id
+    @newClass.class_list=self
+    @newClass.save
+  end
+
 end
