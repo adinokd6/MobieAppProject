@@ -4,16 +4,16 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
-      "path": "/class_types.{format}",
-      "description": "Classes"
-    },
-    {
       "path": "/teachers.{format}",
       "description": "Teachers"
     },
     {
       "path": "/trainers.{format}",
       "description": "Trainers"
+    },
+    {
+      "path": "/class_lists.{format}",
+      "description": "Class lists"
     },
     {
       "path": "/certificates.{format}",
@@ -45,11 +45,11 @@
     },
     {
       "path": "/class_rooms.{format}",
-      "description": "Grades"
+      "description": "Class rooms"
     },
     {
-      "path": "/class_lists.{format}",
-      "description": "Class lists"
+      "path": "/class_types.{format}",
+      "description": "Classes"
     }
   ],
   "authorizations": null,

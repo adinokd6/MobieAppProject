@@ -5,14 +5,15 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  get '/class_types/:id/addsubject/:subject_id', to: 'class_types#addsubject'
-  get '/class_types/:id/removesubject/:subject_id', to: 'class_types#removesubject'
-
   get '/employees/:employee_id/teachers/:id/addsubject/:subject_id', to: 'teachers#addsubject'
   get '/employees/:employee_id/teachers/:id/removesubject/:subject_id', to: 'teachers#removesubject'
 
   get '/employees/:employee_id/trainers/:id/addsubject/:subject_id', to: 'trainers#addsubject'
-  get '/employees/:employee_id/trainers/:id/removesubject/:subject_id', to: 'trainers#removesubject'
+  delete '/employees/:employee_id/trainers/:id/removesubject/:subject_id', to: 'trainers#removesubject'
+
+  post '/class_lists/:id/student/:student_id', to: 'class_lists#add_student'
+  delete '/class_lists/:id/student/:student_id', to: 'class_lists#remove_student'
+
 
 
 
@@ -37,8 +38,10 @@ Rails.application.routes.draw do
     resources :messages, only: [:new, :create, :edit, :update, :show, :destroy]
   end
 
-  resources :class_types
-  resources :class_rooms
+  resources :class_types do
+      resources :class_rooms, only: [:new, :create, :edit, :update, :show, :destroy]
+  end
+
   resources :animals
   resources :class_lists
 

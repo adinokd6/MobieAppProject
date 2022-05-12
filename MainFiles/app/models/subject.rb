@@ -1,6 +1,6 @@
 class Subject < ApplicationRecord
-  has_many :grades
-  
+  has_many :grades, dependent: :delete_all
+
   has_and_belongs_to_many :class_types, :join_table => :class_subjects
 
   belongs_to :teacher, optional: true

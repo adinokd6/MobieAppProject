@@ -1,2 +1,6 @@
 json.extract! class_type, :id, :ClassId, :Period, :Time, :created_at, :updated_at
-json.url class_type_url(class_type, format: :json)
+json.class_room do
+  if !class_type.class_room.nil?
+    json.ClassRoomNumber class_type.class_room.RoomNumber
+  end
+end

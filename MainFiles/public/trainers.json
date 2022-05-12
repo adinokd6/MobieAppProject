@@ -68,7 +68,7 @@
             }
           ],
           "nickname": "Trainers#removesubject",
-          "method": "get"
+          "method": "delete"
         }
       ]
     },

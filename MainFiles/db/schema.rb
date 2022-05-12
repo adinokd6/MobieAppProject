@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_11_133221) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_12_193703) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_11_133221) do
     t.string "Facilities"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.bigint "class_type_id"
+    t.index ["class_type_id"], name: "index_class_rooms_on_class_type_id"
   end
 
   create_table "class_subjects", id: false, force: :cascade do |t|
@@ -125,7 +127,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_11_133221) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "password_digest"
     t.string "token"
+    t.bigint "class_list_id"
     t.index ["StudentId"], name: "index_students_on_StudentId", unique: true
+    t.index ["class_list_id"], name: "index_students_on_class_list_id"
     t.index ["token"], name: "index_students_on_token"
   end
 
@@ -165,14 +169,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_11_133221) do
   end
 
   add_foreign_key "certificates", "students"
+  add_foreign_key "class_rooms", "class_types"
   add_foreign_key "emails", "employees"
   add_foreign_key "emails", "students"
   add_foreign_key "grades", "students"
   add_foreign_key "grades", "subjects"
   add_foreign_key "messages", "emails"
+  add_foreign_key "students", "class_lists"
   add_foreign_key "subjects", "class_types"
-  add_foreign_key "subjects", "teachers", on_delete: :cascade
-  add_foreign_key "subjects", "trainers", on_delete: :cascade
+  add_foreign_key "subjects", "teachers"
+  add_foreign_key "subjects", "trainers"
   add_foreign_key "teachers", "employees"
   add_foreign_key "trainers", "employees"
 end
