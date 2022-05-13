@@ -20,3 +20,10 @@ if !class_type.animals.nil?
       json.Species animal.Species
     end
 end
+
+if !class_type.subjects.nil?
+    json.subjects class_type.subjects do |subject|
+      json.SubjectId subject.SubjectId
+      json.Description subject.Description
+    end
+end

@@ -27,7 +27,7 @@
             }
           ],
           "nickname": "ClassLists#add_student",
-          "method": "post"
+          "method": "get"
         }
       ]
     },
@@ -54,7 +54,7 @@
             }
           ],
           "nickname": "ClassLists#remove_student",
-          "method": "delete"
+          "method": "post"
         }
       ]
     },

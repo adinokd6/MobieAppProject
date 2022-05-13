@@ -27,7 +27,7 @@
             }
           ],
           "nickname": "Teachers#addsubject",
-          "method": "post"
+          "method": "get"
         }
       ]
     },
@@ -54,7 +54,7 @@
             }
           ],
           "nickname": "Teachers#removesubject",
-          "method": "delete"
+          "method": "post"
         }
       ]
     },

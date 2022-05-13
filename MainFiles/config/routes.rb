@@ -5,20 +5,20 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  post '/teachers/:id/addsubject/:subject_id', to: 'teachers#addsubject'
-  delete '/teachers/:id/removesubject/:subject_id', to: 'teachers#removesubject'
+  get '/teachers/:id/addsubject/:subject_id', to: 'teachers#addsubject'
+  post '/teachers/:id/removesubject/:subject_id', to: 'teachers#removesubject'
 
-  post '/class_types/:id/addanimal/:animal_id', to: 'class_types#addanimal'
-  delete '/class_types/:id/removeanimal/:animal_id', to: 'class_types#removeanimal'
+  get '/class_types/:id/addanimal/:animal_id', to: 'class_types#addanimal'
+  post '/class_types/:id/removeanimal/:animal_id', to: 'class_types#removeanimal'
 
-  post '/class_types/:id/addsubject/:subject_id', to: 'class_types#addsubject'
-  delete '/class_types/:id/removesubject/:subject_id', to: 'class_types#removesubject'
+  get '/class_types/:id/addsubject/:subject_id', to: 'class_types#addsubject'
+  post '/class_types/:id/removesubject/:subject_id', to: 'class_types#removesubject'
 
-  post '/trainers/:id/addsubject/:subject_id', to: 'trainers#addsubject'
-  delete '/trainers/:id/removesubject/:subject_id', to: 'trainers#removesubject'
+  get '/trainers/:id/addsubject/:subject_id', to: 'trainers#addsubject'
+  post '/trainers/:id/removesubject/:subject_id', to: 'trainers#removesubject'
 
-  post '/class_lists/:id/student/:student_id', to: 'class_lists#add_student'
-  delete '/class_lists/:id/student/:student_id', to: 'class_lists#remove_student'
+  get '/class_lists/:id/student/:student_id', to: 'class_lists#add_student'
+  post '/class_lists/:id/student/:student_id', to: 'class_lists#remove_student'
 
 
 

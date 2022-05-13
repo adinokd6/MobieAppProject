@@ -14,13 +14,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_221522) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "animal_classes", id: false, force: :cascade do |t|
-    t.bigint "animal_id"
-    t.bigint "class_type_id"
-    t.index ["animal_id"], name: "index_animal_classes_on_animal_id"
-    t.index ["class_type_id"], name: "index_animal_classes_on_class_type_id"
-  end
-
   create_table "animals", force: :cascade do |t|
     t.integer "AnimalId"
     t.string "Species"
@@ -29,6 +22,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_221522) do
     t.string "Name"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "animals_classes", id: false, force: :cascade do |t|
+    t.bigint "animal_id"
+    t.bigint "class_type_id"
+    t.index ["animal_id"], name: "index_animals_classes_on_animal_id"
+    t.index ["class_type_id"], name: "index_animals_classes_on_class_type_id"
   end
 
   create_table "certificates", force: :cascade do |t|
@@ -62,19 +62,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_221522) do
     t.index ["class_type_id"], name: "index_class_rooms_on_class_type_id"
   end
 
-  create_table "class_subjects", id: false, force: :cascade do |t|
-    t.bigint "class_type_id"
-    t.bigint "subject_id"
-    t.index ["class_type_id"], name: "index_class_subjects_on_class_type_id"
-    t.index ["subject_id"], name: "index_class_subjects_on_subject_id"
-  end
-
   create_table "class_types", force: :cascade do |t|
     t.integer "ClassId"
     t.string "Period"
     t.string "Time"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+  end
+
+  create_table "classes_subjects", id: false, force: :cascade do |t|
+    t.bigint "class_type_id"
+    t.bigint "subject_id"
+    t.index ["class_type_id"], name: "index_classes_subjects_on_class_type_id"
+    t.index ["subject_id"], name: "index_classes_subjects_on_subject_id"
   end
 
   create_table "emails", force: :cascade do |t|

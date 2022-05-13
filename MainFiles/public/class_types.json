@@ -27,7 +27,7 @@
             }
           ],
           "nickname": "ClassTypes#addanimal",
-          "method": "post"
+          "method": "get"
         }
       ]
     },
@@ -46,7 +46,7 @@
               "required": true
             },
             {
-              "paramType": "form",
+              "paramType": "path",
               "name": "animal_id",
               "type": "integer",
               "description": "Animal id in database",
@@ -54,7 +54,7 @@
             }
           ],
           "nickname": "ClassTypes#removeanimal",
-          "method": "delete"
+          "method": "post"
         }
       ]
     },
@@ -81,7 +81,7 @@
             }
           ],
           "nickname": "ClassTypes#addsubject",
-          "method": "post"
+          "method": "get"
         }
       ]
     },
@@ -100,7 +100,7 @@
               "required": true
             },
             {
-              "paramType": "form",
+              "paramType": "path",
               "name": "subject_id",
               "type": "integer",
               "description": "Subject id in database",
@@ -108,7 +108,7 @@
             }
           ],
           "nickname": "ClassTypes#removesubject",
-          "method": "delete"
+          "method": "post"
         }
       ]
     },

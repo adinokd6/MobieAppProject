@@ -27,7 +27,7 @@
             }
           ],
           "nickname": "Trainers#addsubject",
-          "method": "post"
+          "method": "get"
         }
       ]
     },
@@ -54,7 +54,7 @@
             }
           ],
           "nickname": "Trainers#removesubject",
-          "method": "delete"
+          "method": "post"
         }
       ]
     },

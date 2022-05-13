@@ -1,6 +1,8 @@
 class ClassTypesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_class_type, only: [ :show, :edit, :update, :destroy, :addsubject, :removesubject, :addanimal, :removeanimal]
+  before_action :set_class_type, only: [ :show, :edit, :update, :destroy, :addsubject, :addanimal]
+  before_action :set_class_and_subject, only: [:removesubject]
+  before_action :set_class_and_animal, only: [:removeanimal]
 
   swagger_controller :class_types, 'Classes'
 
@@ -24,7 +26,7 @@ class ClassTypesController < ApplicationController
     summary 'Remove animal for a class'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Class type id"
-    param :form, :animal_id, :integer, :required, "Animal id in database"
+    param :path, :animal_id, :integer, :required, "Animal id in database"
   end
   def removeanimal
     if @class_type.has_animal?(@animal)
@@ -46,7 +48,6 @@ class ClassTypesController < ApplicationController
     @subject=Subject.find(params[:subject_id])
     unless @class_type.has_subject?(@subject)
       @class_type.subjects.append(@subject)
-      @subject.class_types.append(@class_type)
     end
     redirect_to @subject
   end
@@ -57,12 +58,11 @@ class ClassTypesController < ApplicationController
     summary 'Remove subject from course'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Class type id"
-    param :form, :subject_id, :integer, :required, "Subject id in database"
+    param :path, :subject_id, :integer, :required, "Subject id in database"
   end
 
   def removesubject
     if @class_type.has_subject?(@subject)
-      @subject.class_types.delete(@class_type)
       @class_type.subjects.delete(@subject)
     end
     redirect_to @class_type
@@ -150,6 +150,16 @@ class ClassTypesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_class_type
       @class_type = ClassType.find(params[:id])
+    end
+
+    def set_class_and_animal
+      @class_type = ClassType.find(params[:id])
+      @animal=Animal.find(params[:animal_id])
+    end
+
+    def set_class_and_subject
+      @class_type = ClassType.find(params[:id])
+      @subject=Subject.find(params[:subject_id])
     end
 
 
