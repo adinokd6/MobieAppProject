@@ -15,7 +15,7 @@ class ClassType < ApplicationRecord
     self.animals.include?(animal)
   end
 
-  def istutor?(employee)
-    self.employee.include?(employee)
+  def has_tutor?(employee)
+    self.employee==employee
   end
 end

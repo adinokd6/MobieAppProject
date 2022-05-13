@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   get '/class_lists/:id/student/:student_id', to: 'class_lists#add_student'
   post '/class_lists/:id/student/:student_id', to: 'class_lists#remove_student'
 
+  get '/class_types/:id/tutor/:tutor_id', to: 'class_types#addtutor'
+  post '/class_types/:id/tutor/:tutor_id', to: 'class_types#removetutor'
+
 
 
 

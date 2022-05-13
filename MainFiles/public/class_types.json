@@ -113,6 +113,60 @@
       ]
     },
     {
+      "path": "/class_types/{id}/tutor/{tutor_id}",
+      "operations": [
+        {
+          "summary": "Add tutor for a class",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class type id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "tutor_id",
+              "type": "integer",
+              "description": "Tutor id in database",
+              "required": true
+            }
+          ],
+          "nickname": "ClassTypes#addtutor",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/class_types/{id}/tutor/{tutor_id}",
+      "operations": [
+        {
+          "summary": "Remove tutor for a class",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class type id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "tutor_id",
+              "type": "integer",
+              "description": "Tutor id in database",
+              "required": true
+            }
+          ],
+          "nickname": "ClassTypes#removetutor",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "path": "/class_types",
       "operations": [
         {

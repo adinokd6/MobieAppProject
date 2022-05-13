@@ -1,10 +1,44 @@
 class ClassTypesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_class_type, only: [ :show, :edit, :update, :destroy, :addsubject, :addanimal]
+  before_action :set_class_type, only: [ :show, :edit, :update, :destroy, :addsubject, :addanimal, :addtutor]
   before_action :set_class_and_subject, only: [:removesubject]
   before_action :set_class_and_animal, only: [:removeanimal]
+  before_action :set_class_and_tutor, only: [:removetutor]
 
   swagger_controller :class_types, 'Classes'
+
+
+  swagger_api :addtutor do
+    summary 'Add tutor for a class'
+    notes 'Notes...'
+    param :path, :id, :integer, :required, "Class type id"
+    param :path, :tutor_id, :integer, :required, "Tutor id in database"
+  end
+  def addtutor
+    @tutor=Employee.find(params[:tutor_id])
+    unless @class_type.has_tutor?(@tutor)
+      @class_type.employee=@tutor
+      @class_type.save
+    end
+    redirect_to @class_type
+  end
+
+  swagger_api :removetutor do
+    summary 'Remove tutor for a class'
+    notes 'Notes...'
+    param :path, :id, :integer, :required, "Class type id"
+    param :path, :tutor_id, :integer, :required, "Tutor id in database"
+  end
+  def removetutor
+    if @class_type.has_tutor?(@tutor)
+      @class_type.employee=nil
+      @tutor.class_type=nil
+      @class_type.save
+      @tutor.save
+    end
+    redirect_to @class_type
+  end
+
 
   #methods for adding and removing subject from classes
   swagger_api :addanimal do
@@ -160,6 +194,11 @@ class ClassTypesController < ApplicationController
     def set_class_and_subject
       @class_type = ClassType.find(params[:id])
       @subject=Subject.find(params[:subject_id])
+    end
+
+    def set_class_and_tutor
+      @class_type = ClassType.find(params[:id])
+      @tutor=Employee.find(params[:tutor_id])
     end
 
 

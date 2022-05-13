@@ -1,4 +1,16 @@
 json.extract! class_type, :id, :ClassId, :Period
+if !class_type.employee.nil?
+    json.tutor do
+      if !class_type.employee.teacher.nil?
+        json.FirstName class_type.employee.teacher.FirstName
+        json.LastName class_type.employee.teacher.LastName
+      end
+      if !class_type.employee.trainer.nil?
+        json.FirstName class_type.employee.trainer.FirstName
+        json.LastName class_type.employee.trainer.LastName
+      end
+    end
+end
 json.class_room do
   if !class_type.class_room.nil?
     json.ClassRoomNumber class_type.class_room.RoomNumber
