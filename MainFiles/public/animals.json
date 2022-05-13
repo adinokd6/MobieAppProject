@@ -2,149 +2,138 @@
   "apiVersion": "1.0",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
-  "resourcePath": "subjects",
+  "resourcePath": "animals",
   "apis": [
     {
-      "path": "/subjects",
+      "path": "/animals",
       "operations": [
         {
-          "summary": "Returns all subjects",
+          "summary": "Returns all animals",
           "notes": "Notes...",
-          "nickname": "Subjects#index",
+          "nickname": "Animals#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/subjects",
+      "path": "/animals",
       "operations": [
         {
-          "summary": "Create a subject",
           "parameters": [
             {
               "paramType": "form",
-              "name": "subject[teacher_id]",
-              "type": "integer",
-              "description": null,
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "subject[trainer_id]",
-              "type": "integer",
-              "description": null,
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "subject[Description]",
-              "type": "text",
-              "description": "Subject description",
+              "name": "animal[Name]",
+              "type": "string",
+              "description": "Animal name",
               "required": true
             },
             {
               "paramType": "form",
-              "name": "subject[MaxCapacity]",
-              "type": "integer",
-              "description": "Subject max capacity",
+              "name": "animal[Species]",
+              "type": "string",
+              "description": "Animal species",
               "required": true
             },
             {
               "paramType": "form",
-              "name": "subject[SubjectId]",
-              "type": "integer",
-              "description": "Subject id",
+              "name": "animal[Gender]",
+              "type": "string",
+              "description": "Animal gender",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "animal[IsAlive]",
+              "type": "bool",
+              "description": "Is alive",
               "required": true
             }
           ],
-          "nickname": "Subjects#create",
+          "nickname": "Animals#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/subjects/{id}",
+      "path": "/animals/{id}",
       "operations": [
         {
-          "summary": "Returns one subject with exact id",
+          "summary": "Returns one animal",
           "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Subject id",
+              "description": "Animal id",
               "required": true
             }
           ],
-          "nickname": "Subjects#show",
+          "nickname": "Animals#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/subjects/{id}",
+      "path": "/animals/{id}",
       "operations": [
         {
-          "summary": "Update subject information",
-          "parameters": [
-            {
-              "paramType": "form",
-              "name": "subject[teacher_id]",
-              "type": "integer",
-              "description": null,
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "subject[trainer_id]",
-              "type": "integer",
-              "description": null,
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "subject[Description]",
-              "type": "text",
-              "description": null,
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "subject[MaxCapacity]",
-              "type": "integer",
-              "description": null,
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "subject[SubjectId]",
-              "type": "integer",
-              "description": null,
-              "required": false
-            }
-          ],
-          "nickname": "Subjects#update",
-          "method": "patch"
-        }
-      ]
-    },
-    {
-      "path": "/subjects/{id}",
-      "operations": [
-        {
-          "summary": "Delete subject",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Subject id",
+              "description": "Animal id in database",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "animal[Name]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "animal[Species]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "animal[Gender]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "animal[IsAlive]",
+              "type": "bool",
+              "description": null,
+              "required": false
+            }
+          ],
+          "nickname": "Animals#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/animals/{id}",
+      "operations": [
+        {
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Animal id in database",
               "required": true
             }
           ],
-          "nickname": "Subjects#destroy",
+          "nickname": "Animals#destroy",
           "method": "delete"
         }
       ]

@@ -5,6 +5,60 @@
   "resourcePath": "class_lists",
   "apis": [
     {
+      "path": "/class_lists/{id}/student/{student_id}",
+      "operations": [
+        {
+          "summary": "Add student to class",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class list id in database",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "student_id",
+              "type": "integer",
+              "description": "Student id in database",
+              "required": true
+            }
+          ],
+          "nickname": "ClassLists#add_student",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/class_lists/{id}/student/{student_id}",
+      "operations": [
+        {
+          "summary": "Remove student from class",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class list id in database",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "student_id",
+              "type": "integer",
+              "description": "Student id in database",
+              "required": true
+            }
+          ],
+          "nickname": "ClassLists#remove_student",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "path": "/class_lists",
       "operations": [
         {
@@ -19,7 +73,7 @@
       "path": "/class_lists",
       "operations": [
         {
-          "summary": "Create a teacher",
+          "summary": "Create class list",
           "parameters": [
             {
               "paramType": "form",
@@ -51,6 +105,52 @@
           ],
           "nickname": "ClassLists#show",
           "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/class_lists/{id}",
+      "operations": [
+        {
+          "summary": "Update class room information",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class list id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "class_list[ClassListId]",
+              "type": "integer",
+              "description": null,
+              "required": false
+            }
+          ],
+          "nickname": "ClassLists#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/class_lists/{id}",
+      "operations": [
+        {
+          "summary": "Delete class list from database",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class list in database",
+              "required": true
+            }
+          ],
+          "nickname": "ClassLists#destroy",
+          "method": "delete"
         }
       ]
     }

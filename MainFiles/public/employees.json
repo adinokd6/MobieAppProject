@@ -19,7 +19,7 @@
       "path": "/employees",
       "operations": [
         {
-          "summary": "Create a email",
+          "summary": "Create employee",
           "parameters": [
             {
               "paramType": "form",

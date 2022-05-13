@@ -5,6 +5,60 @@
   "resourcePath": "class_types",
   "apis": [
     {
+      "path": "/class_types/{id}/addanimal/{animal_id}",
+      "operations": [
+        {
+          "summary": "Add animal for a class",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class type id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "animal_id",
+              "type": "integer",
+              "description": "Animal id in database",
+              "required": true
+            }
+          ],
+          "nickname": "ClassTypes#addanimal",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/class_types/{id}/removeanimal/{animal_id}",
+      "operations": [
+        {
+          "summary": "Remove animal for a class",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class type id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "animal_id",
+              "type": "integer",
+              "description": "Animal id in database",
+              "required": true
+            }
+          ],
+          "nickname": "ClassTypes#removeanimal",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "path": "/class_types/{id}/addsubject/{subject_id}",
       "operations": [
         {
@@ -46,7 +100,7 @@
               "required": true
             },
             {
-              "paramType": "form",
+              "paramType": "path",
               "name": "subject_id",
               "type": "integer",
               "description": "Subject id in database",
@@ -54,7 +108,61 @@
             }
           ],
           "nickname": "ClassTypes#removesubject",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/class_types/{id}/tutor/{tutor_id}",
+      "operations": [
+        {
+          "summary": "Add tutor for a class",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class type id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "tutor_id",
+              "type": "integer",
+              "description": "Tutor id in database",
+              "required": true
+            }
+          ],
+          "nickname": "ClassTypes#addtutor",
           "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/class_types/{id}/tutor/{tutor_id}",
+      "operations": [
+        {
+          "summary": "Remove tutor for a class",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class type id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "tutor_id",
+              "type": "integer",
+              "description": "Tutor id in database",
+              "required": true
+            }
+          ],
+          "nickname": "ClassTypes#removetutor",
+          "method": "post"
         }
       ]
     },
@@ -119,6 +227,25 @@
           ],
           "nickname": "ClassTypes#show",
           "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/class_types/{id}",
+      "operations": [
+        {
+          "summary": "Delete class",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class id",
+              "required": true
+            }
+          ],
+          "nickname": "ClassTypes#destroy",
+          "method": "delete"
         }
       ]
     }

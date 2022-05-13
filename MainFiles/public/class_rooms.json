@@ -5,22 +5,18 @@
   "resourcePath": "class_rooms",
   "apis": [
     {
-      "path": "/class_rooms",
-      "operations": [
-        {
-          "summary": "Returns all classrooms",
-          "notes": "Notes...",
-          "nickname": "ClassRooms#index",
-          "method": "get"
-        }
-      ]
-    },
-    {
-      "path": "/class_rooms",
+      "path": "/class_types/{class_type_id}/class_rooms",
       "operations": [
         {
           "summary": "Create a class room",
           "parameters": [
+            {
+              "paramType": "path",
+              "name": "class_type_id",
+              "type": "integer",
+              "description": "Class id",
+              "required": true
+            },
             {
               "paramType": "form",
               "name": "class_room[Capacity]",
@@ -63,7 +59,7 @@
       ]
     },
     {
-      "path": "/class_rooms/{id}",
+      "path": "/class_types/{class_type_id}/class_rooms/{id}",
       "operations": [
         {
           "summary": "Returns one class room",
@@ -75,10 +71,105 @@
               "type": "integer",
               "description": "Class room id",
               "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "class_type_id",
+              "type": "integer",
+              "description": "Class id",
+              "required": true
             }
           ],
           "nickname": "ClassRooms#show",
           "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/class_types/{class_type_id}/class_rooms/{id}",
+      "operations": [
+        {
+          "summary": "Update class room information",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Classroom id",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "class_type_id",
+              "type": "integer",
+              "description": "Class id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "class_room[Capacity]",
+              "type": "text",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "class_room[ClassRoomId]",
+              "type": "integer",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "class_room[Facilities]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "class_room[RoomNumber]",
+              "type": "integer",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "class_room[RoomType]",
+              "type": "string",
+              "description": null,
+              "required": false
+            }
+          ],
+          "nickname": "ClassRooms#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/class_types/{class_type_id}/class_rooms/{id}",
+      "operations": [
+        {
+          "summary": "Delete class room from database",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "class_type_id",
+              "type": "integer",
+              "description": "Class in database",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class room id in database",
+              "required": true
+            }
+          ],
+          "nickname": "ClassRooms#destroy",
+          "method": "delete"
         }
       ]
     }

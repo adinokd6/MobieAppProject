@@ -27,7 +27,6 @@ class EmailsController < ApplicationController
     summary "Create a email"
     param :form, "email[EmailAddress]", :string, :required, "Email adress"
     param :form, "email[EmailId]", :integer, :required, "Email id"
-    param :form, "email[OwnerId]", :integer, :required, "Email owner id"
   end
   def new
     @email = Email.new

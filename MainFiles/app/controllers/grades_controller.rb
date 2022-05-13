@@ -52,8 +52,8 @@ class GradesController < ApplicationController
     summary "Create a grade"
     param :path, :subject_id, :integer, :required, "Subject id in database"
     param :path, :id, :integer, :required, "Grade id in database"
-    param :form, "grade[Date]", :string, :required, "Grades date"
-    param :form, "grade[Grade]", :string, :required, "Grades grade"
+    param :form, "grade[Date]", :string, "Grades date"
+    param :form, "grade[Grade]", :string, "Grades grade"
   end
 
 

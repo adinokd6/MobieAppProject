@@ -1,2 +1,6 @@
-json.extract! class_list, :id, :ClassListId, :created_at, :updated_at
-json.url class_list_url(class_list, format: :json)
+json.extract! class_list, :id, :ClassListId
+json.students class_list.students do |student|
+  json.FirstName student.FirstName
+  json.SecondName student.SecondName
+  json.StudentId student.StudentId
+end

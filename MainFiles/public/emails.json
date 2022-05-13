@@ -34,13 +34,6 @@
               "type": "integer",
               "description": "Email id",
               "required": true
-            },
-            {
-              "paramType": "form",
-              "name": "email[OwnerId]",
-              "type": "integer",
-              "description": "Email owner id",
-              "required": true
             }
           ],
           "nickname": "Emails#create",

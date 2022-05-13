@@ -5,6 +5,60 @@
   "resourcePath": "teachers",
   "apis": [
     {
+      "path": "/teachers/{id}/addsubject/{subject_id}",
+      "operations": [
+        {
+          "summary": "Remove subject owner",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Teacher id in database",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "subject_id",
+              "type": "integer",
+              "description": "Subject id in database",
+              "required": true
+            }
+          ],
+          "nickname": "Teachers#addsubject",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/teachers/{id}/removesubject/{subject_id}",
+      "operations": [
+        {
+          "summary": "Remove subject owner",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Teacher id in database",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "subject_id",
+              "type": "integer",
+              "description": "Subject id in database",
+              "required": true
+            }
+          ],
+          "nickname": "Teachers#removesubject",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "path": "/teachers",
       "operations": [
         {
@@ -72,6 +126,73 @@
           ],
           "nickname": "Teachers#show",
           "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/teachers/{id}",
+      "operations": [
+        {
+          "summary": "Update teacher information",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Teacher id in database",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "teacher[FirstName]",
+              "type": "string",
+              "description": "Teacher first name",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "teacher[LastName]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "teacher[Title]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "teacher[TeacherId]",
+              "type": "integer",
+              "description": null,
+              "required": false
+            }
+          ],
+          "nickname": "Teachers#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/teachers/{id}",
+      "operations": [
+        {
+          "summary": "Delete teacher from database",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Teacher id in database",
+              "required": true
+            }
+          ],
+          "nickname": "Teachers#destroy",
+          "method": "delete"
         }
       ]
     }

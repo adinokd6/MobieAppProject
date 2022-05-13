@@ -1,12 +1,76 @@
 class ClassTypesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_class_type, only: [ :show, :edit, :update, :destroy ]
-
-  before_action :set_class_and_subject, only: [:addsubject, :removesubject]
+  before_action :set_class_type, only: [ :show, :edit, :update, :destroy, :addsubject, :addanimal, :addtutor]
+  before_action :set_class_and_subject, only: [:removesubject]
+  before_action :set_class_and_animal, only: [:removeanimal]
+  before_action :set_class_and_tutor, only: [:removetutor]
 
   swagger_controller :class_types, 'Classes'
 
+
+  swagger_api :addtutor do
+    summary 'Add tutor for a class'
+    notes 'Notes...'
+    param :path, :id, :integer, :required, "Class type id"
+    param :path, :tutor_id, :integer, :required, "Tutor id in database"
+  end
+  def addtutor
+    @tutor=Employee.find(params[:tutor_id])
+    unless @class_type.has_tutor?(@tutor)
+      @class_type.employee=@tutor
+      @class_type.save
+    end
+    redirect_to @class_type
+  end
+
+  swagger_api :removetutor do
+    summary 'Remove tutor for a class'
+    notes 'Notes...'
+    param :path, :id, :integer, :required, "Class type id"
+    param :path, :tutor_id, :integer, :required, "Tutor id in database"
+  end
+  def removetutor
+    if @class_type.has_tutor?(@tutor)
+      @class_type.employee=nil
+      @tutor.class_type=nil
+      @class_type.save
+      @tutor.save
+    end
+    redirect_to @class_type
+  end
+
+
   #methods for adding and removing subject from classes
+  swagger_api :addanimal do
+    summary 'Add animal for a class'
+    notes 'Notes...'
+    param :path, :id, :integer, :required, "Class type id"
+    param :path, :animal_id, :integer, :required, "Animal id in database"
+  end
+
+  def addanimal
+    @animal=Animal.find(params[:animal_id])
+    unless @class_type.has_animal?(@animal)
+      @class_type.animals.append(@animal)
+    end
+    redirect_to @class_type
+  end
+
+  swagger_api :removeanimal do
+    summary 'Remove animal for a class'
+    notes 'Notes...'
+    param :path, :id, :integer, :required, "Class type id"
+    param :path, :animal_id, :integer, :required, "Animal id in database"
+  end
+  def removeanimal
+    if @class_type.has_animal?(@animal)
+      @class_type.animals.delete(@animal)
+    end
+    redirect_to @class_type
+  end
+
+
+
   swagger_api :addsubject do
     summary 'Add subject for a class'
     notes 'Notes...'
@@ -14,13 +78,10 @@ class ClassTypesController < ApplicationController
     param :path, :subject_id, :integer, :required, "Subject id in database"
   end
 
-
-
   def addsubject
     @subject=Subject.find(params[:subject_id])
-    unless @class_type.follows?(@subject)
+    unless @class_type.has_subject?(@subject)
       @class_type.subjects.append(@subject)
-      @subject.class_types.append(@class_type)
     end
     redirect_to @subject
   end
@@ -31,16 +92,17 @@ class ClassTypesController < ApplicationController
     summary 'Remove subject from course'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Class type id"
-    param :form, :subject_id, :integer, :required, "Subject id in database"
+    param :path, :subject_id, :integer, :required, "Subject id in database"
   end
 
   def removesubject
-    if @class_type.follows?(@subject)
-      @subject.class_types.delete(@class_type)
+    if @class_type.has_subject?(@subject)
       @class_type.subjects.delete(@subject)
     end
     redirect_to @class_type
   end
+
+#adding tutor for exact class
 
 
   # GET /class_types or /class_types.json
@@ -105,6 +167,10 @@ class ClassTypesController < ApplicationController
   end
 
   # DELETE /class_types/1 or /class_types/1.json
+  swagger_api :destroy do
+    summary 'Delete class'
+    param :path, :id, :integer, :required, "Class id"
+  end
   def destroy
     @class_type.destroy
 
@@ -120,8 +186,19 @@ class ClassTypesController < ApplicationController
       @class_type = ClassType.find(params[:id])
     end
 
+    def set_class_and_animal
+      @class_type = ClassType.find(params[:id])
+      @animal=Animal.find(params[:animal_id])
+    end
+
     def set_class_and_subject
       @class_type = ClassType.find(params[:id])
+      @subject=Subject.find(params[:subject_id])
+    end
+
+    def set_class_and_tutor
+      @class_type = ClassType.find(params[:id])
+      @tutor=Employee.find(params[:tutor_id])
     end
 
 

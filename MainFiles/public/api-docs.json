@@ -4,8 +4,20 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
+      "path": "/teachers.{format}",
+      "description": "Teachers"
+    },
+    {
       "path": "/class_types.{format}",
       "description": "Classes"
+    },
+    {
+      "path": "/trainers.{format}",
+      "description": "Trainers"
+    },
+    {
+      "path": "/class_lists.{format}",
+      "description": "Class lists"
     },
     {
       "path": "/certificates.{format}",
@@ -16,6 +28,10 @@
       "description": "Students"
     },
     {
+      "path": "/employees.{format}",
+      "description": "Employees"
+    },
+    {
       "path": "/grades.{format}",
       "description": "Grades"
     },
@@ -24,28 +40,20 @@
       "description": "Subjects"
     },
     {
-      "path": "/class_rooms.{format}",
-      "description": "Grades"
-    },
-    {
-      "path": "/employees.{format}",
-      "description": "Employees"
-    },
-    {
-      "path": "/class_lists.{format}",
-      "description": "Class lists"
-    },
-    {
-      "path": "/teachers.{format}",
-      "description": "Teachers"
-    },
-    {
-      "path": "/trainers.{format}",
-      "description": "Trainers"
+      "path": "/messages.{format}",
+      "description": "Messages"
     },
     {
       "path": "/emails.{format}",
       "description": "Emails"
+    },
+    {
+      "path": "/class_rooms.{format}",
+      "description": "Class rooms"
+    },
+    {
+      "path": "/animals.{format}",
+      "description": "Animals"
     }
   ],
   "authorizations": null,

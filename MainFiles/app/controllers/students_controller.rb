@@ -34,10 +34,10 @@ class StudentsController < ApplicationController
   # POST /students or /students.json
   swagger_api :create do
     summary "Create a student"
-    param :form, "student[FirstName]", :string, :required, "Students first name"
-    param :form, "student[SecondName]", :string, :required, "Students second name"
-    param :form, "student[StudentId]", :integer, :required, "Students id"
-    param :form, "student[password]", :string, :required, "Students password"
+    param :form, "student[FirstName]", :string, :required, "Student first name"
+    param :form, "student[SecondName]", :string, :required, "Student second name"
+    param :form, "student[StudentId]", :integer, :required, "Student id"
+    param :form, "student[password]", :string, :required, "Student password"
   end
 
   def create
@@ -58,13 +58,13 @@ class StudentsController < ApplicationController
   swagger_api :update do
     summary "Update a student"
     param :path, :id, :integer, :required, "Students id"
-    param :form, "student[StudentId]", :string, :required, "Students index"
-    param :form, "student[FristName]", :string, :required, "Students first name"
-    param :form, "student[SecondName]", :string, :required, "Students second name"
-    param :form, "student[DateOfBirth]", :string, :required, "Students second name"
-    param :form, "student[password]", :string, :required, "Students password"
+    param :form, "student[StudentId]", :string, "Student index"
+    param :form, "student[FristName]", :string, "Student first name"
+    param :form, "student[SecondName]", :string, "Student second name"
+    param :form, "student[DateOfBirth]", :string, "Student second name"
+    param :form, "student[password]", :string, "Student password"
   end
-  
+
   def update
     respond_to do |format|
       if @student.update(student_params)

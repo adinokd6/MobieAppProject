@@ -2,6 +2,8 @@ class AnimalsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_animal, only: [ :show, :edit, :update, :destroy ]
 
+    swagger_controller :animals, 'Animals'
+
   # GET /animals or /animals.json
   swagger_api :index do
     summary 'Returns all animals'
@@ -30,12 +32,18 @@ class AnimalsController < ApplicationController
   end
 
   # POST /animals or /animals.json
+  swagger_api :create do
+    param :form, "animal[Name]", :string, :required, "Animal name"
+    param :form, "animal[Species]", :string, :required, "Animal species"
+    param :form, "animal[Gender]", :string, :required, "Animal gender"
+    param :form, "animal[IsAlive]", :bool, :required, "Is alive"
+  end
   def create
     @animal = Animal.new(animal_params)
 
     respond_to do |format|
       if @animal.save
-        format.html { redirect_to animal_url(@animal), notice: "Animal was successfully created." }
+        format.html { redirect_to @animal, notice: "Animal was successfully created." }
         format.json { render :show, status: :created, location: @animal }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -45,10 +53,17 @@ class AnimalsController < ApplicationController
   end
 
   # PATCH/PUT /animals/1 or /animals/1.json
+  swagger_api :update do
+    param :path, :id, :integer, :required, "Animal id in database"
+    param :form, "animal[Name]", :string, "Animal name"
+    param :form, "animal[Species]", :string, "Animal species"
+    param :form, "animal[Gender]", :string, "Animal gender"
+    param :form, "animal[IsAlive]", :bool, "Is alive"
+  end
   def update
     respond_to do |format|
       if @animal.update(animal_params)
-        format.html { redirect_to animal_url(@animal), notice: "Animal was successfully updated." }
+        format.html { redirect_to @animal, notice: "Animal was successfully updated." }
         format.json { render :show, status: :ok, location: @animal }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,6 +73,9 @@ class AnimalsController < ApplicationController
   end
 
   # DELETE /animals/1 or /animals/1.json
+  swagger_api :destroy do
+    param :path, :id, :integer, :required, "Animal id in database"  
+  end
   def destroy
     @animal.destroy
 

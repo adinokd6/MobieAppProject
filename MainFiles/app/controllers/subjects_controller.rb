@@ -59,11 +59,11 @@ class SubjectsController < ApplicationController
 
   swagger_api :update do
     summary "Update subject information"
-    param :form, "subject[teacher_id]", :integer, :required, "Teacher id in database"
-    param :form, "subject[trainer_id]", :integer, :required, "Trainer id in database"
-    param :form, "subject[Description]", :text, :required, "Subject description"
-    param :form, "subject[MaxCapacity]", :integer, :required, "Subject max capacity"
-    param :form, "subject[SubjectId]", :integer, :required, "Subject id"
+    param :form, "subject[teacher_id]", :integer, "Teacher id in database"
+    param :form, "subject[trainer_id]", :integer, "Trainer id in database"
+    param :form, "subject[Description]", :text, "Subject description"
+    param :form, "subject[MaxCapacity]", :integer, "Subject max capacity"
+    param :form, "subject[SubjectId]", :integer, "Subject id"
   end
   # PATCH/PUT /subjects/1 or /subjects/1.json
   def update

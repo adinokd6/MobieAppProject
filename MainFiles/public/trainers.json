@@ -5,6 +5,60 @@
   "resourcePath": "trainers",
   "apis": [
     {
+      "path": "/trainers/{id}/addsubject/{subject_id}",
+      "operations": [
+        {
+          "summary": "Remove subject owner",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Trainer id in database",
+              "required": true
+            },
+            {
+              "paramType": "path",
+              "name": "subject_id",
+              "type": "integer",
+              "description": "Subject id in database",
+              "required": true
+            }
+          ],
+          "nickname": "Trainers#addsubject",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/trainers/{id}/removesubject/{subject_id}",
+      "operations": [
+        {
+          "summary": "Remove subject owner",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Trainer id in database",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "subject_id",
+              "type": "integer",
+              "description": "Subject id in database",
+              "required": true
+            }
+          ],
+          "nickname": "Trainers#removesubject",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "path": "/trainers",
       "operations": [
         {
@@ -23,23 +77,23 @@
           "parameters": [
             {
               "paramType": "form",
-              "name": "trainer[FristName]",
+              "name": "trainer[FirstName]",
               "type": "string",
-              "description": "Trainers first name",
+              "description": "Trainer first name",
               "required": true
             },
             {
               "paramType": "form",
-              "name": "trainer[SecondName]",
+              "name": "trainer[LastName]",
               "type": "string",
-              "description": "Trainers second name",
+              "description": "Trainer second name",
               "required": true
             },
             {
               "paramType": "form",
               "name": "trainer[TrainerId]",
               "type": "integer",
-              "description": "Trainers id",
+              "description": "Trainer id",
               "required": true
             }
           ],
@@ -52,7 +106,7 @@
       "path": "/trainers/{id}",
       "operations": [
         {
-          "summary": "Returns one trainer",
+          "summary": "Returns one trainer with exact id",
           "notes": "Notes...",
           "parameters": [
             {
@@ -65,6 +119,66 @@
           ],
           "nickname": "Trainers#show",
           "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/trainers/{id}",
+      "operations": [
+        {
+          "summary": "Update trainer information",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Trainer id in database",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "trainer[FirstName]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "trainer[LastName]",
+              "type": "string",
+              "description": null,
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "trainer[TrainerId]",
+              "type": "integer",
+              "description": null,
+              "required": false
+            }
+          ],
+          "nickname": "Trainers#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/trainers/{id}",
+      "operations": [
+        {
+          "summary": "Delete trainer from database",
+          "notes": "Notes...",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Trainer id",
+              "required": true
+            }
+          ],
+          "nickname": "Trainers#destroy",
+          "method": "delete"
         }
       ]
     }

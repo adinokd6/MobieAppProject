@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_employee, only: %i[ show edit update destroy ]
+  before_action :set_employee, only: [ :show, :edit, :update, :destroy ]
 
   swagger_controller :employees, 'Employees'
 
@@ -24,7 +24,7 @@ class EmployeesController < ApplicationController
 
   # GET /employees/new
   swagger_api :create do
-    summary "Create a email"
+    summary "Create employee"
     param :form, "employee[EmailId]", :integer, "Employee email id"
     param :form, "employee[EmployeeId]", :integer, "Employee id"
   end
