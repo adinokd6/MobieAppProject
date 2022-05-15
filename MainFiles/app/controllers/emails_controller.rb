@@ -79,7 +79,6 @@ class EmailsController < ApplicationController
     def set_email
       @email = Email.find(params[:id])
     end
-
     # Only allow a list of trusted parameters through.
     def email_params
       params.require(:email).permit(:EmailId, :OwnerId, :EmailAddress)
