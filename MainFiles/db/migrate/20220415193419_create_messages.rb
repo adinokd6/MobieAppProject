@@ -4,6 +4,7 @@ class CreateMessages < ActiveRecord::Migration[5.2]
       t.integer :MessageId
       t.string :From
       t.string :To
+      t.string :Title
       t.text :Text
       t.string :Date
 
