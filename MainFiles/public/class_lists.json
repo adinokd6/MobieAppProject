@@ -9,7 +9,6 @@
       "operations": [
         {
           "summary": "Add student to class",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -26,6 +25,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "ClassLists#add_student",
           "method": "get"
         }
@@ -36,7 +36,6 @@
       "operations": [
         {
           "summary": "Remove student from class",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -53,6 +52,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "ClassLists#remove_student",
           "method": "post"
         }
@@ -93,7 +93,6 @@
       "operations": [
         {
           "summary": "Returns one class list",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -103,6 +102,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "ClassLists#show",
           "method": "get"
         }
@@ -139,7 +139,6 @@
       "operations": [
         {
           "summary": "Delete class list from database",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -149,6 +148,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "ClassLists#destroy",
           "method": "delete"
         }

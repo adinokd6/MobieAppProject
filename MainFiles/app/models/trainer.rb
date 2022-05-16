@@ -4,9 +4,16 @@ class Trainer < ApplicationRecord
   belongs_to :employee, optional: true
 
   after_create :createEmployee
+  validates :TrainerId, presence: true, length: { is: 3 }, uniqueness: true
+
+  has_secure_password
+  has_secure_token
 
   def has_subject?(subject)
     self.subjects.include?(subject)
+  end
+  def invalidate_token
+    self.update_columns(token: nil)
   end
 
   def createEmployee

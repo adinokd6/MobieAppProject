@@ -96,7 +96,6 @@
       "operations": [
         {
           "summary": "Destroys grade",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -113,6 +112,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Grades#destroy",
           "method": "delete"
         }

@@ -4,6 +4,10 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
+      "path": "/sessions.{format}",
+      "description": "Authentication"
+    },
+    {
       "path": "/teachers.{format}",
       "description": "Teachers"
     },

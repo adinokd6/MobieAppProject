@@ -1,6 +1,7 @@
 class GradesController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_grade, only: [ :show, :edit, :update, :destroy ]
+  before_action :require_token, only: [:create]
 
   swagger_controller :grades, 'Grades'
 

@@ -1,4 +1,4 @@
-<%= form_with(model: message, local: true) do |form| %>
+<%= form_for [@email, @message] do |form| %>
   <% if message.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
@@ -12,28 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :MessageId %>
-    <%= form.number_field :MessageId %>
-  </div>
-
-  <div class="field">
-    <%= form.label :From %>
-    <%= form.text_field :From %>
-  </div>
-
-  <div class="field">
     <%= form.label :To %>
     <%= form.text_field :To %>
   </div>
 
   <div class="field">
-    <%= form.label :Text %>
-    <%= form.text_area :Text %>
+    <%= form.label :Title %>
+    <%= form.text_field :Title %>
   </div>
 
   <div class="field">
-    <%= form.label :Date %>
-    <%= form.text_field :Date %>
+    <%= form.label :Text %>
+    <%= form.text_area :Text %>
   </div>
 
   <div class="actions">

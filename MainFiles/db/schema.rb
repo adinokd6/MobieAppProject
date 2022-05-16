@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_12_221522) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_16_103212) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,7 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_221522) do
   create_table "class_types", force: :cascade do |t|
     t.integer "ClassId"
     t.string "Period"
-    t.string "Time"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
@@ -114,6 +113,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_221522) do
     t.integer "MessageId"
     t.string "From"
     t.string "To"
+    t.string "Title"
     t.text "Text"
     t.string "Date"
     t.datetime "created_at", precision: nil, null: false
@@ -159,7 +159,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_221522) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.bigint "employee_id"
+    t.string "password_digest"
+    t.string "token"
+    t.index ["TeacherId"], name: "index_teachers_on_TeacherId", unique: true
     t.index ["employee_id"], name: "index_teachers_on_employee_id"
+    t.index ["token"], name: "index_teachers_on_token"
   end
 
   create_table "trainers", force: :cascade do |t|
@@ -169,7 +173,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_12_221522) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.bigint "employee_id"
+    t.string "password_digest"
+    t.string "token"
+    t.index ["TrainerId"], name: "index_trainers_on_TrainerId", unique: true
     t.index ["employee_id"], name: "index_trainers_on_employee_id"
+    t.index ["token"], name: "index_trainers_on_token"
   end
 
   add_foreign_key "certificates", "students"

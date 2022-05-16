@@ -15,5 +15,30 @@
   <%= @trainer.LastName %>
 </p>
 
+<% if @trainer.employee.email.messages.length == 0 %>
+  You haven't any messages
+<% else %>
+<hr>
+Your messages:
+  <% @trainer.employee.email.messages.each do |message| %>
+      <p>
+        <strong>From:</strong>
+        <%= message.From %>
+      </p>
+      <p>
+        <strong>To:</strong>
+        <%= message.To %>
+      </p>
+      <p>
+        <strong>Title:</strong>
+        <%= message.Title %>
+      </p>
+      <p>
+        <%= message.Text %>
+      </p>
+      <hr>
+    <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_trainer_path(@trainer) %> |
 <%= link_to 'Back', trainers_path %>

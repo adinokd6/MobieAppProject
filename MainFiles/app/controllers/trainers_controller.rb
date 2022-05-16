@@ -58,6 +58,7 @@ class TrainersController < ApplicationController
     param :form, "trainer[FirstName]", :string, :required, "Trainer first name"
     param :form, "trainer[LastName]", :string, :required, "Trainer second name"
     param :form, "trainer[TrainerId]", :integer, :required, "Trainer id"
+    param :form, "trainer[password]", :string, :required, "Trainer password"
   end
   def new
     @employee = Employee.find(params[:employee_id])
@@ -89,6 +90,7 @@ class TrainersController < ApplicationController
     param :form, "trainer[FirstName]", :string, "Trainer first name"
     param :form, "trainer[LastName]", :string, "Trainer second name"
     param :form, "trainer[TrainerId]", :integer, "Trainer id"
+    param :form, "trainer[password]", :string, "Trainer password"
   end
 
   def update
@@ -127,6 +129,6 @@ class TrainersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def trainer_params
-      params.require(:trainer).permit(:TrainerId, :FirstName, :LastName)
+      params.require(:trainer).permit(:TrainerId, :FirstName, :LastName, :password, :password_confirmation)
     end
 end

@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_message, only: [ :show, :edit, :update, :destroy ]
+  before_action :require_token, only: [:create]
 
 swagger_controller :certificates, 'Messages'
 
@@ -22,6 +23,7 @@ swagger_controller :certificates, 'Messages'
   # GET /messages/new
   def new
     @email = Email.find(params[:email_id])
+    @message=@email.messages.new
   end
 
   # GET /messages/1/edit
@@ -30,12 +32,30 @@ swagger_controller :certificates, 'Messages'
 
   # POST /messages or /messages.json
   def create
-    @email = Email.find(params[:email_id])
-    @message=@email.messages.new(message_params)
+    @sender = Email.find(params[:email_id])
+    @receiver = Email.where(EmailAddress: message_params[:To]).first
+    if current_student
+      @from=current_student.EmailAddress
+    elsif current_teacher
+      @from=current_teacher.employee.email.EmailAddress
+    else
+      @from=current_trainer.EmailAddress
+    end
+
+
+    @message1=@receiver.messages.new(message_params)
+    @message2=@sender.messages.new(message_params)
+
+    @message1.From=@from
+    @message2.From=@from
+
+    @message1.email=@receiver
+    @message2.email=@sender
 
     respond_to do |format|
-      if @message.save
-        format.html { redirect_to [@email,@message], notice: "Message was successfully created." }
+      if @message1.save
+        @message2.save
+        format.html { redirect_to [@sender,@message], notice: "Message was successfully created." }
         format.json { render :show, status: :created }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -45,8 +65,8 @@ swagger_controller :certificates, 'Messages'
   end
 
   swagger_api :create do
-    summary "Create new certificate for student"
-    param :path, :email_id, :integer, :required, "Email id"
+    summary "Create new message"
+    param :header, "Authorization", :string, :required, "Authentication token"
     param :form, "message[From]", :integer, :required, "From"
     param :form, "message[To]", :text, :required, "To"
     param :form, "message[Title]", :integer, :required, "Title"
@@ -94,6 +114,6 @@ swagger_controller :certificates, 'Messages'
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:MessageId, :From, :To, :Text, :Date, :email_id)
+      params.require(:message).permit(:MessageId, :From, :To, :Text, :Date, :Title)
     end
 end

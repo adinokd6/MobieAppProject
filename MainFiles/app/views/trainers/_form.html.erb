@@ -26,6 +26,15 @@
     <%= form.text_field :LastName %>
   </div>
 
+  <div class="field">
+  <%= form.label :password %>
+  <%= form.password_field :password, id: :trainer_password %>
+</div>
+<div class="field">
+  <%= form.label :password_confirmation %>
+  <%= form.password_field :password_confirmation, id: :trainer_password_confirmation %>
+</div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

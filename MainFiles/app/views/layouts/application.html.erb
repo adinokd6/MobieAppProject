@@ -4,6 +4,14 @@
   Zalogowany jako <%= current_student.FirstName %>
   <%= link_to "Profil", current_student %>
   <%= link_to "Wyloguj", logout_path, method: :delete %>
+<% elsif logged_in_teacher? %>
+Zalogowany jako <%= current_teacher.FirstName %>
+<%= link_to "Profil", current_teacher %>
+<%= link_to "Wyloguj", logout_path, method: :delete %>
+<% elsif logged_in_trainer? %>
+Zalogowany jako <%= current_trainer.FirstName %>
+<%= link_to "Profil", current_teacher %>
+<%= link_to "Wyloguj", logout_path, method: :delete %>
 <% else %>
   <%= link_to "Zaloguj", login_path %>
 <% end %>
