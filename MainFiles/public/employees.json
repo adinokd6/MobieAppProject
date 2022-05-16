@@ -46,7 +46,6 @@
       "operations": [
         {
           "summary": "Returns one employee",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -56,6 +55,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Employees#show",
           "method": "get"
         }

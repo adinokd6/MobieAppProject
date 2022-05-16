@@ -31,6 +31,15 @@
     <%= form.text_field :Title %>
   </div>
 
+  <div class="field">
+  <%= form.label :password %>
+  <%= form.password_field :password, id: :teacher_password %>
+</div>
+<div class="field">
+  <%= form.label :password_confirmation %>
+  <%= form.password_field :password_confirmation, id: :teacher_password_confirmation %>
+</div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

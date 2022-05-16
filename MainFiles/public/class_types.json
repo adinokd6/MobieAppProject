@@ -9,7 +9,6 @@
       "operations": [
         {
           "summary": "Add animal for a class",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -26,6 +25,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "ClassTypes#addanimal",
           "method": "get"
         }
@@ -36,7 +36,6 @@
       "operations": [
         {
           "summary": "Remove animal for a class",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -53,6 +52,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "ClassTypes#removeanimal",
           "method": "post"
         }
@@ -63,7 +63,6 @@
       "operations": [
         {
           "summary": "Add subject for a class",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -80,6 +79,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "ClassTypes#addsubject",
           "method": "get"
         }
@@ -90,7 +90,6 @@
       "operations": [
         {
           "summary": "Remove subject from course",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -107,6 +106,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "ClassTypes#removesubject",
           "method": "post"
         }
@@ -117,7 +117,6 @@
       "operations": [
         {
           "summary": "Add tutor for a class",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -134,6 +133,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "ClassTypes#addtutor",
           "method": "get"
         }
@@ -144,7 +144,6 @@
       "operations": [
         {
           "summary": "Remove tutor for a class",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -161,6 +160,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "ClassTypes#removetutor",
           "method": "post"
         }
@@ -215,7 +215,6 @@
       "operations": [
         {
           "summary": "Returns one class",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -225,6 +224,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "ClassTypes#show",
           "method": "get"
         }

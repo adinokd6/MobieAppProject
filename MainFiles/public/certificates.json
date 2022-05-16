@@ -63,7 +63,6 @@
       "operations": [
         {
           "summary": "Returns one certificate",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -80,6 +79,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Certificates#show",
           "method": "get"
         }

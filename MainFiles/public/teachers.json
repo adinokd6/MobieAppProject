@@ -9,7 +9,6 @@
       "operations": [
         {
           "summary": "Remove subject owner",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -26,6 +25,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Teachers#addsubject",
           "method": "get"
         }
@@ -36,7 +36,6 @@
       "operations": [
         {
           "summary": "Remove subject owner",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -53,6 +52,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Teachers#removesubject",
           "method": "post"
         }
@@ -100,8 +100,15 @@
               "paramType": "form",
               "name": "teacher[TeacherId]",
               "type": "integer",
-              "description": null,
-              "required": false
+              "description": "Teacher id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "teacher[password]",
+              "type": "string",
+              "description": "Teacher password",
+              "required": true
             }
           ],
           "nickname": "Teachers#create",
@@ -114,7 +121,6 @@
       "operations": [
         {
           "summary": "Returns one teacher",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -124,6 +130,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Teachers#show",
           "method": "get"
         }
@@ -165,8 +172,8 @@
             },
             {
               "paramType": "form",
-              "name": "teacher[TeacherId]",
-              "type": "integer",
+              "name": "teacher[password]",
+              "type": "string",
               "description": null,
               "required": false
             }
@@ -181,7 +188,6 @@
       "operations": [
         {
           "summary": "Delete teacher from database",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -191,6 +197,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Teachers#destroy",
           "method": "delete"
         }

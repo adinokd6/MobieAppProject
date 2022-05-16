@@ -8,13 +8,13 @@
       "path": "/emails/{email_id}/messages",
       "operations": [
         {
-          "summary": "Create new certificate for student",
+          "summary": "Create new message",
           "parameters": [
             {
-              "paramType": "path",
-              "name": "email_id",
-              "type": "integer",
-              "description": "Email id",
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token",
               "required": true
             },
             {
@@ -56,7 +56,6 @@
       "operations": [
         {
           "summary": "Returns one message",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -73,6 +72,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Messages#show",
           "method": "get"
         }

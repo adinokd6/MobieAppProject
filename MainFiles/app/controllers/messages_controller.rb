@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_message, only: [ :show, :edit, :update, :destroy ]
+  before_action :require_token, only: [:create]
 
 swagger_controller :certificates, 'Messages'
 
@@ -33,9 +34,20 @@ swagger_controller :certificates, 'Messages'
   def create
     @sender = Email.find(params[:email_id])
     @receiver = Email.where(EmailAddress: message_params[:To]).first
+    if current_student
+      @from=current_student.EmailAddress
+    elsif current_teacher
+      @from=current_teacher.employee.email.EmailAddress
+    else
+      @from=current_trainer.EmailAddress
+    end
+
 
     @message1=@receiver.messages.new(message_params)
     @message2=@sender.messages.new(message_params)
+
+    @message1.From=@from
+    @message2.From=@from
 
     @message1.email=@receiver
     @message2.email=@sender
@@ -54,6 +66,7 @@ swagger_controller :certificates, 'Messages'
 
   swagger_api :create do
     summary "Create new message"
+    param :header, "Authorization", :string, :required, "Authentication token"
     param :form, "message[From]", :integer, :required, "From"
     param :form, "message[To]", :text, :required, "To"
     param :form, "message[Title]", :integer, :required, "Title"
@@ -101,6 +114,6 @@ swagger_controller :certificates, 'Messages'
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:MessageId, :From, :To, :Text, :Date)
+      params.require(:message).permit(:MessageId, :From, :To, :Text, :Date, :Title)
     end
 end

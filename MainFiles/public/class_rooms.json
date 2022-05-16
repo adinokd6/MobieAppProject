@@ -63,7 +63,6 @@
       "operations": [
         {
           "summary": "Returns one class room",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -80,6 +79,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "ClassRooms#show",
           "method": "get"
         }
@@ -151,7 +151,6 @@
       "operations": [
         {
           "summary": "Delete class room from database",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -168,6 +167,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "ClassRooms#destroy",
           "method": "delete"
         }

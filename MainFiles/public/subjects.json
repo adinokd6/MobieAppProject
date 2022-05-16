@@ -67,7 +67,6 @@
       "operations": [
         {
           "summary": "Returns one subject with exact id",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -77,6 +76,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Subjects#show",
           "method": "get"
         }
@@ -134,7 +134,6 @@
       "operations": [
         {
           "summary": "Delete subject",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -144,6 +143,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Subjects#destroy",
           "method": "delete"
         }

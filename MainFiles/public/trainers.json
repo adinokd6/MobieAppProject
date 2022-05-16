@@ -9,7 +9,6 @@
       "operations": [
         {
           "summary": "Remove subject owner",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -26,6 +25,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Trainers#addsubject",
           "method": "get"
         }
@@ -36,7 +36,6 @@
       "operations": [
         {
           "summary": "Remove subject owner",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -53,6 +52,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Trainers#removesubject",
           "method": "post"
         }
@@ -95,6 +95,13 @@
               "type": "integer",
               "description": "Trainer id",
               "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "trainer[password]",
+              "type": "string",
+              "description": "Trainer password",
+              "required": true
             }
           ],
           "nickname": "Trainers#create",
@@ -107,7 +114,6 @@
       "operations": [
         {
           "summary": "Returns one trainer with exact id",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -117,6 +123,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Trainers#show",
           "method": "get"
         }
@@ -155,6 +162,13 @@
               "type": "integer",
               "description": null,
               "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "trainer[password]",
+              "type": "string",
+              "description": null,
+              "required": false
             }
           ],
           "nickname": "Trainers#update",
@@ -167,7 +181,6 @@
       "operations": [
         {
           "summary": "Delete trainer from database",
-          "notes": "Notes...",
           "parameters": [
             {
               "paramType": "path",
@@ -177,6 +190,7 @@
               "required": true
             }
           ],
+          "notes": "Notes...",
           "nickname": "Trainers#destroy",
           "method": "delete"
         }
