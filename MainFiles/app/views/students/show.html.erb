@@ -25,12 +25,12 @@
   <%= @student.grades %>
 </p>
 
-<% if @student.employee.email.messages.length == 0 %>
+<% if @student.email.messages.length == 0 %>
   You haven't any messages
 <% else %>
 <hr>
 Your messages:
-  <% @student.employee.email.messages.each do |message| %>
+  <% @student.email.messages.each do |message| %>
       <p>
         <strong>From:</strong>
         <%= message.From %>
