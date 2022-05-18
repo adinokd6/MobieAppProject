@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   before_action :set_message, only: [ :show, :edit, :update, :destroy ]
   before_action :require_token, only: [:create]
 
-swagger_controller :certificates, 'Messages'
+swagger_controller :messages, 'Messages'
 
   # GET /messages or /messages.json
   def index

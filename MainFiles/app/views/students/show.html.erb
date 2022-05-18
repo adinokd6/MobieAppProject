@@ -50,4 +50,5 @@ Your messages:
     <% end %>
 <% end %>
 <%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Send email', new_email_message_path(@student.email) %>
 <%= link_to 'Back', students_path %>
