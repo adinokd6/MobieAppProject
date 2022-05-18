@@ -20,6 +20,7 @@ class GradesController < ApplicationController
   # GET /grades/new
   swagger_api :create do
     summary "Create a grade"
+    param :header, "Authorization", :string, :required, "Authentication token"
     param :path, :subject_id, :integer, :required, "Subject id in database"
     param :form, "grade[student_id]", :integer, :required, "Student id in database"
     param :form, "grade[Date]", :string, :required, "Grades date"
