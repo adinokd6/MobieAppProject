@@ -14,6 +14,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_103212) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "animal_classes", id: false, force: :cascade do |t|
+    t.bigint "animal_id"
+    t.bigint "class_type_id"
+    t.index ["animal_id"], name: "index_animal_classes_on_animal_id"
+    t.index ["class_type_id"], name: "index_animal_classes_on_class_type_id"
+  end
+
   create_table "animals", force: :cascade do |t|
     t.integer "AnimalId"
     t.string "Species"
@@ -22,13 +29,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_103212) do
     t.string "Name"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-  end
-
-  create_table "animals_classes", id: false, force: :cascade do |t|
-    t.bigint "animal_id"
-    t.bigint "class_type_id"
-    t.index ["animal_id"], name: "index_animals_classes_on_animal_id"
-    t.index ["class_type_id"], name: "index_animals_classes_on_class_type_id"
   end
 
   create_table "certificates", force: :cascade do |t|
@@ -65,8 +65,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_103212) do
   create_table "class_types", force: :cascade do |t|
     t.integer "ClassId"
     t.string "Period"
+    t.string "Time"
+    t.bigint "animal_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.index ["animal_id"], name: "index_class_types_on_animal_id"
   end
 
   create_table "classes_subjects", id: false, force: :cascade do |t|
@@ -91,10 +94,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_103212) do
   create_table "employees", force: :cascade do |t|
     t.integer "EmployeeId"
     t.integer "EmailId"
+    t.bigint "email_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "class_type_id"
     t.index ["class_type_id"], name: "index_employees_on_class_type_id"
+    t.index ["email_id"], name: "index_employees_on_email_id"
+  end
+
+  create_table "employers", force: :cascade do |t|
+    t.integer "EmployerId"
+    t.integer "EmailId"
+    t.bigint "email_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["email_id"], name: "index_employers_on_email_id"
   end
 
   create_table "grades", force: :cascade do |t|
@@ -113,7 +127,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_103212) do
     t.integer "MessageId"
     t.string "From"
     t.string "To"
-    t.string "Title"
     t.text "Text"
     t.string "Date"
     t.datetime "created_at", precision: nil, null: false
@@ -127,6 +140,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_103212) do
     t.string "FirstName"
     t.string "SecondName"
     t.string "DateOfBirth"
+    t.bigint "grade_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.string "password_digest"
@@ -134,6 +148,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_103212) do
     t.bigint "class_list_id"
     t.index ["StudentId"], name: "index_students_on_StudentId", unique: true
     t.index ["class_list_id"], name: "index_students_on_class_list_id"
+    t.index ["grade_id"], name: "index_students_on_grade_id"
     t.index ["token"], name: "index_students_on_token"
   end
 
@@ -183,13 +198,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_103212) do
   add_foreign_key "certificates", "students"
   add_foreign_key "class_lists", "class_types"
   add_foreign_key "class_rooms", "class_types"
+  add_foreign_key "class_types", "animals"
   add_foreign_key "emails", "employees"
   add_foreign_key "emails", "students"
   add_foreign_key "employees", "class_types"
+  add_foreign_key "employees", "emails"
+  add_foreign_key "employers", "emails"
   add_foreign_key "grades", "students"
   add_foreign_key "grades", "subjects"
   add_foreign_key "messages", "emails"
   add_foreign_key "students", "class_lists"
+  add_foreign_key "students", "grades"
   add_foreign_key "subjects", "class_types"
   add_foreign_key "subjects", "teachers"
   add_foreign_key "subjects", "trainers"
