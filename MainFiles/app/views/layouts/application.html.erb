@@ -15,6 +15,18 @@ Zalogowany jako <%= current_trainer.FirstName %>
 <% else %>
   <%= link_to "Zaloguj", login_path %>
 <% end %>
+<p>
+  <a href="/students">Studenci</a>
+  <a href="/employees">Pracownicy</a>
+  <a href="/animals">Zwierzęta</a>
+  <a href="/class_lists">Lista Klas</a>
+  <a href="/class_types">Typ Klasy</a>
+  <a href="/emails">Email</a>
+  <a href="/subjects">Przedmioty</a>
+  <a href="/teachers">Nauczyciele</a>
+  <a href="/trainers">Trenerzy</a>
+
+</p>
   <head>
     <title>StudentForum</title>
     <%= csrf_meta_tags %>
