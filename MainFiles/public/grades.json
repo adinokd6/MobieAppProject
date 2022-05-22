@@ -11,6 +11,13 @@
           "summary": "Create a grade",
           "parameters": [
             {
+              "paramType": "header",
+              "name": "Authorization",
+              "type": "string",
+              "description": "Authentication token",
+              "required": true
+            },
+            {
               "paramType": "path",
               "name": "subject_id",
               "type": "integer",
