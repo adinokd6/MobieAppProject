@@ -1,0 +1,5 @@
+<%= form_for @class_type, url: {action: "addsubject"} do |f| %>
+  <%= f.label :subject_id %>
+  <%= f.number_field :subject_id %>
+  <%= f.submit "Add subject with exact id to class" %>
+<% end %>

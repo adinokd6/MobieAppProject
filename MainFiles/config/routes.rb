@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   get '/class_types/:id/addanimal/:animal_id', to: 'class_types#addanimal'
   post '/class_types/:id/removeanimal/:animal_id', to: 'class_types#removeanimal'
 
-  get '/class_types/:id/addsubject/:subject_id', to: 'class_types#addsubject'
-  post '/class_types/:id/removesubject/:subject_id', to: 'class_types#removesubject'
+  post '/class_types/:id/addsubject', to: 'class_types#addsubject'
+  post '/class_types/:id/removesubject', to: 'class_types#removesubject'
 
   get '/trainers/:id/addsubject/:subject_id', to: 'trainers#addsubject'
   post '/trainers/:id/removesubject/:subject_id', to: 'trainers#removesubject'
@@ -22,7 +22,6 @@ Rails.application.routes.draw do
 
   get '/class_types/:id/tutor/:tutor_id', to: 'class_types#addtutor'
   post '/class_types/:id/tutor/:tutor_id', to: 'class_types#removetutor'
-
 
 
 

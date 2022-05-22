@@ -9,12 +9,15 @@
   <strong>Period:</strong>
   <%= @class_type.Period %>
 </p>
+<hr>
+<div class="col-md-3">
+  <form action="/class_types/<%=@class_type.id%>/addsubject/" method="post">
+    <label for="subject_id">Subject id:</label>
+    <input type="text" name="subject_id" />
+    <input type="submit" />
+  </form>
+</div>
 
-<p>
-  <strong>Time:</strong>
-  <%= @class_type.Time %>
-</p>
-
-<%= link_to( "Add subject to class", action: :addsubject) %>
 <%= link_to 'Edit', edit_class_type_path(@class_type) %> |
 <%= link_to 'Back', class_types_path %>
+<hr>
