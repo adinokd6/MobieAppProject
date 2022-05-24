@@ -75,7 +75,7 @@ class ClassTypesController < ApplicationController
     summary 'Add subject for a class'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Class type id"
-    param :path, :subject_id, :integer, :required, "Subject id in database"
+    param :form, "subject_id", :integer, :required, "Subject id in database"
   end
 
   def addsubject
@@ -92,7 +92,7 @@ class ClassTypesController < ApplicationController
     summary 'Remove subject from course'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Class type id"
-    param :path, :subject_id, :integer, :required, "Subject id in database"
+    param :form, "subject_id", :integer, :required, "Subject id in database"
   end
 
   def removesubject

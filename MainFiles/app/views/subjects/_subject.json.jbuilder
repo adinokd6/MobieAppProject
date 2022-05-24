@@ -3,7 +3,6 @@ json.ignore_nil!
 json.classes subject.class_types do |class_type|
   json.id class_type.ClassId
   json.period class_type.Period
-  json.time class_type.Time
 end
 json.teacher do
   if !subject.teacher.nil?

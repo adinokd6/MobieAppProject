@@ -169,6 +169,7 @@ GEM
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    railroady (1.6.0)
     rails (7.0.2.3)
       actioncable (= 7.0.2.3)
       actionmailbox (= 7.0.2.3)
@@ -281,6 +282,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
+  railroady
   rails (= 7.0.2.3)
   rails-erd
   sass-rails (~> 5.0)
