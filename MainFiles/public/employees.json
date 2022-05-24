@@ -23,13 +23,6 @@
           "parameters": [
             {
               "paramType": "form",
-              "name": "employee[EmailId]",
-              "type": "integer",
-              "description": null,
-              "required": false
-            },
-            {
-              "paramType": "form",
               "name": "employee[EmployeeId]",
               "type": "integer",
               "description": null,
