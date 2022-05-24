@@ -1,32 +1,5 @@
 <!DOCTYPE html>
 <html lang='pl'>
-<% if logged_in? %>
-  Zalogowany jako <%= current_student.FirstName %>
-  <%= link_to "Profil", current_student %>
-  <%= link_to "Wyloguj", logout_path, method: :delete %>
-<% elsif logged_in_teacher? %>
-Zalogowany jako <%= current_teacher.FirstName %>
-<%= link_to "Profil", current_teacher %>
-<%= link_to "Wyloguj", logout_path, method: :delete %>
-<% elsif logged_in_trainer? %>
-Zalogowany jako <%= current_trainer.FirstName %>
-<%= link_to "Profil", current_teacher %>
-<%= link_to "Wyloguj", logout_path, method: :delete %>
-<% else %>
-  <%= link_to "Zaloguj", login_path %>
-<% end %>
-<p>
-  <a href="/students">Studenci</a>
-  <a href="/employees">Pracownicy</a>
-  <a href="/animals">Zwierzęta</a>
-  <a href="/class_lists">Lista Klas</a>
-  <a href="/class_types">Typ Klasy</a>
-  <a href="/emails">Email</a>
-  <a href="/subjects">Przedmioty</a>
-  <a href="/teachers">Nauczyciele</a>
-  <a href="/trainers">Trenerzy</a>
-
-</p>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,10 +12,10 @@ Zalogowany jako <%= current_trainer.FirstName %>
   </head>
 
   <body>
-  <div class="container">
-
-    <%= yield %>
+    <%= render 'static/header'%>
+    <div class="container">
+      <%= yield %>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  </div>
   </body>
 </html>
