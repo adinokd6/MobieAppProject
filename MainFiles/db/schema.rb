@@ -65,8 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_103212) do
   create_table "class_types", force: :cascade do |t|
     t.integer "ClassId"
     t.string "Period"
-    t.string "Time"
-    t.bigint "animal_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.index ["animal_id"], name: "index_class_types_on_animal_id"
@@ -100,15 +98,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_103212) do
     t.bigint "class_type_id"
     t.index ["class_type_id"], name: "index_employees_on_class_type_id"
     t.index ["email_id"], name: "index_employees_on_email_id"
-  end
-
-  create_table "employers", force: :cascade do |t|
-    t.integer "EmployerId"
-    t.integer "EmailId"
-    t.bigint "email_id"
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.index ["email_id"], name: "index_employers_on_email_id"
   end
 
   create_table "grades", force: :cascade do |t|
@@ -148,7 +137,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_103212) do
     t.bigint "class_list_id"
     t.index ["StudentId"], name: "index_students_on_StudentId", unique: true
     t.index ["class_list_id"], name: "index_students_on_class_list_id"
-    t.index ["grade_id"], name: "index_students_on_grade_id"
     t.index ["token"], name: "index_students_on_token"
   end
 
@@ -198,17 +186,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_103212) do
   add_foreign_key "certificates", "students"
   add_foreign_key "class_lists", "class_types"
   add_foreign_key "class_rooms", "class_types"
-  add_foreign_key "class_types", "animals"
   add_foreign_key "emails", "employees"
   add_foreign_key "emails", "students"
   add_foreign_key "employees", "class_types"
-  add_foreign_key "employees", "emails"
-  add_foreign_key "employers", "emails"
   add_foreign_key "grades", "students"
   add_foreign_key "grades", "subjects"
   add_foreign_key "messages", "emails"
   add_foreign_key "students", "class_lists"
-  add_foreign_key "students", "grades"
   add_foreign_key "subjects", "class_types"
   add_foreign_key "subjects", "teachers"
   add_foreign_key "subjects", "trainers"
