@@ -5,7 +5,7 @@
   "resourcePath": "class_lists",
   "apis": [
     {
-      "path": "/class_lists/{id}/student/{student_id}",
+      "path": "/class_lists/{id}/addstudent",
       "operations": [
         {
           "summary": "Add student to class",
@@ -18,7 +18,7 @@
               "required": true
             },
             {
-              "paramType": "path",
+              "paramType": "form",
               "name": "student_id",
               "type": "integer",
               "description": "Student id in database",
@@ -27,12 +27,12 @@
           ],
           "notes": "Notes...",
           "nickname": "ClassLists#add_student",
-          "method": "get"
+          "method": "post"
         }
       ]
     },
     {
-      "path": "/class_lists/{id}/student/{student_id}",
+      "path": "/class_lists/{id}/removestudent",
       "operations": [
         {
           "summary": "Remove student from class",
@@ -45,7 +45,7 @@
               "required": true
             },
             {
-              "paramType": "path",
+              "paramType": "form",
               "name": "student_id",
               "type": "integer",
               "description": "Student id in database",

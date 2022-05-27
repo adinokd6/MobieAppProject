@@ -10,11 +10,10 @@ class ClassListsController < ApplicationController
     summary 'Add student to class'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Class list id in database"
-    param :path, :student_id, :integer, :required, "Student id in database"
+    param :form, "student_id", :integer, :required, "Student id in database"
   end
 
   def add_student
-    @student=Student.find(params[:student_id])
     unless @class_list.has_this_student?(@student)
       @class_list.students.append(@student)
     end
@@ -27,7 +26,7 @@ class ClassListsController < ApplicationController
     summary 'Remove student from class'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Class list id in database"
-    param :path, :student_id, :integer, :required, "Student id in database"
+    param :form, "student_id", :integer, :required, "Student id in database"
   end
 
   def remove_student

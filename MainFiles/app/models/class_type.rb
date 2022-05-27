@@ -18,4 +18,8 @@ class ClassType < ApplicationRecord
   def has_tutor?(employee)
     self.employee==employee
   end
+
+  def has_list?(list)
+    self.class_list==list
+  end
 end

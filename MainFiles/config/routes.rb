@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   post '/teachers/:id/addsubject', to: 'teachers#addsubject'
   post '/teachers/:id/removesubject', to: 'teachers#removesubject'
 
-  get '/class_types/:id/addanimal/:animal_id', to: 'class_types#addanimal'
-  post '/class_types/:id/removeanimal/:animal_id', to: 'class_types#removeanimal'
+  post '/class_types/:id/addanimal', to: 'class_types#addanimal'
+  post '/class_types/:id/removeanimal', to: 'class_types#removeanimal'
 
   post '/class_types/:id/addsubject', to: 'class_types#addsubject'
   post '/class_types/:id/removesubject', to: 'class_types#removesubject'
@@ -17,11 +17,13 @@ Rails.application.routes.draw do
   post '/trainers/:id/addsubject', to: 'trainers#addsubject'
   post '/trainers/:id/removesubject', to: 'trainers#removesubject'
 
-  get '/class_lists/:id/student/:student_id', to: 'class_lists#add_student'
-  post '/class_lists/:id/student/:student_id', to: 'class_lists#remove_student'
+  post '/class_lists/:id/addstudent', to: 'class_lists#add_student'
+  post '/class_lists/:id/removestudent', to: 'class_lists#remove_student'
 
-  get '/class_types/:id/tutor/:tutor_id', to: 'class_types#addtutor'
-  post '/class_types/:id/tutor/:tutor_id', to: 'class_types#removetutor'
+  post '/class_types/:id/addtutor', to: 'class_types#addtutor'
+  post '/class_types/:id/removetutor', to: 'class_types#removetutor'
+
+  post '/class_types/:id/addlist', to: 'class_types#addlist'
 
 
 
