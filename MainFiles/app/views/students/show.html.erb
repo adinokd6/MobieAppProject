@@ -20,10 +20,22 @@
   <%= @student.DateOfBirth %>
 </p>
 
-<p>
+<% if @student.grades.length == 0 %>
+  You haven't any grades
+<% else %>
   <strong>Grade:</strong>
-  <%= @student.grades %>
-</p>
+  <%= @student.grades.each do |grade| %>
+  <p>
+    <strong>Grade:</strong>
+    <%= grade.Grade %>
+  </p>
+  <p>
+    <strong>Subject id:</strong>
+    <%= grade.subject.SubjectId %>
+  </p>
+      <% end %>
+<% end %>
+
 
 <% if @student.email.messages.length == 0 %>
   You haven't any messages
@@ -49,6 +61,6 @@ Your messages:
       <hr>
     <% end %>
 <% end %>
-<%= link_to 'Edit', edit_student_path(@student) %> |
+<hr>
 <%= link_to 'Send email', new_email_message_path(@student.email) %>
 <%= link_to 'Back', students_path %>

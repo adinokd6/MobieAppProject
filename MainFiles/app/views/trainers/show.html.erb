@@ -40,6 +40,6 @@ Your messages:
     <% end %>
 <% end %>
 
-<%= link_to 'Edit', edit_trainer_path(@trainer) %> |
+<hr>
 <%= link_to 'Send email', new_email_message_path(@trainer.employee.email) %>
 <%= link_to 'Back', trainers_path %>

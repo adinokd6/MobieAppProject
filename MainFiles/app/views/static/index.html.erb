@@ -3,10 +3,9 @@
 Strona internetowa obsługująca system elektronicznego dziennika
 <ul>
 <ul>
+  Lista naszych uczniow:
 <% @students.each do |student| %>
-  <%= link_to student do %>
-    <li><%= student.FirstName %> <%= student.DateOfBirth %></li>
-  <% end %>
+    <li><strong><%= student.FirstName %> <%= student.SecondName %></strong> Numer indeksu: <%=student.StudentId%></li>
 <% end %>
 </ul>
 </p>

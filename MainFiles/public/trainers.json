@@ -5,7 +5,7 @@
   "resourcePath": "trainers",
   "apis": [
     {
-      "path": "/trainers/{id}/addsubject/{subject_id}",
+      "path": "/trainers/{id}/addsubject",
       "operations": [
         {
           "summary": "Remove subject owner",
@@ -18,7 +18,7 @@
               "required": true
             },
             {
-              "paramType": "path",
+              "paramType": "form",
               "name": "subject_id",
               "type": "integer",
               "description": "Subject id in database",
@@ -27,12 +27,12 @@
           ],
           "notes": "Notes...",
           "nickname": "Trainers#addsubject",
-          "method": "get"
+          "method": "post"
         }
       ]
     },
     {
-      "path": "/trainers/{id}/removesubject/{subject_id}",
+      "path": "/trainers/{id}/removesubject",
       "operations": [
         {
           "summary": "Remove subject owner",
