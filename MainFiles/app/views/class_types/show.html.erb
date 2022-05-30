@@ -4,11 +4,22 @@
   <strong>Classid:</strong>
   <%= @class_type.ClassId %>
 </p>
-
 <p>
   <strong>Period:</strong>
   <%= @class_type.Period %>
 </p>
+<hr>
+<p>
+  <% if @class_type.class_list.nil? %>
+    Class hasn't any students
+  <% else %>
+    <strong>Our students:</strong>
+      <% @class_type.class_list.students.each do |student| %>
+        <li><strong><%= student.FirstName %> <%= student.SecondName %></strong> Numer indeksu: <%=student.StudentId%></li>
+      <% end %>
+    <% end %>
+</p>
+
 <hr>
 <div class="col-md-3">
   <form action="/class_types/<%=@class_type.id%>/addsubject/" method="post">

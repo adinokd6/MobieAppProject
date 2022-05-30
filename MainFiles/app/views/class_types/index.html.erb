@@ -6,9 +6,6 @@
   <thead>
     <tr>
       <th>Classid</th>
-      <th>Period</th>
-      <th>Time</th>
-      <th>Animal</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,10 +14,7 @@
     <% @class_types.each do |class_type| %>
       <tr>
         <td><%= class_type.ClassId %></td>
-        <td><%= class_type.Period %></td>
         <td><%= link_to 'Show', class_type %></td>
-        <td><%= link_to 'Edit', edit_class_type_path(class_type) %></td>
-        <td><%= link_to 'Destroy', class_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

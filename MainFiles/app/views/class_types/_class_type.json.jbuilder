@@ -16,6 +16,7 @@ json.class_room do
     json.ClassRoomNumber class_type.class_room.RoomNumber
   end
 end
+
 if !class_type.class_list.nil?
   if !class_type.class_list.students.nil?
     json.students class_type.class_list.students do |student|

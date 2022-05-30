@@ -4,6 +4,7 @@ class ClassTypesController < ApplicationController
   before_action :set_class_and_subject, only: [:removesubject]
   before_action :set_class_and_animal, only: [:removeanimal]
   before_action :set_class_and_tutor, only: [:removetutor]
+  before_action :set_class_and_list, only: [:addlist]
 
   swagger_controller :class_types, 'Classes'
 
@@ -12,7 +13,7 @@ class ClassTypesController < ApplicationController
     summary 'Add tutor for a class'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Class type id"
-    param :path, :tutor_id, :integer, :required, "Tutor id in database"
+    param :form, "tutor_id", :integer, :required, "Tutor id in database(employee)"
   end
   def addtutor
     @tutor=Employee.find(params[:tutor_id])
@@ -27,7 +28,7 @@ class ClassTypesController < ApplicationController
     summary 'Remove tutor for a class'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Class type id"
-    param :path, :tutor_id, :integer, :required, "Tutor id in database"
+    param :form, "tutor_id", :integer, :required, "Tutor id in database"
   end
   def removetutor
     if @class_type.has_tutor?(@tutor)
@@ -39,13 +40,27 @@ class ClassTypesController < ApplicationController
     redirect_to @class_type
   end
 
+  swagger_api :addlist do
+    summary 'Add class list for a class'
+    notes 'Notes...'
+    param :path, :id, :integer, :required, "Class type id"
+    param :form, "class_list_id", :integer, :required, "Tutor id in database"
+  end
+  def addlist
+    if @class_type.has_list?(@class_list)
+      @class_type.class_list=@class_list
+      @class_type.save
+    end
+    redirect_to @class_type
+  end
+
 
   #methods for adding and removing subject from classes
   swagger_api :addanimal do
     summary 'Add animal for a class'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Class type id"
-    param :path, :animal_id, :integer, :required, "Animal id in database"
+    param :form, "animal_id", :integer, :required, "Animal id in database"
   end
 
   def addanimal
@@ -60,7 +75,7 @@ class ClassTypesController < ApplicationController
     summary 'Remove animal for a class'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Class type id"
-    param :path, :animal_id, :integer, :required, "Animal id in database"
+    param :form, "animal_id", :integer, :required, "Animal id in database"
   end
   def removeanimal
     if @class_type.has_animal?(@animal)
@@ -199,6 +214,11 @@ class ClassTypesController < ApplicationController
     def set_class_and_tutor
       @class_type = ClassType.find(params[:id])
       @tutor=Employee.find(params[:tutor_id])
+    end
+
+    def set_class_and_list
+      @class_type = ClassType.find(params[:id])
+      @class_list=ClassList.find(params[:class_list_id])
     end
 
 

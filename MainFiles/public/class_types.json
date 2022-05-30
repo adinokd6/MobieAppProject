@@ -5,7 +5,7 @@
   "resourcePath": "class_types",
   "apis": [
     {
-      "path": "/class_types/{id}/addanimal/{animal_id}",
+      "path": "/class_types/{id}/addanimal",
       "operations": [
         {
           "summary": "Add animal for a class",
@@ -18,7 +18,7 @@
               "required": true
             },
             {
-              "paramType": "path",
+              "paramType": "form",
               "name": "animal_id",
               "type": "integer",
               "description": "Animal id in database",
@@ -27,12 +27,12 @@
           ],
           "notes": "Notes...",
           "nickname": "ClassTypes#addanimal",
-          "method": "get"
+          "method": "post"
         }
       ]
     },
     {
-      "path": "/class_types/{id}/removeanimal/{animal_id}",
+      "path": "/class_types/{id}/removeanimal",
       "operations": [
         {
           "summary": "Remove animal for a class",
@@ -45,7 +45,7 @@
               "required": true
             },
             {
-              "paramType": "path",
+              "paramType": "form",
               "name": "animal_id",
               "type": "integer",
               "description": "Animal id in database",
@@ -113,7 +113,7 @@
       ]
     },
     {
-      "path": "/class_types/{id}/tutor/{tutor_id}",
+      "path": "/class_types/{id}/addtutor",
       "operations": [
         {
           "summary": "Add tutor for a class",
@@ -126,21 +126,21 @@
               "required": true
             },
             {
-              "paramType": "path",
+              "paramType": "form",
               "name": "tutor_id",
               "type": "integer",
-              "description": "Tutor id in database",
+              "description": "Tutor id in database(employee)",
               "required": true
             }
           ],
           "notes": "Notes...",
           "nickname": "ClassTypes#addtutor",
-          "method": "get"
+          "method": "post"
         }
       ]
     },
     {
-      "path": "/class_types/{id}/tutor/{tutor_id}",
+      "path": "/class_types/{id}/removetutor",
       "operations": [
         {
           "summary": "Remove tutor for a class",
@@ -153,7 +153,7 @@
               "required": true
             },
             {
-              "paramType": "path",
+              "paramType": "form",
               "name": "tutor_id",
               "type": "integer",
               "description": "Tutor id in database",
@@ -162,6 +162,33 @@
           ],
           "notes": "Notes...",
           "nickname": "ClassTypes#removetutor",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/class_types/{id}/addlist",
+      "operations": [
+        {
+          "summary": "Add class list for a class",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Class type id",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "class_list_id",
+              "type": "integer",
+              "description": "Tutor id in database",
+              "required": true
+            }
+          ],
+          "notes": "Notes...",
+          "nickname": "ClassTypes#addlist",
           "method": "post"
         }
       ]

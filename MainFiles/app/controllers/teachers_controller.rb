@@ -9,7 +9,7 @@ class TeachersController < ApplicationController
     summary 'Remove subject owner'
     notes 'Notes...'
     param :path, :id, :integer, :required, "Teacher id in database"
-    param :path, :subject_id, :integer, :required, "Subject id in database"
+    param :form, :subject_id, :integer, :required, "Subject id in database"
   end
 
   def addsubject
@@ -63,7 +63,7 @@ class TeachersController < ApplicationController
     param :form, "teacher[password]", :string, :required, "Teacher password"
   end
   def new
-    @employee = Employee.find(params[:employee_id])
+    @teacher=Teacher.new
   end
 
   # GET /teachers/1/edit

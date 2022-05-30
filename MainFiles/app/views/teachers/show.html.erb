@@ -44,7 +44,6 @@ Your messages:
       <hr>
     <% end %>
 <% end %>
-
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+<hr>
 <%= link_to 'Send email', new_email_message_path(@teacher.employee.email) %>
 <%= link_to 'Back', teachers_path %>
